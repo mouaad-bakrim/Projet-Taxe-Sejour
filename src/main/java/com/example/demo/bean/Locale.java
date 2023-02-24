@@ -3,7 +3,7 @@ package com.example.demo.bean;
 import jakarta.persistence.*;
 
 @Entity
-public class Local {
+public class Locale {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -11,7 +11,7 @@ public class Local {
     int Annee ;
 
     int derniereAnneePaye ;
-    int dernierTrimistrePaye ;
+    int dernierTrimestrePaye ;
 
     @ManyToOne
     private  Redevable redevable ;
@@ -42,12 +42,12 @@ public class Local {
         this.derniereAnneePaye = derniereAnneePaye;
     }
 
-    public int getDernierTrimistrePaye() {
-        return dernierTrimistrePaye;
+    public int getDernierTrimestrePaye() {
+        return dernierTrimestrePaye;
     }
 
     public void setDernierTrimistrePaye(int dernierTrimistrePaye) {
-        this.dernierTrimistrePaye = dernierTrimistrePaye;
+        this.dernierTrimestrePaye = dernierTrimistrePaye;
     }
 
     public Redevable getRedevable() {

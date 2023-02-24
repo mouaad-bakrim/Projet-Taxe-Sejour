@@ -11,7 +11,7 @@ public class NotificationLocalBean {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Local local;
+    private Locale local;
     private Redevable redevable;
     private Double mantantEstination;
 
@@ -23,11 +23,11 @@ public class NotificationLocalBean {
         this.id = id;
     }
 
-    public Local getLocal() {
+    public Locale getLocal() {
         return local;
     }
 
-    public void setLocal(Local local) {
+    public void setLocal(Locale local) {
         this.local = local;
     }
 
