@@ -1,13 +1,11 @@
 package com.example.demo.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 @Entity
 public class Local {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
 
