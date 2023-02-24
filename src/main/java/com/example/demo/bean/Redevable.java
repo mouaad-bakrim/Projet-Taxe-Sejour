@@ -7,6 +7,14 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Redevable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private long id;
+    private String cin;
+    private String nom;
+    private String prenom;
     public long getId() {
         return id;
     }
@@ -39,13 +47,7 @@ public class Redevable {
         this.prenom = prenom;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long id;
-    private String cin;
-    private String nom;
-    private String prenom;
 
 
 }
