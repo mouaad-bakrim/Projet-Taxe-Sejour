@@ -8,6 +8,12 @@ public class Local {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
+    @OneToMany
+    private  Redevable redevable ;
+
+
+
+
 
     @ManyToOne
     private  CategorieLocaleSejour categorieLocaleSejour ;
