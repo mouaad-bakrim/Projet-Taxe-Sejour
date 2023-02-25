@@ -8,7 +8,7 @@ public class Locale {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
-    int Annee ;
+    private int Annee ;
 
     int derniereAnneePaye ;
     int dernierTrimestrePaye ;

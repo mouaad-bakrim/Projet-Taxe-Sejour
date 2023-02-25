@@ -8,7 +8,7 @@ public class TaxeSejourTrimestriel {
     private Long id;
     private int annee;
     private int trimestre;
-    private double montantParNuite;
+    private double nombreDeNuite;
     private double montantBase;
     private double montantRetard;
     private double montantMajoration;
@@ -38,11 +38,11 @@ public class TaxeSejourTrimestriel {
     }
 
     public double getMontantParNuite() {
-        return montantParNuite;
+        return nombreDeNuite;
     }
 
     public void setMontantParNuite(double montantParNuite) {
-        this.montantParNuite = montantParNuite;
+        this.nombreDeNuite = montantParNuite;
     }
 
     public double getMontantBase() {
