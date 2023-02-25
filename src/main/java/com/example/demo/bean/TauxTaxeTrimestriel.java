@@ -57,29 +57,6 @@ public class TauxTaxeTrimestriel {
         this.pourcentageMajoration = pourcentageMajoration;
     }
 
-    public double getMontantParNuite() {
-        return montantParNuite;
-    }
-
-    public void setMontantParNuite(double montantParNuite) {
-        this.montantParNuite = montantParNuite;
-    }
-
-    public double getMontantRetard() {
-        return montantRetard;
-    }
-
-    public void setMontantRetard(double montantRetard) {
-        this.montantRetard = montantRetard;
-    }
-
-    public double getMontantMajoration() {
-        return montantMajoration;
-    }
-
-    public void setMontantMajoration(double montantMajoration) {
-        this.montantMajoration = montantMajoration;
-    }
 
     public CategorieLocaleSejour getCategorie() {
         return categorie;
