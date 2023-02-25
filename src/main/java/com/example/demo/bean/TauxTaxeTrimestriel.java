@@ -5,25 +5,18 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class TauxTaxeTrimestriel {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long Id;
+public class TauxTaxeTrimestriel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Date dateApplicationDebut;
     private Date dateApplicationFin;
     private double pourcentageRetard;
     private double pourcentageMajoration;
-
     @OneToOne
     private CategorieLocaleSejour categorie;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
 
     public Date getDateApplicationDebut() {
         return dateApplicationDebut;
@@ -57,12 +50,19 @@ public class TauxTaxeTrimestriel {
         this.pourcentageMajoration = pourcentageMajoration;
     }
 
-
     public CategorieLocaleSejour getCategorie() {
         return categorie;
     }
 
     public void setCategorie(CategorieLocaleSejour categorie) {
         this.categorie = categorie;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
