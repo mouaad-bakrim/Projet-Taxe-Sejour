@@ -28,6 +28,7 @@ public class TaxeSejourTrimestriel {
         this.annee = annee;
     }
 
+
     public int getTrimestre() {
         return trimestre;
     }
