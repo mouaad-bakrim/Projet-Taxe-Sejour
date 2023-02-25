@@ -2,10 +2,14 @@ package com.example.demo.bean;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class TaxeSejourTrimestriel {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Date dateDePresentation;
     private int annee;
     private int trimestre;
     private double nombreDeNuite;
@@ -14,11 +18,35 @@ public class TaxeSejourTrimestriel {
     private double montantMajoration;
     private double montantTotal;
     @ManyToOne
-    private Locale locale ;
+    private Locale locale;
     @ManyToOne
-    private Redevable redevable ;
+    private Redevable redevable;
     @ManyToOne
-    private CategorieLocaleSejour categorieLocaleSejour ;
+    private CategorieLocaleSejour categorieLocaleSejour;
+    @OneToOne
+    private TauxTaxeTrimestriel tauxTaxeTrimestriel;
+    public Date getDateDePresentation() {
+        return dateDePresentation;
+    }
+
+    public void setDateDePresentation(Date dateDePresentation) {
+        this.dateDePresentation = dateDePresentation;
+    }
+
+    public double getNombreDeNuite() {
+        return nombreDeNuite;
+    }
+
+    public void setNombreDeNuite(double nombreDeNuite) {
+        this.nombreDeNuite = nombreDeNuite;
+    }
+
+    public TauxTaxeTrimestriel getTauxTaxeTrimestriel() {
+        return tauxTaxeTrimestriel;
+    }
+
+    public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
+        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;}
 
     public int getAnnee() {
         return annee;
