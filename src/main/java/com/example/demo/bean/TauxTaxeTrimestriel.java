@@ -14,6 +14,7 @@ public class TauxTaxeTrimestriel {
     private Date dateApplicationFin;
     private double pourcentageRetard;
     private double pourcentageMajoration;
+    private double montantParNuite;
     @OneToOne
     private CategorieLocaleSejour categorie;
 
@@ -48,6 +49,14 @@ public class TauxTaxeTrimestriel {
 
     public void setPourcentageMajoration(double pourcentageMajoration) {
         this.pourcentageMajoration = pourcentageMajoration;
+    }
+
+    public double getMontantParNuite() {
+        return montantParNuite;
+    }
+
+    public void setMontantParNuite(double montantParNuite) {
+        this.montantParNuite = montantParNuite;
     }
 
     public CategorieLocaleSejour getCategorie() {
