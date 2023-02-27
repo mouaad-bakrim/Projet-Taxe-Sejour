@@ -11,9 +11,9 @@ public class TauxTaxeTrimestrielService {
 
     @Autowired
 
-    private TauxTaxeTrimestrielDao taxeTrimestrielDao;
+    private TauxTaxeTrimestrielDao tauxTaxeTrimestrielDao;
 
     public TauxTaxeTrimestriel findByCategorieLocaleSejourCode(String code) {
-        return taxeTrimestrielDao.findByCategorieLocaleSejourCode(code);
+        return tauxTaxeTrimestrielDao.findByCategorieLocaleSejourCode(code);
     }
 }
