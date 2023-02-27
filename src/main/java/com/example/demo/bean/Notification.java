@@ -12,6 +12,7 @@ public class Notification {
     private int annee;
     private int numero;
     private int trimestre;
+
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
@@ -27,13 +28,6 @@ public class Notification {
         this.id = id;
     }
 
-    public int getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(int annee) {
-        this.annee = annee;
-    }
 
     public int getNumero() {
         return numero;
@@ -43,13 +37,7 @@ public class Notification {
         this.numero = numero;
     }
 
-    public int getTrimestre() {
-        return trimestre;
-    }
 
-    public void setTrimestre(int trimestre) {
-        this.trimestre = trimestre;
-    }
 
     public Redevable getRedevable() {
         return redevable;
@@ -67,11 +55,27 @@ public class Notification {
         this.locale = locale;
     }
 
-    public NotificationLocal getNotificationLocalBean() {
+    public int getAnnee() {
+        return annee;
+    }
+
+    public void setAnnee(int annee) {
+        this.annee = annee;
+    }
+
+    public int getTrimestre() {
+        return trimestre;
+    }
+
+    public void setTrimestre(int trimestre) {
+        this.trimestre = trimestre;
+    }
+
+    public NotificationLocal getNotificationLocal() {
         return notificationLocal;
     }
 
-    public void setNotificationLocalBean(NotificationLocal notificationLocal) {
+    public void setNotificationLocal(NotificationLocal notificationLocal) {
         this.notificationLocal = notificationLocal;
     }
 }
