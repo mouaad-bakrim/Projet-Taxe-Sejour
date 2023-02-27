@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/taxe-sejour-trimestrie")
+@RequestMapping("/api/v1/taxeSejourTrimestrie")
 public class TaxeSejourTrimestrielRest {
 
 
@@ -22,9 +22,6 @@ public class TaxeSejourTrimestrielRest {
     public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref,int trimestre) {
         return taxeSejourTrimestrielService.findByLocaleRefAndTrimestre(ref,trimestre);
     }
-
-
-
 
     @GetMapping("/cin/{cin}/ref/{ref}/trimestre/{trimestre}")
     public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
