@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategorieLocaleSejourService  {
     @Autowired
-    CategorieLocaleSejourDao categorieLocaleSejourDao;
+   private CategorieLocaleSejourDao categorieLocaleSejourDao;
     public int save(CategorieLocaleSejour categorieLocaleSejour){
         if(findByCode(categorieLocaleSejour.getCode()) !=null){
             return -1;
