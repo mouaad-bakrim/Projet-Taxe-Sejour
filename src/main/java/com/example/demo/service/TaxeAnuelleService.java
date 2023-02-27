@@ -36,10 +36,10 @@ public class TaxeAnuelleService {
     }
 
     public int save(TaxeAnuelle taxeAnuelle){
-        if(findByAnnee(TaxeAnuelle.getAnnee()) !=null){
+        if(findByAnnee(taxeAnuelle.getAnnee()) !=null){
             return -1;
         }else {
-            taxeAnuelleDao.save(TaxeAnuelle);
+      taxeAnuelleDao.save(taxeAnuelle);
             return 1;
         }
     }
