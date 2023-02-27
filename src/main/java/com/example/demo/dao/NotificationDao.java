@@ -3,7 +3,11 @@ package com.example.demo.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface NotificationDao extends JpaRepository {
+import javax.management.Notification;
+import java.util.List;
 
+@Repository
+public interface NotificationDao extends JpaRepository<Notification,Long>{
+    Notification findByAnne(int anne);
+    List<Notification> findAll();
 }
