@@ -29,6 +29,7 @@ public class TaxeSejourTrimestriel {
         return dateDePresentation;
     }
 
+
     public void setDateDePresentation(Date dateDePresentation) {
         this.dateDePresentation = dateDePresentation;
     }
