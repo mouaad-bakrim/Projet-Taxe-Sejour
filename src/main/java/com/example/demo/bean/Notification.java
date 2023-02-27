@@ -13,12 +13,7 @@ public class Notification {
     private int numero;
     private int trimestre;
 
-    @ManyToOne
-    private Redevable redevable;
-    @ManyToOne
-    private Locale locale;
-    @OneToOne
-    private NotificationLocal notificationLocal;
+
 
     public Long getId() {
         return id;
@@ -39,21 +34,6 @@ public class Notification {
 
 
 
-    public Redevable getRedevable() {
-        return redevable;
-    }
-
-    public void setRedevable(Redevable redevable) {
-        this.redevable = redevable;
-    }
-
-    public Locale getLocale() {
-        return locale;
-    }
-
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
 
     public int getAnnee() {
         return annee;
@@ -71,11 +51,7 @@ public class Notification {
         this.trimestre = trimestre;
     }
 
-    public NotificationLocal getNotificationLocal() {
-        return notificationLocal;
-    }
 
-    public void setNotificationLocal(NotificationLocal notificationLocal) {
-        this.notificationLocal = notificationLocal;
-    }
+
+
 }

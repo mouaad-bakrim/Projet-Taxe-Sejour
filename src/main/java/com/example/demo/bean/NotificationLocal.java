@@ -12,7 +12,8 @@ public class NotificationLocal {
     @ManyToOne
     private Redevable redevable;
     private Double mantantEstimation;
-
+    @ManyToOne
+    private Notification notification;
     public Long getId() {
         return id;
     }
