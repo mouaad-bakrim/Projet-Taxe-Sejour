@@ -18,6 +18,13 @@ public class TaxeSejourTrimestrielRest {
 
     @Autowired
     private TaxeSejourTrimestrielService taxeSejourTrimestrielService ;
+    @GetMapping("/trimestre/{trimestre}")
+    public TaxeSejourTrimestriel findByLocaleTrimestre(int trimestre) {
+        return taxeSejourTrimestrielService.findByLocaleTrimestre(trimestre);
+    }
+
+
+    }
 
     @GetMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
     public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {

@@ -8,6 +8,12 @@ import org.springframework.stereotype.Repository;
 public interface TaxeSejourTrimestrielDao extends JpaRepository<TaxeSejourTrimestriel,Long> {
 
     TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin , String ref, int annee) ;
+
+    TaxeSejourTrimestriel  findByLocaleTrimestre(int trimestre);
+
+
+
+
     int DeleteByRedevableCinAndLocaleRefAndAnnee(String cin , String ref, int annee) ;
 
 

@@ -16,6 +16,11 @@ public class TaxeSejourTrimestrielService {
     @Autowired
     private TaxeSejourTrimestrielDao taxeSejourTrimestrielDao ;
 
+    public TaxeSejourTrimestriel findByLocaleTrimestre(int trimestre) {
+        return taxeSejourTrimestrielDao.findByLocaleTrimestre(trimestre);
+    }
+
+
 
     public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
         return taxeSejourTrimestrielDao.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
