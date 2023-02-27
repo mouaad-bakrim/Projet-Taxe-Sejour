@@ -27,7 +27,7 @@ public class TaxeAnuelle {
         this.id = id;
     }
 
-    public int getAnnee() {
+    public static int getAnnee() {
         return Annee;
     }
 
