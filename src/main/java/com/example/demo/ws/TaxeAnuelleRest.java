@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/v1/taxe-anuelle")
 public class TaxeAnuelleRest {
     @Autowired
     private TaxeAnuelleService taxeAnuelleService ;

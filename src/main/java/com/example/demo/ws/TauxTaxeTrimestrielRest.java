@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/TauxTaxeTrimestriel")
+@RequestMapping("/api/v1/taux-taxe-trimestriel")
 public class TauxTaxeTrimestrielRest {
     @Autowired
     private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
