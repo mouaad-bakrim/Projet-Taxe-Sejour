@@ -18,11 +18,11 @@ public class CategorielLocaleSejourService{
     public int deleteByCode(String code) {
         return categorielLocaleSejourDao.deleteByCode(code);
     }
-    public int save(CategorieLocaleBean categorieLocaleBean) {
+    public int save(CategorieLocale categorieLocale) {
         if (findBycode(categorieLocaleBean.getCode()) != null) {
             return -1;
         } else {
-            categorielLocaleSejourDao.save(categorieTerrain);
+            categorielLocaleSejourDao.save(categorieLocaleBean);
             return 1;
         }
-}
+    }
