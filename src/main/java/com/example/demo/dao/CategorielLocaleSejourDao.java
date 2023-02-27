@@ -1,6 +1,12 @@
 package com.example.demo.dao;
 
 
+import com.example.demo.bean.CategorieLocaleSejour;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategorielLocaleSejourDao {
+@Repository
+public interface CategorielLocaleSejourDao extends JpaRepository<CategorieLocaleSejour,Long> {
+    CategorieLocaleSejour findByCode(int code);
+    int deleteByCode(String code);
 }

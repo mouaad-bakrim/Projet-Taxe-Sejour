@@ -12,10 +12,10 @@ public class RedevableService {
 
     public int save(Redevable redevable){
         if (findByCin(redevable.getCin()) != null){
-            return 1;
+            return -1;
         }else {
             redevableDao.save(redevable);
-            return -1;
+            return 1;
         }
 
     }
