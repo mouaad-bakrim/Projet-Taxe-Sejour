@@ -11,5 +11,13 @@ import java.util.List;
 public interface LocaleDao extends JpaRepository<Locale,Long> {
     Locale findByRef(String ref);
     int deleteByRef(String ref);
+
+    Locale findByDerniereAnneePaye(int derniereAnneePaye);
+
+    Locale findByAnneAndDernierTrimestrePaye(int anne,int derniereTrimestre);
+
+
+
+
     List<Locale> findAll();
 }

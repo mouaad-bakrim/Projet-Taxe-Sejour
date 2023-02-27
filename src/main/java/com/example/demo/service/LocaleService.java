@@ -16,6 +16,15 @@ public class LocaleService {
     public Locale findByRef(String ref) {
         return localeDao.findByRef(ref);
     }
+
+    public Locale findByDerniereAnneePaye(int derniereAnneePaye) {
+        return localeDao.findByDerniereAnneePaye(derniereAnneePaye);
+    }
+
+    public Locale findByAnneAndDernierTrimestrePaye(int anne, int derniereTrimestre) {
+        return localeDao.findByAnneAndDernierTrimestrePaye(anne, derniereTrimestre);
+    }
+
     @Transactional
     public int deleteByRef(String ref) {
         return localeDao.deleteByRef(ref);
