@@ -16,18 +16,18 @@ public class TaxeSejourTrimestrielService {
     @Autowired
     private TaxeSejourTrimestrielDao taxeSejourTrimestrielDao ;
 
-    public TaxeSejourTrimestriel findByLocaleTrimestre(int trimestre) {
-        return taxeSejourTrimestrielDao.findByLocaleTrimestre(trimestre);
+    public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref , int trimestre) {
+        return taxeSejourTrimestrielDao.findByLocaleRefAndTrimestre(ref,trimestre);
     }
 
 
 
-    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielDao.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielDao.findByRedevableCinAndLocaleRefAndtAndTrimestre(cin, ref, trimestre);
     }
 
-    public int DeleteByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielDao.DeleteByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+    public int DeleteByRedevableCinAndLocaleRefAndtrimestre(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielDao.DeleteByRedevableCinAndLocaleRefAndtrimestre(cin, ref, trimestre);
     }
 
     public List<TaxeSejourTrimestriel> findAll() {

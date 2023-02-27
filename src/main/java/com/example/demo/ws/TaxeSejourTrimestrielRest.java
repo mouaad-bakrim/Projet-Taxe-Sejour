@@ -19,20 +19,20 @@ public class TaxeSejourTrimestrielRest {
     @Autowired
     private TaxeSejourTrimestrielService taxeSejourTrimestrielService ;
     @GetMapping("/trimestre/{trimestre}")
-    public TaxeSejourTrimestriel findByLocaleTrimestre(int trimestre) {
-        return taxeSejourTrimestrielService.findByLocaleTrimestre(trimestre);
+    public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref,int trimestre) {
+        return taxeSejourTrimestrielService.findByLocaleRefAndTrimestre(ref,trimestre);
     }
 
 
 
 
-    @GetMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
-    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielService.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+    @GetMapping("/cin/{cin}/ref/{ref}/trimestre/{trimestre}")
+    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielService.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, trimestre);
     }
-    @DeleteMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
-    public int DeleteByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielService.DeleteByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+    @DeleteMapping("/cin/{cin}/ref/{ref}/trimestre/{trimestre}")
+    public int DeleteByRedevableCinAndLocaleRefAndtrimestre(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielService.DeleteByRedevableCinAndLocaleRefAndtrimestre(cin, ref, trimestre);
     }
     @GetMapping("/")
     public List<TaxeSejourTrimestriel> findAll() {
