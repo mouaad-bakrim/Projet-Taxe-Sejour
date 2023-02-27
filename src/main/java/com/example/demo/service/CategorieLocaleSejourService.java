@@ -20,7 +20,7 @@ public class CategorieLocaleSejourService  {
     }
 
 
-    public CategorieLocaleSejour findByCode(int code) {
+    public CategorieLocaleSejour findByCode(String code) {
         return categorieLocaleSejourDao.findByCode(code);
     }
 
