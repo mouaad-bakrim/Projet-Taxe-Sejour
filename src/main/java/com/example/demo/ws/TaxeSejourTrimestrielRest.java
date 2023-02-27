@@ -12,20 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/taxe-sejour-trimestrie")
+@RequestMapping("/api/v1/taxeSejourTrimestrie")
 public class TaxeSejourTrimestrielRest {
 
 
     @Autowired
     private TaxeSejourTrimestrielService taxeSejourTrimestrielService ;
-
-    @GetMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
-    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielService.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+    @GetMapping("/trimestre/{trimestre}")
+    public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref,int trimestre) {
+        return taxeSejourTrimestrielService.findByLocaleRefAndTrimestre(ref,trimestre);
     }
-    @DeleteMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
-    public int DeleteByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
-        return taxeSejourTrimestrielService.DeleteByRedevableCinAndLocaleRefAndAnnee(cin, ref, annee);
+
+    @GetMapping("/cin/{cin}/ref/{ref}/trimestre/{trimestre}")
+    public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielService.findByRedevableCinAndLocaleRefAndAnnee(cin, ref, trimestre);
+    }
+    @DeleteMapping("/cin/{cin}/ref/{ref}/trimestre/{trimestre}")
+    public int DeleteByRedevableCinAndLocaleRefAndtrimestre(String cin, String ref, int trimestre) {
+        return taxeSejourTrimestrielService.DeleteByRedevableCinAndLocaleRefAndtrimestre(cin, ref, trimestre);
     }
     @GetMapping("/")
     public List<TaxeSejourTrimestriel> findAll() {
