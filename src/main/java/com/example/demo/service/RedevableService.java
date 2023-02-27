@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.bean.Redevable;
 import com.example.demo.dao.RedevableDao;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class RedevableService {
     public Redevable findByCin(String cin) {
         return redevableDao.findByCin(cin);
     }
-
+    @Transactional
     public int deleteByCin(String cin) {
         return redevableDao.deleteByCin(cin);
     }

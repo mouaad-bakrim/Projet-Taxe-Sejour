@@ -20,7 +20,7 @@ public class CategorieLocaleSejour {
         this.libelle = libelle;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
