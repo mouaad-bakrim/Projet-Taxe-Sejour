@@ -3,6 +3,7 @@ package com.example.demo.ws;
 
 import com.example.demo.bean.CategorieLocaleSejour;
 import com.example.demo.service.CategorieLocaleSejourService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,15 +13,16 @@ public class CategorielLocaleSejourRest {
 @Autowired
     private CategorieLocaleSejourService categorieLocaleSejourService;
 
-@PostMapping("/")
+    @PostMapping ("/")
     public int save(@RequestBody CategorieLocaleSejour categorieLocaleSejour) {
         return categorieLocaleSejourService.save(categorieLocaleSejour);
     }
-@GetMapping("/code/{code}")
-    public CategorieLocaleSejour findByCode(@PathVariable int code) {
+    @GetMapping("/code/{code}")
+    public CategorieLocaleSejour findByCode(@PathVariable String code) {
         return categorieLocaleSejourService.findByCode(code);
     }
-@DeleteMapping("/code/{code}")
+    @Transactional
+    @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return categorieLocaleSejourService.deleteByCode(code);
     }
