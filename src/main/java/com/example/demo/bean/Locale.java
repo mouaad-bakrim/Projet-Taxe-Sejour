@@ -8,7 +8,7 @@ public class Locale {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
-    private int Annee;
+    private int annee;
     @ManyToOne
     private Rue rue;
 
@@ -36,11 +36,11 @@ public class Locale {
     }
 
     public int getAnnee() {
-        return Annee;
+        return annee;
     }
 
     public void setAnnee(int annee) {
-        Annee = annee;
+        annee = annee;
     }
 
     public Rue getRue() {
