@@ -3,7 +3,7 @@ package com.example.demo.bean;
 import jakarta.persistence.*;
 
 @Entity
-public class Quartier {
+public class Quartiere {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

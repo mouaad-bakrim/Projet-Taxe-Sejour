@@ -1,14 +1,20 @@
 package com.example.demo.bean;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
 @Entity
-public class Rue {
+public class Rue  {
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private Double code;
     private String  libelle;
+
     @ManyToOne
-    private Quartier quartier;
+    private Quartiere quartier;
 
     public Long getId() {
         return id;
@@ -34,11 +40,11 @@ public class Rue {
         this.libelle = libelle;
     }
 
-    public Quartier getQuartier() {
+    public Quartiere getQuartier() {
         return quartier;
     }
 
-    public void setQuartier(Quartier quartier) {
+    public void setQuartier(Quartiere quartier) {
         this.quartier = quartier;
     }
 }
