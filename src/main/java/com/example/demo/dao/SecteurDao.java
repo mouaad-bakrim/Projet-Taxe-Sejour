@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ScteurDao extends JpaRepository<Secteur,Long> {
+public interface SecteurDao extends JpaRepository<Secteur,Long> {
     List<Secteur> findAll();
     Secteur findByCode(Double code);
     int deleteByCode(Double code);

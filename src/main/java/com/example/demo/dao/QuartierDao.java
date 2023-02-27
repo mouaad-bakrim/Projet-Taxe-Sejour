@@ -12,7 +12,6 @@ import java.util.List;
 public interface QuartierDao extends JpaRepository<Quartiere,Long> {
     List<Quartiere> findAll();
     public Quartiere findByCode(Double code);
-     int deleteByCode(Double code);
-   List<Quartiere> findBySecteurNom(String nom);
+      int deleteByCode(Double code);
 
 }
