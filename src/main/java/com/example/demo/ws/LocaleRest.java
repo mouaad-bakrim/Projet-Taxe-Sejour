@@ -15,13 +15,13 @@ public class LocaleRest {
     private LocaleService localeService;
 
     @GetMapping("/ref/{ref}")
-    public Locale findByRef(String ref) {
+    public Locale findByRef(@PathVariable String ref) {
         return localeService.findByRef(ref);
     }
 
     @Transactional
     @DeleteMapping ("/ref/{ref}")
-    public int deleteByRef(String ref) {
+    public int deleteByRef(@PathVariable String ref) {
         return localeService.deleteByRef(ref);
     }
     @GetMapping("/")
@@ -29,7 +29,7 @@ public class LocaleRest {
         return localeService.findAll();
     }
     @PostMapping("/")
-    public int save(Locale locale) {
+    public int save(@RequestBody Locale locale) {
         return localeService.save(locale);
     }
 }
