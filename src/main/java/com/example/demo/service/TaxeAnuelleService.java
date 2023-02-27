@@ -13,19 +13,6 @@ import java.util.List;
 public class TaxeAnuelleService {
     @Autowired
     private TaxeAnuelleDao taxeAnuelleDao;
-    private com.example.demo.bean.TaxeAnuelle TaxeAnuelle;
-
-    public List<TaxeAnuelle> findByRedevableId(Long id) {
-        return taxeAnuelleDao.findByRedevableId(id);
-    }
-
-    public List<TaxeAnuelle> findByCategorieLocaleSejour(Long id) {
-        return taxeAnuelleDao.findByCategorieLocaleSejour(id);
-    }
-
-    public List<TaxeAnuelle> findByLocale(Long id) {
-        return taxeAnuelleDao.findByLocale(id);
-    }
 
     public TaxeAnuelle findByAnnee(int annee) {
         return taxeAnuelleDao.findByAnnee(annee);
@@ -36,10 +23,10 @@ public class TaxeAnuelleService {
     }
 
     public int save(TaxeAnuelle taxeAnuelle){
-        if(findByAnnee(TaxeAnuelle.getAnnee()) !=null){
+        if(findByAnnee(taxeAnuelle.getAnnee()) !=null){
             return -1;
         }else {
-            com.example.demo.bean.TaxeAnuelle save = TaxeAnuelleDao.save(TaxeAnuelle);
+            taxeAnuelleDao.save(taxeAnuelle);
             return 1;
         }
     }
