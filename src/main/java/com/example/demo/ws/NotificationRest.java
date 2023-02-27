@@ -1,22 +1,25 @@
 package com.example.demo.ws;
 
+import com.example.demo.bean.Notification;
 import com.example.demo.service.NotificationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.management.Notification;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/notification")
 public class NotificationRest {
     private NotificationService notificationService;
-
     @GetMapping("/anne/{anne}")
     public Notification findByAnne(@PathVariable int anne) {
         return notificationService.findByAnne(anne);
+    }
+    @GetMapping("/trimestre/{trimestre}")
+    public Notification findByTrimestre(@PathVariable int trimestre) {
+        return notificationService.findByTrimestre(trimestre);
     }
     @GetMapping("/")
     public List<Notification> findAll() {
