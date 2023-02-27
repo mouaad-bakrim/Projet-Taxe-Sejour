@@ -19,6 +19,7 @@ public class TaxeAnuelle {
 
     @ManyToOne
     private Locale locale;
+
     public long getId() {
         return id;
     }
@@ -27,7 +28,7 @@ public class TaxeAnuelle {
         this.id = id;
     }
 
-    public static int getAnnee() {
+    public int getAnnee() {
         return Annee;
     }
 
@@ -58,7 +59,4 @@ public class TaxeAnuelle {
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
-
-
-
 }
