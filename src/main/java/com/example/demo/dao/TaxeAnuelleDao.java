@@ -18,9 +18,7 @@ public interface TaxeAnuelleDao extends JpaRepository<TaxeAnuelle, Long> {
 
 
     TaxeAnuelle findByAnnee(int annee);
-    TaxeAnuelle findTaxeAnuelleById(Long id);
-    int deleteByAnnee(int annee);
-    int deleteTaxeAnuelleById(Long id);
 
+    int deleteByAnnee(int annee);
 
 }
