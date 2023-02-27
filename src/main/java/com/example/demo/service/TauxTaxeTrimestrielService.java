@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TauxTaxeTrimestrielService {
 
-@Autowired
+    @Autowired
 
     private TauxTaxeTrimestrielDao taxeTrimestrielDao;
 
