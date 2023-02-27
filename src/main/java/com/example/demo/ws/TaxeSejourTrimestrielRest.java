@@ -24,7 +24,7 @@ public class TaxeSejourTrimestrielRest {
     }
 
 
-    }
+
 
     @GetMapping("/cin/{cin}/ref/{ref}/annee/{annee}")
     public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int annee) {
