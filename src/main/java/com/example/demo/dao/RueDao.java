@@ -7,10 +7,18 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+<<<<<<< HEAD
 public interface RueDao extends JpaRepository<Rue,Long> {
     List<Rue> findAll();
     Rue findByQuartiereCode(Double code);
    int save(Rue rue);
     Rue findByCode(Double code);
      int deleteByCode(Double code);
+=======
+public interface RueDao extends JpaRepository<Rue, Long> {
+    public Rue findByCode(Double code);
+    int deleteByCode(Double code);
+    public List<Rue> findByQuartierCode(Double Code);
+
+>>>>>>> origin/main
 }

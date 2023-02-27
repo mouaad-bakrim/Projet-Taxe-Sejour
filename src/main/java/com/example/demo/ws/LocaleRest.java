@@ -32,4 +32,15 @@ public class LocaleRest {
     public int save(@RequestBody Locale locale) {
         return localeService.save(locale);
     }
+
+    @GetMapping("/derniereAnneePaye/{derniereAnneePaye}")
+    public Locale findByDerniereAnneePaye(@PathVariable int derniereAnneePaye) {
+        return localeService.findByDerniereAnneePaye(derniereAnneePaye);
+    }
+    @GetMapping("anne/{anne}/derniereTrimestre/{derniereTrimestre}")
+    public Locale findByAnneAndDernierTrimestrePaye(@PathVariable int anne,@PathVariable int derniereTrimestre) {
+        return localeService.findByAnneAndDernierTrimestrePaye(anne, derniereTrimestre);
+    }
 }
+
+
