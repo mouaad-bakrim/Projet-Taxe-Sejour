@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestriel,Long> {
+
+
+    TauxTaxeTrimestriel findByCategorieLocaleSejourCode(String code);
 }
