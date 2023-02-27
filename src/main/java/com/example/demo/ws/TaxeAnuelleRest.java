@@ -13,18 +13,7 @@ import java.util.List;
 public class TaxeAnuelleRest {
     @Autowired
     private TaxeAnuelleService taxeAnuelleService ;
-    @GetMapping("/code/{code}")
-    public List<TaxeAnuelle> findByRedevableId(Long id) {
-        return taxeAnuelleService.findByRedevableId(id);
-    }
-    @GetMapping("/code/{code}")
-    public List<TaxeAnuelle> findByCategorieLocaleSejour(Long id) {
-        return taxeAnuelleService.findByCategorieLocaleSejour(id);
-    }
-    @GetMapping("/code/{code}")
-    public List<TaxeAnuelle> findByLocale(Long id) {
-        return taxeAnuelleService.findByLocale(id);
-    }
+
     @GetMapping("/code/{code}")
     public TaxeAnuelle findByAnnee(int annee) {
         return taxeAnuelleService.findByAnnee(annee);
