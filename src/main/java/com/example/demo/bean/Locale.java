@@ -8,15 +8,24 @@ public class Locale {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
-    private int Annee ;
-
-    int derniereAnneePaye ;
-    int dernierTrimestrePaye ;
-
+    private int Annee;
     @ManyToOne
-    private  Redevable redevable ;
+    private Rue rue;
+
+    int derniereAnneePaye;
+    int dernierTrimestrePaye;
     @ManyToOne
-    private  CategorieLocaleSejour categorieLocaleSejour ;
+    private Redevable redevable;
+    @ManyToOne
+    private CategorieLocaleSejour categorieLocaleSejour;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getRef() {
         return ref;
@@ -34,6 +43,14 @@ public class Locale {
         Annee = annee;
     }
 
+    public Rue getRue() {
+        return rue;
+    }
+
+    public void setRue(Rue rue) {
+        this.rue = rue;
+    }
+
     public int getDerniereAnneePaye() {
         return derniereAnneePaye;
     }
@@ -46,8 +63,8 @@ public class Locale {
         return dernierTrimestrePaye;
     }
 
-    public void setDernierTrimistrePaye(int dernierTrimistrePaye) {
-        this.dernierTrimestrePaye = dernierTrimistrePaye;
+    public void setDernierTrimestrePaye(int dernierTrimestrePaye) {
+        this.dernierTrimestrePaye = dernierTrimestrePaye;
     }
 
     public Redevable getRedevable() {
@@ -64,22 +81,5 @@ public class Locale {
 
     public void setCategorieLocaleSejour(CategorieLocaleSejour categorieLocaleSejour) {
         this.categorieLocaleSejour = categorieLocaleSejour;
-    }
-
-
-
-
-
-
-
-
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }

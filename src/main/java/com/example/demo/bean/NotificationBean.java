@@ -1,15 +1,22 @@
 package com.example.demo.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class NotificationBean {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private int annee;
     private int numero;
     private int trimestre;
+    @ManyToOne
+    private Redevable redevable;
+    @ManyToOne
+    private Locale locale;
+    @OneToOne
+    private NotificationLocalBean notificationLocalBean;
+
 
     public int getAnnee() {
         return annee;
