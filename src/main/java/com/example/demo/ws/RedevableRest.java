@@ -18,7 +18,7 @@ public class RedevableRest {
         return redevableService.save(redevable);
     }
 
-@GetMapping("/cin/{cin}")
+    @GetMapping("/cin/{cin}")
     public Redevable findByCin(@PathVariable String cin) {
         return redevableService.findByCin(cin);
     }

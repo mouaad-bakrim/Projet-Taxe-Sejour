@@ -1,19 +1,17 @@
 package com.example.demo.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class NotificationLocalBean {
+public class NotificationLocal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @ManyToOne
     private Locale local;
+    @ManyToOne
     private Redevable redevable;
-    private Double mantantEstination;
+    private Double mantantEstimation;
 
     public Long getId() {
         return id;
@@ -39,11 +37,11 @@ public class NotificationLocalBean {
         this.redevable = redevable;
     }
 
-    public Double getMantantEstination() {
-        return mantantEstination;
+    public Double getMantantEstimation() {
+        return mantantEstimation;
     }
 
-    public void setMantantEstination(Double mantantEstination) {
-        this.mantantEstination = mantantEstination;
+    public void setMantantEstimation(Double mantantEstimation) {
+        this.mantantEstimation = mantantEstimation;
     }
 }

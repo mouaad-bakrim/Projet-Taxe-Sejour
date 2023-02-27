@@ -12,6 +12,14 @@ public class CategorieLocaleSejour {
     private String libelle;
     private String code;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getLibelle() {
         return libelle;
     }
@@ -20,19 +28,11 @@ public class CategorieLocaleSejour {
         this.libelle = libelle;
     }
 
-    public String getCode() {
+    public static String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
