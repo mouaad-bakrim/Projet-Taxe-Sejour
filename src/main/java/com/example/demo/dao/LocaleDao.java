@@ -15,7 +15,7 @@ public interface LocaleDao extends JpaRepository<Locale, Long> {
 
     Locale findByDerniereAnneePaye(int derniereAnneePaye);
 
-    Locale findByAnneAndDernierTrimestrePaye(int anne, int derniereTrimestre);
+
 
 
     List<Locale> findAll();

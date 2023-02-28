@@ -10,7 +10,6 @@ public class Locale {
     private String ref;
     @ManyToOne
     private Rue rue;
-
     private int derniereAnneePaye;
     private int dernierTrimestrePaye;
     @ManyToOne

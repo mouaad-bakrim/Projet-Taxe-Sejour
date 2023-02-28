@@ -21,10 +21,6 @@ public class LocaleService {
         return localeDao.findByDerniereAnneePaye(derniereAnneePaye);
     }
 
-    public Locale findByAnneAndDernierTrimestrePaye(int anne, int derniereTrimestre) {
-        return localeDao.findByAnneAndDernierTrimestrePaye(anne, derniereTrimestre);
-    }
-
     @Transactional
     public int deleteByRef(String ref) {
         return localeDao.deleteByRef(ref);

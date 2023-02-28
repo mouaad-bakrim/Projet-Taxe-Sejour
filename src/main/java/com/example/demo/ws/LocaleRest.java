@@ -40,10 +40,6 @@ public class LocaleRest {
         return localeService.findByDerniereAnneePaye(derniereAnneePaye);
     }
 
-    @GetMapping("anne/{anne}/derniereTrimestre/{derniereTrimestre}")
-    public Locale findByAnneAndDernierTrimestrePaye(@PathVariable int anne, @PathVariable int derniereTrimestre) {
-        return localeService.findByAnneAndDernierTrimestrePaye(anne, derniereTrimestre);
-    }
 }
 
 
