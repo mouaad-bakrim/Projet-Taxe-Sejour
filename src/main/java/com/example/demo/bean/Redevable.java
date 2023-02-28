@@ -15,6 +15,7 @@ public class Redevable {
     private String cin;
     private String nom;
     private String prenom;
+
     public long getId() {
         return id;
     }
@@ -46,8 +47,6 @@ public class Redevable {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-
-
 
 
 }

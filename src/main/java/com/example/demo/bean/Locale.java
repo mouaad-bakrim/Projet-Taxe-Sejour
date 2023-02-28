@@ -11,7 +11,7 @@ public class Locale {
     @ManyToOne
     private Rue rue;
 
-   private int derniereAnneePaye;
+    private int derniereAnneePaye;
     int dernierTrimestrePaye;
     @ManyToOne
     private Redevable redevable;
@@ -33,7 +33,6 @@ public class Locale {
     public void setRef(String ref) {
         this.ref = ref;
     }
-
 
 
     public void setAnnee(int annee) {

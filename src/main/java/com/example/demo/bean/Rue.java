@@ -7,11 +7,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Rue  {
-    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+public class Rue {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double code;
-    private String  libelle;
+    private String libelle;
 
     @ManyToOne
     private Quartiere quartier;
@@ -32,11 +33,11 @@ public class Rue  {
         this.code = code;
     }
 
-    public String  getLibelle() {
+    public String getLibelle() {
         return libelle;
     }
 
-    public void setLibelle(String  libelle) {
+    public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
 

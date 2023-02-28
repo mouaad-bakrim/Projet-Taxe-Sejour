@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TauxTaxeTrimestrielRest {
     @Autowired
     private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
+
     @GetMapping("/code/{code}")
     public TauxTaxeTrimestriel findByCategorieLocaleSejourCode(@PathVariable String code) {
         return tauxTaxeTrimestrielService.findByCategorieLocaleSejourCode(code);

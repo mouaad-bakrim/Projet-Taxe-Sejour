@@ -7,16 +7,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface NotificationDao extends JpaRepository<Notification,Long> {
+public interface NotificationDao extends JpaRepository<Notification, Long> {
 
     Notification findByAnne(int anne);
 
     Notification findByTrimestre(int trimestre);
 
     List<Notification> findAll();
-
-
-
 
 
 }

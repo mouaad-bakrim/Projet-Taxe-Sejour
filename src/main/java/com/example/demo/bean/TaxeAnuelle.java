@@ -10,12 +10,12 @@ public class TaxeAnuelle {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
-    private int Annee ;
+    private int Annee;
     @ManyToOne
-    private  Redevable redevable ;
+    private Redevable redevable;
 
     @ManyToOne
-    private  CategorieLocaleSejour categorieLocaleSejour ;
+    private CategorieLocaleSejour categorieLocaleSejour;
 
     @ManyToOne
     private Locale locale;

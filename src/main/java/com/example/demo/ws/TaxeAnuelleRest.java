@@ -12,17 +12,19 @@ import java.util.List;
 @RequestMapping("/api/v1/taxe-anuelle")
 public class TaxeAnuelleRest {
     @Autowired
-    private TaxeAnuelleService taxeAnuelleService ;
+    private TaxeAnuelleService taxeAnuelleService;
 
     @GetMapping("/code/{code}")
     public TaxeAnuelle findByAnnee(int annee) {
         return taxeAnuelleService.findByAnnee(annee);
     }
+
     @Transactional
     @DeleteMapping("/code/{code}")
     public int deleteByAnnee(int annee) {
         return taxeAnuelleService.deleteByAnnee(annee);
     }
+
     @PostMapping("/")
     public int save(TaxeAnuelle taxeAnuelle) {
         return taxeAnuelleService.save(taxeAnuelle);

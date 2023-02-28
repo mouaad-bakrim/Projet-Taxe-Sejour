@@ -13,21 +13,25 @@ import java.util.List;
 public class QuartierRest {
     @Autowired
     private QuartierService quartierService;
+
     @GetMapping("/code/{code}")
 
     public Quartiere findByCode(@PathVariable Double code) {
         return quartierService.findByCode(code);
     }
+
     @GetMapping("/")
 
     public List<Quartiere> findAll() {
         return quartierService.findAll();
     }
+
     @PostMapping("/")
 
     public int save(@RequestBody Quartiere quartiere) {
         return quartierService.save(quartiere);
     }
+
     @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable Double code) {

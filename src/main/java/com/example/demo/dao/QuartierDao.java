@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface QuartierDao extends JpaRepository<Quartiere,Long> {
+public interface QuartierDao extends JpaRepository<Quartiere, Long> {
     List<Quartiere> findAll();
 
     Quartiere findByCode(Double code);

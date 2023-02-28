@@ -1,4 +1,5 @@
 package com.example.demo.service;
+
 import com.example.demo.bean.Quartiere;
 import com.example.demo.bean.Rue;
 import com.example.demo.dao.RueDao;
@@ -14,28 +15,32 @@ public class RueService {
     private RueDao rueDao;
 
 
+    public List<Rue> findAll() {
 
-    public List<Rue> findAll(){
+        return rueDao.findAll();
+    }
 
-       return  rueDao.findAll();}
-
-    public Rue findByCode(Double code){
+    public Rue findByCode(Double code) {
         return rueDao.findByCode(code);
     }
-    public Rue findByQuartiereCode(Double code){
+
+    public Rue findByQuartiereCode(Double code) {
         return rueDao.findByQuartiereCode(code);
     }
+
     public int save(Rue rue) {
-        if(findByCode(rue.getCode())!=null){
+        if (findByCode(rue.getCode()) != null) {
             return -1;
-        }else{
+        } else {
             rueDao.save(rue);
             return 1;
-        }}
-    @Transactional
-    public int deleteByCode(Double code){
-            return rueDao.deleteByCode(code);
         }
+    }
+
+    @Transactional
+    public int deleteByCode(Double code) {
+        return rueDao.deleteByCode(code);
+    }
 
 
 }

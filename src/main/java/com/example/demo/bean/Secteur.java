@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Secteur {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Double code;
     private String libelle;
@@ -29,11 +29,11 @@ public class Secteur {
         this.code = code;
     }
 
-    public String  getLibelle() {
+    public String getLibelle() {
         return libelle;
     }
 
-    public void setLibelle(String  libelle) {
+    public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
 }

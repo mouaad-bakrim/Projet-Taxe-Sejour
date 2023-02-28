@@ -14,7 +14,6 @@ public class Notification {
     private int trimestre;
 
 
-
     public Long getId() {
         return id;
     }
@@ -33,8 +32,6 @@ public class Notification {
     }
 
 
-
-
     public int getAnnee() {
         return annee;
     }
@@ -50,8 +47,6 @@ public class Notification {
     public void setTrimestre(int trimestre) {
         this.trimestre = trimestre;
     }
-
-
 
 
 }

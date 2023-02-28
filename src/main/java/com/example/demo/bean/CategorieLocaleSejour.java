@@ -7,7 +7,8 @@ import jakarta.persistence.Id;
 
 @Entity
 public class CategorieLocaleSejour {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
     private String code;
@@ -28,7 +29,7 @@ public class CategorieLocaleSejour {
         this.libelle = libelle;
     }
 
-    public  String getCode() {
+    public String getCode() {
         return code;
     }
 

@@ -20,14 +20,16 @@ public class LocaleRest {
     }
 
     @Transactional
-    @DeleteMapping ("/ref/{ref}")
+    @DeleteMapping("/ref/{ref}")
     public int deleteByRef(@PathVariable String ref) {
         return localeService.deleteByRef(ref);
     }
+
     @GetMapping("/")
     public List<Locale> findAll() {
         return localeService.findAll();
     }
+
     @PostMapping("/")
     public int save(@RequestBody Locale locale) {
         return localeService.save(locale);
@@ -37,8 +39,9 @@ public class LocaleRest {
     public Locale findByDerniereAnneePaye(@PathVariable int derniereAnneePaye) {
         return localeService.findByDerniereAnneePaye(derniereAnneePaye);
     }
+
     @GetMapping("anne/{anne}/derniereTrimestre/{derniereTrimestre}")
-    public Locale findByAnneAndDernierTrimestrePaye(@PathVariable int anne,@PathVariable int derniereTrimestre) {
+    public Locale findByAnneAndDernierTrimestrePaye(@PathVariable int anne, @PathVariable int derniereTrimestre) {
         return localeService.findByAnneAndDernierTrimestrePaye(anne, derniereTrimestre);
     }
 }

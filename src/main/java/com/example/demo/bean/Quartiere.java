@@ -8,7 +8,7 @@ public class Quartiere {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Double code;
-    private String  labelle;
+    private String labelle;
     @ManyToOne
     private Secteur secteur;
 
@@ -28,11 +28,11 @@ public class Quartiere {
         this.code = code;
     }
 
-    public String  getLabelle() {
+    public String getLabelle() {
         return labelle;
     }
 
-    public void setLabelle(String  labelle) {
+    public void setLabelle(String labelle) {
         this.labelle = labelle;
     }
 

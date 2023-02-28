@@ -8,15 +8,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LocaleDao extends JpaRepository<Locale,Long> {
+public interface LocaleDao extends JpaRepository<Locale, Long> {
     Locale findByRef(String ref);
+
     int deleteByRef(String ref);
 
     Locale findByDerniereAnneePaye(int derniereAnneePaye);
 
-    Locale findByAnneAndDernierTrimestrePaye(int anne,int derniereTrimestre);
-
-
+    Locale findByAnneAndDernierTrimestrePaye(int anne, int derniereTrimestre);
 
 
     List<Locale> findAll();

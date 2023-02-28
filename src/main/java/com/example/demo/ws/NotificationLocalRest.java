@@ -15,10 +15,12 @@ import java.util.List;
 public class NotificationLocalRest {
     @Autowired
     private NotificationLocalSevice notificationLocalSevice;
+
     @GetMapping("/cin/{cin}/ref/{ref}")
     public NotificationLocal findByRedevableCinAndLocalRef(@PathVariable String cin, @PathVariable String ref) {
         return notificationLocalSevice.findByRedevableCinAndLocalRef(cin, ref);
     }
+
     @GetMapping("/")
     public List<NotificationLocal> findAll() {
         return notificationLocalSevice.findAll();

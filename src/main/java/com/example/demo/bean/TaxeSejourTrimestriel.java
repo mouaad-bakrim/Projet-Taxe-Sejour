@@ -25,6 +25,7 @@ public class TaxeSejourTrimestriel {
     private CategorieLocaleSejour categorieLocaleSejour;
     @OneToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
+
     public Date getDateDePresentation() {
         return dateDePresentation;
     }
@@ -47,7 +48,8 @@ public class TaxeSejourTrimestriel {
     }
 
     public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
-        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;}
+        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;
+    }
 
     public int getAnnee() {
         return annee;

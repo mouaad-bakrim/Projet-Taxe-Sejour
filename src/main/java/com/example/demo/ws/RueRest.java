@@ -23,14 +23,17 @@ public class RueRest {
     public Rue findByCode(@PathVariable Double code) {
         return rueService.findByCode(code);
     }
+
     @GetMapping("/Quartiere/code/{code}")
     public Rue findByQuartiereCode(@PathVariable Double code) {
         return rueService.findByQuartiereCode(code);
     }
+
     @PostMapping("/")
     public int save(@RequestBody Rue rue) {
         return rueService.save(rue);
     }
+
     @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable Double code) {

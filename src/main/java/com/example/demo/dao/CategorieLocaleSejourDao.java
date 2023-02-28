@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategorieLocaleSejourDao extends JpaRepository<CategorieLocaleSejour,Long> {
+public interface CategorieLocaleSejourDao extends JpaRepository<CategorieLocaleSejour, Long> {
     CategorieLocaleSejour findByCode(String code);
 
     int deleteByCode(String code);

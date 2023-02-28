@@ -33,6 +33,7 @@ public class LocaleService {
     public List<Locale> findAll() {
         return localeDao.findAll();
     }
+
     public int save(Locale locale) {
         if (findByRef(locale.getRef()) != null) {
             return -1;

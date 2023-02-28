@@ -18,21 +18,23 @@ public class SecteurRest {
     public List<Secteur> findAll() {
         return secteurService.findAll();
     }
+
     @GetMapping("/code/{code}")
     public Secteur findByCode(@PathVariable Double code) {
         return secteurService.findByCode(code);
     }
+
     @PostMapping("/")
 
     public int save(@RequestBody Secteur secteur) {
         return secteurService.save(secteur);
     }
+
     @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable Double code) {
         return secteurService.deleteByCode(code);
     }
-
 
 
 }

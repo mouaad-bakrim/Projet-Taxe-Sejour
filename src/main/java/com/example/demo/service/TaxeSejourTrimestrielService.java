@@ -14,12 +14,11 @@ import java.util.List;
 public class TaxeSejourTrimestrielService {
 
     @Autowired
-    private TaxeSejourTrimestrielDao taxeSejourTrimestrielDao ;
+    private TaxeSejourTrimestrielDao taxeSejourTrimestrielDao;
 
-    public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref , int trimestre) {
-        return taxeSejourTrimestrielDao.findByLocaleRefAndTrimestre(ref,trimestre);
+    public TaxeSejourTrimestriel findByLocaleRefAndTrimestre(String ref, int trimestre) {
+        return taxeSejourTrimestrielDao.findByLocaleRefAndTrimestre(ref, trimestre);
     }
-
 
 
     public TaxeSejourTrimestriel findByRedevableCinAndLocaleRefAndAnnee(String cin, String ref, int trimestre) {
@@ -33,12 +32,6 @@ public class TaxeSejourTrimestrielService {
     public List<TaxeSejourTrimestriel> findAll() {
         return taxeSejourTrimestrielDao.findAll();
     }
-
-
-
-
-
-
 
 
 }

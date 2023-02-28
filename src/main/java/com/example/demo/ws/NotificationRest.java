@@ -13,14 +13,17 @@ import java.util.List;
 @RequestMapping("/api/v1/notification")
 public class NotificationRest {
     private NotificationService notificationService;
+
     @GetMapping("/anne/{anne}")
     public Notification findByAnne(@PathVariable int anne) {
         return notificationService.findByAnne(anne);
     }
+
     @GetMapping("/trimestre/{trimestre}")
     public Notification findByTrimestre(@PathVariable int trimestre) {
         return notificationService.findByTrimestre(trimestre);
     }
+
     @GetMapping("/")
     public List<Notification> findAll() {
         return notificationService.findAll();

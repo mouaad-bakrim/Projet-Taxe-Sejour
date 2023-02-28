@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
-<<<<<<< HEAD
+
 import com.example.demo.bean.Quartiere;
-=======
-import com.example.demo.bean.Quartier;
->>>>>>> origin/main
 import com.example.demo.dao.QuartierDao;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +24,16 @@ public class QuartierService {
     }
 
     public int save(Quartiere quartiere) {
-        if(findByCode(quartiere.getCode())!=null){
+        if (findByCode(quartiere.getCode()) != null) {
             return -1;
-        }else{
+        } else {
             quarteirDao.save(quartiere);
             return 1;
         }
 
     }
-@Transactional
+
+    @Transactional
     public int deleteByCode(Double code) {
         return quarteirDao.deleteByCode(code);
 

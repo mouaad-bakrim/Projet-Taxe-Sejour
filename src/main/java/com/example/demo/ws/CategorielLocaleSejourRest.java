@@ -13,14 +13,16 @@ public class CategorielLocaleSejourRest {
     @Autowired
     private CategorieLocaleSejourService categorieLocaleSejourService;
 
-    @PostMapping ("/")
+    @PostMapping("/")
     public int save(@RequestBody CategorieLocaleSejour categorieLocaleSejour) {
         return categorieLocaleSejourService.save(categorieLocaleSejour);
     }
+
     @GetMapping("/code/{code}")
     public CategorieLocaleSejour findByCode(@PathVariable String code) {
         return categorieLocaleSejourService.findByCode(code);
     }
+
     @Transactional
     @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {

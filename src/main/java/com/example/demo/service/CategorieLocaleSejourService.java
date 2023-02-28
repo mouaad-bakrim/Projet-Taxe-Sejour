@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CategorieLocaleSejourService  {
+public class CategorieLocaleSejourService {
     @Autowired
-   private CategorieLocaleSejourDao categorieLocaleSejourDao;
-    public int save(CategorieLocaleSejour categorieLocaleSejour){
-        if(findByCode(categorieLocaleSejour.getCode()) !=null){
+    private CategorieLocaleSejourDao categorieLocaleSejourDao;
+
+    public int save(CategorieLocaleSejour categorieLocaleSejour) {
+        if (findByCode(categorieLocaleSejour.getCode()) != null) {
             return -1;
-        }else {
+        } else {
             categorieLocaleSejourDao.save(categorieLocaleSejour);
             return 1;
         }

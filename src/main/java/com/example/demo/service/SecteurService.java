@@ -14,21 +14,25 @@ public class SecteurService {
     @Autowired
     private SecteurDao secteurDao;
 
-    public List<Secteur> findAll(){
+    public List<Secteur> findAll() {
         return secteurDao.findAll();
     }
-    public Secteur findByCode(Double code){
+
+    public Secteur findByCode(Double code) {
         return secteurDao.findByCode(code);
     }
+
     public int save(Secteur secteur) {
-        if(findByCode(secteur.getCode())!=null){
+        if (findByCode(secteur.getCode()) != null) {
             return -1;
-        }else{
+        } else {
             secteurDao.save(secteur);
             return 1;
-        }}
+        }
+    }
+
     @Transactional
-    public int deleteByCode(Double code){
+    public int deleteByCode(Double code) {
         return secteurDao.deleteByCode(code);
     }
 }

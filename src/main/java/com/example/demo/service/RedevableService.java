@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class RedevableService {
 
-    public int save(Redevable redevable){
-        if (findByCin(redevable.getCin()) != null){
+    public int save(Redevable redevable) {
+        if (findByCin(redevable.getCin()) != null) {
             return -1;
-        }else {
+        } else {
             redevableDao.save(redevable);
             return 1;
         }
@@ -27,6 +27,7 @@ public class RedevableService {
     public Redevable findByCin(String cin) {
         return redevableDao.findByCin(cin);
     }
+
     @Transactional
     public int deleteByCin(String cin) {
         return redevableDao.deleteByCin(cin);

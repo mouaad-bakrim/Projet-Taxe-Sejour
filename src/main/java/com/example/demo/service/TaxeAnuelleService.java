@@ -30,16 +30,17 @@ public class TaxeAnuelleService {
     public TaxeAnuelle findByAnnee(int annee) {
         return taxeAnuelleDao.findByAnnee(annee);
     }
+
     @Transactional
     public int deleteByAnnee(int annee) {
         return taxeAnuelleDao.deleteByAnnee(annee);
     }
 
-    public int save(TaxeAnuelle taxeAnuelle){
-        if(findByAnnee(taxeAnuelle.getAnnee()) !=null){
+    public int save(TaxeAnuelle taxeAnuelle) {
+        if (findByAnnee(taxeAnuelle.getAnnee()) != null) {
             return -1;
-        }else {
-      taxeAnuelleDao.save(taxeAnuelle);
+        } else {
+            taxeAnuelleDao.save(taxeAnuelle);
             return 1;
         }
     }
