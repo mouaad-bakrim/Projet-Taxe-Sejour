@@ -12,7 +12,7 @@ public class Locale {
     private Rue rue;
 
     private int derniereAnneePaye;
-    int dernierTrimestrePaye;
+    private int dernierTrimestrePaye;
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
