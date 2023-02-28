@@ -19,7 +19,7 @@ public class TauxTaxeTrimestriel {
     private double pourcentageRetard;
     private double pourcentageMajoration;
     private double montantParNuite;
-    @OneToOne
+    @ManyToOne
     private CategorieLocaleSejour categorie;
 
 
