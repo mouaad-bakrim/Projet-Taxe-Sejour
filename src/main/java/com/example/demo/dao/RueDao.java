@@ -10,7 +10,6 @@ import java.util.List;
 public interface RueDao extends JpaRepository<Rue,Long> {
     List<Rue> findAll();
     Rue findByQuartiereCode(Double code);
-   int save(Rue rue);
     Rue findByCode(Double code);
      int deleteByCode(Double code);
 

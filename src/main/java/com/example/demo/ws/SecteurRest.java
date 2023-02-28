@@ -9,28 +9,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
-public class Secteurws {
+@RequestMapping("/api/v1/Secteur")
+public class SecteurRest {
+    @Autowired
+    private SecteurService secteurService;
+
     @GetMapping("/")
     public List<Secteur> findAll() {
         return secteurService.findAll();
     }
     @GetMapping("/code/{code}")
-    public Secteur findByCode(Double code) {
+    public Secteur findByCode(@PathVariable Double code) {
         return secteurService.findByCode(code);
     }
     @PostMapping("/")
 
-    public int save(Secteur secteur) {
+    public int save(@RequestBody Secteur secteur) {
         return secteurService.save(secteur);
     }
-    @DeleteMapping("/")
+    @DeleteMapping("/code/{code}")
     @Transactional
-    public int deleteByCode(Double code) {
+    public int deleteByCode(@PathVariable Double code) {
         return secteurService.deleteByCode(code);
     }
 
-    @Autowired
-    private SecteurService secteurService;
+
 
 }

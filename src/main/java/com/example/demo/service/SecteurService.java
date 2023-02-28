@@ -13,6 +13,7 @@ import java.util.List;
 public class SecteurService {
     @Autowired
     private SecteurDao secteurDao;
+
     public List<Secteur> findAll(){
         return secteurDao.findAll();
     }

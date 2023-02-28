@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class QuartierService {
     @Autowired
-<<<<<<< HEAD
     private QuartierDao quarteirDao;
 
 
@@ -38,25 +37,7 @@ public class QuartierService {
     }
 @Transactional
     public int deleteByCode(Double code) {
-        return QuartierDao.deleteByCode(code);
-=======
-    public QuartierDao quartierDao;
+        return quarteirDao.deleteByCode(code);
 
-
-    public Quartier findByCode(Double code) {
-        return quartierDao.findByCode(code);
-    }
-    @Transactional
-    public int deleteByCode(Double code) {
-        return quartierDao.deleteByCode(code);
-    }
-
-    public List<Quartier> findAll() {
-        return quartierDao.findAll();
-    }
-
-    public <S extends Quartier> S save(S entity) {
-        return quartierDao.save(entity);
->>>>>>> origin/main
     }
 }

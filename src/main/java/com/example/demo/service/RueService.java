@@ -1,9 +1,5 @@
 package com.example.demo.service;
-
-<<<<<<< HEAD
 import com.example.demo.bean.Quartiere;
-=======
->>>>>>> origin/main
 import com.example.demo.bean.Rue;
 import com.example.demo.dao.RueDao;
 import jakarta.transaction.Transactional;
@@ -16,9 +12,8 @@ import java.util.List;
 public class RueService {
     @Autowired
     private RueDao rueDao;
-<<<<<<< HEAD
-    @Autowired
-    private Quartiere quartier;
+
+
 
     public List<Rue> findAll(){
 
@@ -41,18 +36,6 @@ public class RueService {
     public int deleteByCode(Double code){
             return rueDao.deleteByCode(code);
         }
-=======
 
-    public Rue findByCode(Double code) {
-        return rueDao.findByCode(code);
-    }
-    @Transactional
-    public int deleteByCode(Double code) {
-        return rueDao.deleteByCode(code);
-    }
 
-    public List<Rue> findByQuartierCode(Double Code) {
-        return rueDao.findByQuartierCode(Code);
-    }
->>>>>>> origin/main
 }

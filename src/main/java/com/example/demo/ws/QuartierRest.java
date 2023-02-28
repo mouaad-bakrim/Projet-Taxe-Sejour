@@ -1,6 +1,6 @@
 package com.example.demo.ws;
 
-import com.example.demo.bean.Quartier;
+import com.example.demo.bean.Quartiere;
 import com.example.demo.service.QuartierService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,26 +9,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/Quartier")
+@RequestMapping("/api/v1/quartier")
 public class QuartierRest {
-
     @Autowired
-    public QuartierService quartierService;
+    private QuartierService quartierService;
     @GetMapping("/code/{code}")
-    public Quartier findByCode(Double code) {
+
+    public Quartiere findByCode(@PathVariable Double code) {
         return quartierService.findByCode(code);
     }
-    @DeleteMapping("/code/{code}")
-    @Transactional
-    public int deleteByCode(Double code) {
-        return quartierService.deleteByCode(code);
-    }
     @GetMapping("/")
-    public List<Quartier> findAll() {
+
+    public List<Quartiere> findAll() {
         return quartierService.findAll();
     }
     @PostMapping("/")
-    public <S extends Quartier> S save(S entity) {
-        return quartierService.save(entity);
+
+    public int save(@RequestBody Quartiere quartiere) {
+        return quartierService.save(quartiere);
+    }
+    @DeleteMapping("/code/{code}")
+    @Transactional
+    public int deleteByCode(@PathVariable Double code) {
+        return quartierService.deleteByCode(code);
     }
 }
