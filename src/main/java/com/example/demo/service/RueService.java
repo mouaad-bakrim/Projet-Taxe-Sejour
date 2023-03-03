@@ -24,8 +24,8 @@ public class RueService {
         return rueDao.findByCode(code);
     }
 
-    public Rue findByQuartiereCode(Double code) {
-        return rueDao.findByQuartiereCode(code);
+    public Rue findByQuartierCode(Double code) {
+        return rueDao.findByQuartierCode(code);
     }
 
     public int save(Rue rue) {

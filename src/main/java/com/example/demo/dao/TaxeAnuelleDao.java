@@ -11,11 +11,9 @@ import java.util.Optional;
 @Service
 public interface TaxeAnuelleDao extends JpaRepository<TaxeAnuelle, Long> {
 
-    List<TaxeAnuelle> findByRedevableId(Long id);
+    List<TaxeAnuelle> findByRedevableCin(Long cin);
 
-    List<TaxeAnuelle> findByCategorieLocaleSejour(Long id);
-
-    List<TaxeAnuelle> findByLocale(Long id);
+    List<TaxeAnuelle> findByLocaleRef(Long ref);
 
 
     TaxeAnuelle findByAnnee(int annee);

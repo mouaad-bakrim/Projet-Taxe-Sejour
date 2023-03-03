@@ -23,7 +23,7 @@ public class RedevableRest {
         return redevableService.findByCin(cin);
     }
 
-    @GetMapping("/cin/{cin}")
+    @DeleteMapping("/cin/{cin}")
     public int deleteByCin(@PathVariable String cin) {
         return redevableService.deleteByCin(cin);
     }

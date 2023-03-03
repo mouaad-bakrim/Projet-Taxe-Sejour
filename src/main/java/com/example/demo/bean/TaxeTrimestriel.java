@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class TaxeSejourTrimestriel {
+public class TaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,7 +22,7 @@ public class TaxeSejourTrimestriel {
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
-    private CategorieLocaleSejour categorieLocaleSejour;
+    private Categorie categorie;
     @OneToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
@@ -124,12 +124,12 @@ public class TaxeSejourTrimestriel {
         this.redevable = redevable;
     }
 
-    public CategorieLocaleSejour getCategorieLocaleSejour() {
-        return categorieLocaleSejour;
+    public Categorie getCategorieLocaleSejour() {
+        return categorie;
     }
 
-    public void setCategorieLocaleSejour(CategorieLocaleSejour categorieLocaleSejour) {
-        this.categorieLocaleSejour = categorieLocaleSejour;
+    public void setCategorieLocaleSejour(Categorie categorie) {
+        this.categorie = categorie;
     }
 
     public void setId(Long id) {

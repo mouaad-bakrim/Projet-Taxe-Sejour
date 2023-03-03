@@ -10,12 +10,12 @@ public class TaxeAnuelle {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
-    private int Annee;
+    private int annee;
     @ManyToOne
     private Redevable redevable;
 
     @ManyToOne
-    private CategorieLocaleSejour categorieLocaleSejour;
+    private Categorie categorie;
 
     @ManyToOne
     private Locale locale;
@@ -29,11 +29,11 @@ public class TaxeAnuelle {
     }
 
     public int getAnnee() {
-        return Annee;
+        return annee;
     }
 
     public void setAnnee(int annee) {
-        Annee = annee;
+        annee = annee;
     }
 
     public Redevable getRedevable() {
@@ -44,12 +44,12 @@ public class TaxeAnuelle {
         this.redevable = redevable;
     }
 
-    public CategorieLocaleSejour getCategorieLocaleSejour() {
-        return categorieLocaleSejour;
+    public Categorie getCategorieLocaleSejour() {
+        return categorie;
     }
 
-    public void setCategorieLocaleSejour(CategorieLocaleSejour categorieLocaleSejour) {
-        this.categorieLocaleSejour = categorieLocaleSejour;
+    public void setCategorieLocaleSejour(Categorie categorie) {
+        this.categorie = categorie;
     }
 
     public Locale getLocale() {

@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestriel, Long> {
 
 
-    TauxTaxeTrimestriel findByCategorieLocaleSejourCode(String code);
+    TauxTaxeTrimestriel findByCategorieCode(String code);
 }

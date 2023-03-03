@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.bean.CategorieLocaleSejour;
 import com.example.demo.bean.TaxeAnuelle;
 import com.example.demo.dao.TaxeAnuelleDao;
 import jakarta.transaction.Transactional;
@@ -13,18 +12,13 @@ import java.util.List;
 public class TaxeAnuelleService {
     @Autowired
     private TaxeAnuelleDao taxeAnuelleDao;
-    private com.example.demo.bean.TaxeAnuelle TaxeAnuelle;
 
-    public List<TaxeAnuelle> findByRedevableId(Long id) {
-        return taxeAnuelleDao.findByRedevableId(id);
+    public List<TaxeAnuelle> findByRedevableCin(Long cin) {
+        return taxeAnuelleDao.findByRedevableCin(cin);
     }
 
-    public List<TaxeAnuelle> findByCategorieLocaleSejour(Long id) {
-        return taxeAnuelleDao.findByCategorieLocaleSejour(id);
-    }
-
-    public List<TaxeAnuelle> findByLocale(Long id) {
-        return taxeAnuelleDao.findByLocale(id);
+    public List<TaxeAnuelle> findByLocaleRef(Long ref) {
+        return taxeAnuelleDao.findByLocaleRef(ref);
     }
 
     public TaxeAnuelle findByAnnee(int annee) {

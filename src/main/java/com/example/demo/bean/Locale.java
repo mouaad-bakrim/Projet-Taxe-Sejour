@@ -15,7 +15,7 @@ public class Locale {
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
-    private CategorieLocaleSejour categorieLocaleSejour;
+    private Categorie categorie;
 
     public Long getId() {
         return id;
@@ -70,11 +70,11 @@ public class Locale {
         this.redevable = redevable;
     }
 
-    public CategorieLocaleSejour getCategorieLocaleSejour() {
-        return categorieLocaleSejour;
+    public Categorie getCategorieLocaleSejour() {
+        return categorie;
     }
 
-    public void setCategorieLocaleSejour(CategorieLocaleSejour categorieLocaleSejour) {
-        this.categorieLocaleSejour = categorieLocaleSejour;
+    public void setCategorieLocaleSejour(Categorie categorie) {
+        this.categorie = categorie;
     }
 }

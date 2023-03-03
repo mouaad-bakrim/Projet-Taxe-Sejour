@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface NotificationDao extends JpaRepository<Notification, Long> {
 
-    Notification findByAnne(int anne);
+    Notification findByAnnee(int annee);
 
     Notification findByTrimestre(int trimestre);
 

@@ -10,8 +10,8 @@ import java.util.List;
 public class NotificationService {
     private NotificationDao notificationDao;
 
-    public Notification findByAnne(int anne) {
-        return notificationDao.findByAnne(anne);
+    public Notification findByAnnee(int annee) {
+        return notificationDao.findByAnnee(annee);
     }
 
     public Notification findByTrimestre(int trimestre) {

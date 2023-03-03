@@ -15,8 +15,8 @@ public class NotificationRest {
     private NotificationService notificationService;
 
     @GetMapping("/anne/{anne}")
-    public Notification findByAnne(@PathVariable int anne) {
-        return notificationService.findByAnne(anne);
+    public Notification findByAnnee(@PathVariable int annee) {
+        return notificationService.findByAnnee(annee);
     }
 
     @GetMapping("/trimestre/{trimestre}")

@@ -13,7 +13,7 @@ public class TauxTaxeTrimestrielService {
 
     private TauxTaxeTrimestrielDao tauxTaxeTrimestrielDao;
 
-    public TauxTaxeTrimestriel findByCategorieLocaleSejourCode(String code) {
-        return tauxTaxeTrimestrielDao.findByCategorieLocaleSejourCode(code);
+    public TauxTaxeTrimestriel findByCategorieCode(String code) {
+        return tauxTaxeTrimestrielDao.findByCategorieCode(code);
     }
 }

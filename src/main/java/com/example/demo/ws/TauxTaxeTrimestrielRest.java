@@ -16,7 +16,7 @@ public class TauxTaxeTrimestrielRest {
     private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
 
     @GetMapping("/code/{code}")
-    public TauxTaxeTrimestriel findByCategorieLocaleSejourCode(@PathVariable String code) {
-        return tauxTaxeTrimestrielService.findByCategorieLocaleSejourCode(code);
+    public TauxTaxeTrimestriel findByCategorieCode(String code) {
+        return tauxTaxeTrimestrielService.findByCategorieCode(code);
     }
 }
