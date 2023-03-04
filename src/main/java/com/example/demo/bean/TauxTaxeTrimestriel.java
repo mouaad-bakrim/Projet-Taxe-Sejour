@@ -2,7 +2,7 @@ package com.example.demo.bean;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 
@@ -10,28 +10,38 @@ public class TauxTaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Date dateApplicationDebut;
-    private Date dateApplicationFin;
+    private LocalDateTime dateApplicationDebut;
+
+    private LocalDateTime dateApplicationFin;
+    private LocalDateTime date;
     private double pourcentageRetard;
     private double pourcentageMajoration;
     private double montantParNuite;
+
     @ManyToOne
-    private Categorie categorie;
+    private CategorieLocale categorieLocale;
 
+    public LocalDateTime getDate() {
+        return date;
+    }
 
-    public Date getDateApplicationDebut() {
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public LocalDateTime getDateApplicationDebut() {
         return dateApplicationDebut;
     }
 
-    public void setDateApplicationDebut(Date dateApplicationDebut) {
+    public void setDateApplicationDebut(LocalDateTime dateApplicationDebut) {
         this.dateApplicationDebut = dateApplicationDebut;
     }
 
-    public Date getDateApplicationFin() {
+    public LocalDateTime getDateApplicationFin() {
         return dateApplicationFin;
     }
 
-    public void setDateApplicationFin(Date dateApplicationFin) {
+    public void setDateApplicationFin(LocalDateTime dateApplicationFin) {
         this.dateApplicationFin = dateApplicationFin;
     }
 
@@ -59,12 +69,12 @@ public class TauxTaxeTrimestriel {
         this.montantParNuite = montantParNuite;
     }
 
-    public Categorie getCategorie() {
-        return categorie;
+    public CategorieLocale getCategorielocale() {
+        return categorieLocale;
     }
 
-    public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
+    public void setCategorielocale(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
     }
 
     public void setId(Long id) {

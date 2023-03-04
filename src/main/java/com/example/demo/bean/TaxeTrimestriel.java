@@ -2,6 +2,7 @@ package com.example.demo.bean;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -9,9 +10,10 @@ public class TaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Date dateDePresentation;
+    private LocalDateTime dateDePresentation;
     private int annee;
     private int trimestre;
+    private int NombreDeMoisRetard ;
     private double nombreDeNuite;
     private double montantBase;
     private double montantRetard;
@@ -22,16 +24,16 @@ public class TaxeTrimestriel {
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
-    private Categorie categorie;
+    private CategorieLocale categorieLocale;
     @OneToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
-    public Date getDateDePresentation() {
+    public LocalDateTime getDateDePresentation() {
         return dateDePresentation;
     }
 
 
-    public void setDateDePresentation(Date dateDePresentation) {
+    public void setDateDePresentation(LocalDateTime dateDePresentation) {
         this.dateDePresentation = dateDePresentation;
     }
 
@@ -66,6 +68,21 @@ public class TaxeTrimestriel {
 
     public void setTrimestre(int trimestre) {
         this.trimestre = trimestre;
+    }
+    public int getNombreDeMoisRetard() {
+        return NombreDeMoisRetard;
+    }
+
+    public void setNombreDeMoisRetard(int nombreDeMoisRetard) {
+        NombreDeMoisRetard = nombreDeMoisRetard;
+    }
+
+    public CategorieLocale getCategorie() {
+        return categorieLocale;
+    }
+
+    public void setCategorie(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
     }
 
     public double getMontantParNuite() {
@@ -124,12 +141,12 @@ public class TaxeTrimestriel {
         this.redevable = redevable;
     }
 
-    public Categorie getCategorieLocaleSejour() {
-        return categorie;
+    public CategorieLocale getCategorieLocaleSejour() {
+        return categorieLocale;
     }
 
-    public void setCategorieLocaleSejour(Categorie categorie) {
-        this.categorie = categorie;
+    public void setCategorieLocaleSejour(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
     }
 
     public void setId(Long id) {

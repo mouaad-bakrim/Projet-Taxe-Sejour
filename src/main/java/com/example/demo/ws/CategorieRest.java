@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 
-import com.example.demo.bean.Categorie;
+import com.example.demo.bean.CategorieLocale;
 import com.example.demo.service.CategorieService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,12 @@ public class CategorieRest {
     private CategorieService categorieService;
 
     @PostMapping("/")
-    public int save(@RequestBody Categorie categorie) {
-        return categorieService.save(categorie);
+    public int save(@RequestBody CategorieLocale categorieLocale) {
+        return categorieService.save(categorieLocale);
     }
 
     @GetMapping("/code/{code}")
-    public Categorie findByCode(@PathVariable String code) {
+    public CategorieLocale findByCode(@PathVariable String code) {
         return categorieService.findByCode(code);
     }
 

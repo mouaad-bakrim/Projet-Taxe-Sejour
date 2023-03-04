@@ -15,7 +15,7 @@ public class TaxeAnuelle {
     private Redevable redevable;
 
     @ManyToOne
-    private Categorie categorie;
+    private CategorieLocale categorieLocale;
 
     @ManyToOne
     private Locale locale;
@@ -44,12 +44,12 @@ public class TaxeAnuelle {
         this.redevable = redevable;
     }
 
-    public Categorie getCategorieLocaleSejour() {
-        return categorie;
+    public CategorieLocale getCategorieLocaleSejour() {
+        return categorieLocale;
     }
 
-    public void setCategorieLocaleSejour(Categorie categorie) {
-        this.categorie = categorie;
+    public void setCategorieLocaleSejour(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
     }
 
     public Locale getLocale() {
