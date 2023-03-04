@@ -6,18 +6,21 @@ import com.example.demo.dao.CategorieDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class CategorieService {
     @Autowired
     private CategorieDao categorieDao;
 
-    public int save(Categorie categorie) {
-        if (findByCode(categorie.getCode()) != null) {
-            return -1;
-        } else {
-            categorieDao.save(categorie);
-            return 1;
-        }
+    public static void main(String[] args) {
+        ArrayList Categorie = new ArrayList();
+        Categorie.add("hotel");
+        Categorie.add("Residances Meublées");
+        Categorie.add("clubs privé");
+        Categorie.add("oberge");
+
+
     }
 
 

@@ -13,11 +13,6 @@ public class CategorieRest {
     @Autowired
     private CategorieService categorieService;
 
-    @PostMapping("/")
-    public int save(@RequestBody Categorie categorie) {
-        return categorieService.save(categorie);
-    }
-
     @GetMapping("/code/{code}")
     public Categorie findByCode(@PathVariable String code) {
         return categorieService.findByCode(code);
