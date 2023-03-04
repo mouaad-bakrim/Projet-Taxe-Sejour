@@ -4,6 +4,7 @@ package com.example.demo.service;
 import com.example.demo.bean.CategorieLocale;
 import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.dao.TauxTaxeTrimestrielDao;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class TauxTaxeTrimestrielService {
         return tauxTaxeTrimestrielDao.findByCategorieCode(code);
     }
 
+    @Transactional
     public int deleteByCategorieCode(String code) {
         return tauxTaxeTrimestrielDao.deleteByCategorieCode(code);
     }
@@ -30,7 +32,7 @@ public class TauxTaxeTrimestrielService {
     }
 
 
-
+    @Transactional
     public int deleteByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
         return tauxTaxeTrimestrielDao.deleteByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
     }
