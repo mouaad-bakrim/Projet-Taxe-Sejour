@@ -1,16 +1,21 @@
 package com.example.demo.service;
 
+import com.example.demo.bean.User;
 import com.example.demo.dao.UserDao;
+import com.example.demo.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 
-@Service
-public class UserService /*implements org.springframework.security.core.userdetails.UserDetailsService */{
-}
+@Component
+public class UserService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-
- /*   @Autowired
+    @Autowired
     private UserDao userDao;
 
     @Autowired
@@ -32,7 +37,6 @@ public class UserService /*implements org.springframework.security.core.userdeta
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         return userDao.save(newUser);
     }
-}*/
-
+}
 //https://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
 //source spring security
