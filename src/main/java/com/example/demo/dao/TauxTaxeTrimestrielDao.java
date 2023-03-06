@@ -11,13 +11,13 @@ public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestrie
 
     TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin);
 
-    TauxTaxeTrimestriel findByCategorieCode(String code);
+     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
 
 
     int deleteByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin);
 
 
-    int deleteByCategorieCode(String code);
+
 
 
 }
