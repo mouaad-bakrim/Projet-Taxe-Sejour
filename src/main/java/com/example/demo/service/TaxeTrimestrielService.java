@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.bean.CategorieLocale;
+
 import com.example.demo.bean.Locale;
 import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.bean.TaxeTrimestriel;
@@ -8,23 +9,33 @@ import com.example.demo.dao.TaxeTrimestrielDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
 
+import static sun.jvm.hotspot.oops.CellTypeState.ref;
+
 @Service
-public class TaxeTrimestrielService {
+public class TaxeTrimestrielService  {
 
     @Autowired
     private TaxeTrimestrielDao taxeTrimestrielDao;
 
-    public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
+    @Autowired
+    private LocaleService localeService;
+
+    @Autowired
+    private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
+
+    public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String  cin, String ref, int trimestre) {
         return taxeTrimestrielDao.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
-    public TaxeTrimestriel findByLocaleRefAndTrimestre(String ref, int trimestre) {
-        return taxeTrimestrielDao.findByLocaleRefAndTrimestre(ref, trimestre);
+    public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre,  int annee) {
+        return taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
     }
 
-    public int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
+    public int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref,  int trimestre) {
         return taxeTrimestrielDao.deleteByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
@@ -32,72 +43,98 @@ public class TaxeTrimestrielService {
         return taxeTrimestrielDao.findAll();
     }
 
-    @Autowired
-    private LocaleService localeService ;
 
-    @Autowired
-    private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
 
-    TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
     TaxeTrimestriel taxeTrimestriel = new TaxeTrimestriel();
 
-
-    public int save(int trimestre, String ref) {
-
-        Locale locale = localeService.findByRef(ref) ;
-        if(locale == null){ return  -1 ;}
-
-        CategorieLocale categorieLocale = locale.getCategorieLocale() ;
-
-        if (categorieLocale == null ){return -2;}
+     public LocalDateTime dateUtile(int trimestre, int annee) {
 
 
-        tauxTaxeTrimestriel  = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween( categorieLocale.getCode() , tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin() );
+        trimestre = taxeTrimestriel.getTrimestre();
+        annee = taxeTrimestriel.getAnnee();
 
-        if(tauxTaxeTrimestriel == null) {
-            return -3 ;
-        }else if( taxeTrimestrielDao.findByLocaleRefAndTrimestre(ref, trimestre) != null )  {
-            return -4 ;
-        }else
-        {
-            double montantBase=0;
-            montantBase= tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite() ;
+        if (trimestre == 1) {
+           LocalDateTime dateTime = LocalDateTime.of(annee, Month.MARCH, 31, 0, 0);
+            return dateTime;
 
-            double montantRetard=0;
+        } else if (trimestre == 2) {
+            LocalDateTime dateTime = LocalDateTime.of(annee, Month.JUNE, 30, 0, 0);
+            return dateTime;
 
+        } else if (trimestre == 3) {
+            LocalDateTime dateTime = LocalDateTime.of(annee, Month.SEPTEMBER, 30, 0, 0);
+            return dateTime;
 
-
-            double montantMajoration=0;
-            double montantTotale;
-            montantTotale = montantBase + montantRetard + montantMajoration ;
-
-
-    return 1 ;
+        } else {
+            LocalDateTime dateTime = LocalDateTime.of(annee, Month.DECEMBER, 31, 0, 0);
+            return dateTime;
         }
-
-
-
-
     }
 
 
+    TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
+
+    public int save(int trimestre, String ref, int annee) {
+
+        trimestre = taxeTrimestriel.getTrimestre();
+
+        Locale locale1 = new Locale();
+        ref = locale1.getRef();
+
+        annee = taxeTrimestriel.getAnnee();
+
+        Locale locale = localeService.findByRef(ref);
+        if (locale == null) {
+            return -1;
+        }
+
+        CategorieLocale categorieLocale = locale.getCategorieLocale();
+        if (categorieLocale == null) {
+            return -2;
+        }
+
+        tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin());
+
+        if (tauxTaxeTrimestriel == null) {
+            return -3;
+        } else if (taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre,annee) != null) {
+            return -4;
+        } else {
+            double montantBase = 0;
+            double montantRetard = 0;
+            double montantMajoration = 0;
+            double montantTotale=0;
+
+            montantBase = tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite();
+
+            int nombreDeMoisRetard = taxeTrimestriel.getDateDePresentation().getMonthValue() -  dateUtile(trimestre,annee).getMonthValue()
+            + (12 *(taxeTrimestriel.getDateDePresentation().getYear() -  dateUtile(trimestre,annee).getYear()))   ;
+
+            if (nombreDeMoisRetard > 1) {
+                montantRetard = montantBase * tauxTaxeTrimestriel.getPourcentageRetard();
+
+                montantMajoration = (nombreDeMoisRetard-1) * tauxTaxeTrimestriel.getPourcentageMajoration() * montantBase ;
+            }
+
+            montantTotale = montantBase + montantRetard + montantMajoration;
+
+            taxeTrimestriel.setTauxTaxeTrimestriel(tauxTaxeTrimestriel);
+            taxeTrimestriel.setLocale(locale);
+            taxeTrimestriel.setAnnee(annee);
+            taxeTrimestriel.setTrimestre(trimestre);
+            taxeTrimestriel.setCategorieLocale(categorieLocale);
+            taxeTrimestriel.setNombreDeMoisRetard(nombreDeMoisRetard);
+            taxeTrimestriel.setMontantBase(montantBase);
+            taxeTrimestriel.setMontantRetard(montantRetard);
+            taxeTrimestriel.setMontantMajoration(montantMajoration);
+
+            taxeTrimestrielDao.save(taxeTrimestriel);
+
+            return 1;
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

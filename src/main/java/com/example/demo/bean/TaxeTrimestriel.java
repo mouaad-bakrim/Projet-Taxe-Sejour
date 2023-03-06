@@ -77,11 +77,11 @@ public class TaxeTrimestriel {
         NombreDeMoisRetard = nombreDeMoisRetard;
     }
 
-    public CategorieLocale getCategorie() {
+    public CategorieLocale getCategorieLocale() {
         return categorieLocale;
     }
 
-    public void setCategorie(CategorieLocale categorieLocale) {
+    public void setCategorieLocale(CategorieLocale categorieLocale) {
         this.categorieLocale = categorieLocale;
     }
 

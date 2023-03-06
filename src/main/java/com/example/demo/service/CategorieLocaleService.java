@@ -2,30 +2,30 @@ package com.example.demo.service;
 
 
 import com.example.demo.bean.CategorieLocale;
-import com.example.demo.dao.CategorieDao;
+import com.example.demo.dao.CategorieLocaleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CategorieService {
+public class CategorieLocaleService {
     @Autowired
-    private CategorieDao categorieDao;
+    private CategorieLocaleDao categorieLocaleDao;
 
     public int save(CategorieLocale categorieLocale) {
         if (findByCode(categorieLocale.getCode()) != null) {
             return -1;
         } else {
-            categorieDao.save(categorieLocale);
+            categorieLocaleDao.save(categorieLocale);
             return 1;
         }
     }
 
 
     public CategorieLocale findByCode(String code) {
-        return categorieDao.findByCode(code);
+        return categorieLocaleDao.findByCode(code);
     }
 
     public int deleteByCode(String code) {
-        return categorieDao.deleteByCode(code);
+        return categorieLocaleDao.deleteByCode(code);
     }
 }

@@ -2,30 +2,30 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.CategorieLocale;
-import com.example.demo.service.CategorieService;
+import com.example.demo.service.CategorieLocaleService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/categoriel-locale-sejour")
-public class CategorieRest {
+public class CategorieLocaleRest {
     @Autowired
-    private CategorieService categorieService;
+    private CategorieLocaleService categorieLocaleService;
 
     @PostMapping("/")
     public int save(@RequestBody CategorieLocale categorieLocale) {
-        return categorieService.save(categorieLocale);
+        return categorieLocaleService.save(categorieLocale);
     }
 
     @GetMapping("/code/{code}")
     public CategorieLocale findByCode(@PathVariable String code) {
-        return categorieService.findByCode(code);
+        return categorieLocaleService.findByCode(code);
     }
 
     @Transactional
     @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
-        return categorieService.deleteByCode(code);
+        return categorieLocaleService.deleteByCode(code);
     }
 }

@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -18,20 +19,26 @@ public class TaxeTrimestrielRest {
     private TaxeTrimestrielService taxeTrimestrielService;
 
     @GetMapping("/trimestre/{trimestre}")
-    public TaxeTrimestriel findByLocaleRefAndTrimestre(@PathVariable String ref, @PathVariable int trimestre) {
-        return taxeTrimestrielService.findByLocaleRefAndTrimestre(ref, trimestre);
+    public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(@PathVariable String ref, @PathVariable int trimestre, int annee) {
+        return taxeTrimestrielService.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre,annee);
     }
     @GetMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
-    public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
+    public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
 
 
-    @Transactional
+
     @DeleteMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
     public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin,@PathVariable String ref,@PathVariable int trimestre) {
         return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
+    }
+
+
+    @PostMapping("/trimestre/{trimestre}/ref/{ref}/annee/{annee}")
+    public int save(@PathVariable int trimestre, @PathVariable String ref, @PathVariable int annee) {
+        return taxeTrimestrielService.save(trimestre, ref, annee);
     }
 
     @GetMapping("/")

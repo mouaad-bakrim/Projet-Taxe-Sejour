@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Service
 public class TauxTaxeTrimestrielService {
@@ -18,14 +17,11 @@ public class TauxTaxeTrimestrielService {
 
     private TauxTaxeTrimestrielDao tauxTaxeTrimestrielDao;
 
-    public TauxTaxeTrimestriel findByCategorieCode(String code) {
-        return tauxTaxeTrimestrielDao.findByCategorieCode(code);
-    }
+    @Autowired
+    private CategorieLocaleService categorieLocaleService;
 
-    @Transactional
-    public int deleteByCategorieCode(String code) {
-        return tauxTaxeTrimestrielDao.deleteByCategorieCode(code);
-    }
+
+
 
     public TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
         return tauxTaxeTrimestrielDao.findByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
@@ -37,9 +33,19 @@ public class TauxTaxeTrimestrielService {
         return tauxTaxeTrimestrielDao.deleteByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
     }
 
-
-
+    public TauxTaxeTrimestriel findByCategorieLocaleCode(String code) {
+        return tauxTaxeTrimestrielDao.findByCategorieLocaleCode(code);
+    }
+    public  int save (TauxTaxeTrimestriel tauxTaxeTrimestriel ){
+       CategorieLocale  categorieLocale=new CategorieLocale();
+        if ( findByCategorieLocaleCode(categorieLocale.getCode()) !=null){
+            return -1;}
+        else{
+            tauxTaxeTrimestrielDao.save(tauxTaxeTrimestriel);
+            return 1;
+        }
 
     }
+}
 
 
