@@ -33,7 +33,7 @@ public class TaxeTrimestrielService {
     }
 
     @Autowired
-    private LocaleService localeService ;
+    private LocaleService localeService;
 
     @Autowired
     private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
@@ -44,60 +44,41 @@ public class TaxeTrimestrielService {
 
     public int save(int trimestre, String ref) {
 
-        Locale locale = localeService.findByRef(ref) ;
-        if(locale == null){ return  -1 ;}
+        Locale locale = localeService.findByRef(ref);
+        if (locale == null) {
+            return -1;
+        }
 
-        CategorieLocale categorieLocale = locale.getCategorieLocale() ;
+        CategorieLocale categorieLocale = locale.getCategorieLocale();
 
-        if (categorieLocale == null ){return -2;}
-
-
-        tauxTaxeTrimestriel  = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween( categorieLocale.getCode() , tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin() );
-
-        if(tauxTaxeTrimestriel == null) {
-            return -3 ;
-        }else if( taxeTrimestrielDao.findByLocaleRefAndTrimestre(ref, trimestre) != null )  {
-            return -4 ;
-        }else
-        {
-            double montantBase=0;
-            montantBase= tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite() ;
-
-            double montantRetard=0;
-
-
-
-            double montantMajoration=0;
-            double montantTotale;
-            montantTotale = montantBase + montantRetard + montantMajoration ;
-
-
-    return 1 ;
+        if (categorieLocale == null) {
+            return -2;
         }
 
 
+        tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin());
+
+        if (tauxTaxeTrimestriel == null) {
+            return -3;
+        } else if (taxeTrimestrielDao.findByLocaleRefAndTrimestre(ref, trimestre) != null) {
+            return -4;
+        } else {
+            double montantBase = 0;
+            montantBase = tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite();
+
+            double montantRetard = 0;
+
+
+            double montantMajoration = 0;
+            double montantTotale;
+            montantTotale = montantBase + montantRetard + montantMajoration;
+
+
+            return 1;
+        }
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

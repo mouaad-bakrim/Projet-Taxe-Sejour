@@ -29,10 +29,12 @@ public class TaxeAnuelleRest {
     public int save(TaxeAnuelle taxeAnuelle) {
         return taxeAnuelleService.save(taxeAnuelle);
     }
+
     @GetMapping("/redevable/cin/{cin}")
     public List<TaxeAnuelle> findByRedevableCin(Long cin) {
         return taxeAnuelleService.findByRedevableCin(cin);
     }
+
     @GetMapping("/locale/ref/{ref}")
     public List<TaxeAnuelle> findByLocaleRef(Long ref) {
         return taxeAnuelleService.findByLocaleRef(ref);

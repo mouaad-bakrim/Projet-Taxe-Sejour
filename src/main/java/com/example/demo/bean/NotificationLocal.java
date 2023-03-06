@@ -46,4 +46,12 @@ public class NotificationLocal {
     public void setMantantEstimation(Double mantantEstimation) {
         this.mantantEstimation = mantantEstimation;
     }
+
+    public Notification getNotification() {
+        return notification;
+    }
+
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
 }

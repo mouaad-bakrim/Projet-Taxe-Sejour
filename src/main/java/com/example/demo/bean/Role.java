@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "role", schema="public")
-public class Role  implements Serializable {
-    private static final long serialVersionUID =1L;
+@Table(name = "role", schema = "public")
+public class Role implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name ="id")
+    @Column(name = "id")
     private Long id;
     @Column(name = "role_name", length = 65)
     private String roleName;
@@ -30,8 +30,6 @@ public class Role  implements Serializable {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
-
-
 
 
 }

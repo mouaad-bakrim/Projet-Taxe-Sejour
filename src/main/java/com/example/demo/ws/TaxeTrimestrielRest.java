@@ -21,16 +21,16 @@ public class TaxeTrimestrielRest {
     public TaxeTrimestriel findByLocaleRefAndTrimestre(@PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.findByLocaleRefAndTrimestre(ref, trimestre);
     }
+
     @GetMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
         return taxeTrimestrielService.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
 
-
     @Transactional
     @DeleteMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
-    public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin,@PathVariable String ref,@PathVariable int trimestre) {
+    public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 

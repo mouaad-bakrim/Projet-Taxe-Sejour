@@ -13,7 +13,7 @@ public class TaxeTrimestriel {
     private LocalDateTime dateDePresentation;
     private int annee;
     private int trimestre;
-    private int NombreDeMoisRetard ;
+    private int NombreDeMoisRetard;
     private double nombreDeNuite;
     private double montantBase;
     private double montantRetard;
@@ -69,6 +69,7 @@ public class TaxeTrimestriel {
     public void setTrimestre(int trimestre) {
         this.trimestre = trimestre;
     }
+
     public int getNombreDeMoisRetard() {
         return NombreDeMoisRetard;
     }

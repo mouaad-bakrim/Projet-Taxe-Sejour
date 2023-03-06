@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface NotificationLocalDao extends JpaRepository<NotificationLocal, Long> {
-    NotificationLocal findByRedevableCinAndLocalRef(String cin, String ref);
+    List<NotificationLocal> findByRedevableCin(String cin);
+
+    List<NotificationLocal> findByLocalRef(String ref);
 
     List<NotificationLocal> findAll();
 

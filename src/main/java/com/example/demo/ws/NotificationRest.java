@@ -14,7 +14,7 @@ import java.util.List;
 public class NotificationRest {
     private NotificationService notificationService;
 
-    @GetMapping("/anne/{anne}")
+    @GetMapping("/annee/{annee}")
     public Notification findByAnnee(@PathVariable int annee) {
         return notificationService.findByAnnee(annee);
     }

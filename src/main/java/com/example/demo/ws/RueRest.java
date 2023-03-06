@@ -23,10 +23,12 @@ public class RueRest {
     public Rue findByCode(@PathVariable Double code) {
         return rueService.findByCode(code);
     }
+
     @GetMapping("/Quartiere/code/{code}")
     public Rue findByQuartierCode(Double code) {
         return rueService.findByQuartierCode(code);
     }
+
     @PostMapping("/")
     public int save(@RequestBody Rue rue) {
         return rueService.save(rue);
