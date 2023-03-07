@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.bean.TauxTaxeTrimestriel;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +14,12 @@ public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestrie
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
 
-
+    @Transactional
     int deleteByCategorieCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
+
+    @Transactional
+    int deleteByCategorieLocaleCode (String code);
+
 
 
 
