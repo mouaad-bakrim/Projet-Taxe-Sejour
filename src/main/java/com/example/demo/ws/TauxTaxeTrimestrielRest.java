@@ -16,7 +16,7 @@ public class TauxTaxeTrimestrielRest {
     public TauxTaxeTrimestriel findByCategorieLocaleCode(String code) {
         return tauxTaxeTrimestrielService.findByCategorieLocaleCode(code);
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody TauxTaxeTrimestriel tauxTaxeTrimestriel) {
         return tauxTaxeTrimestrielService.save(tauxTaxeTrimestriel);
     }
