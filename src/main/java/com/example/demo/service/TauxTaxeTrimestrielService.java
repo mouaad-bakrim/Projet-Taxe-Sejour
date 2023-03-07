@@ -28,14 +28,20 @@ public class TauxTaxeTrimestrielService {
     }
 
 
-    @Transactional
+
     public int deleteByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
         return tauxTaxeTrimestrielDao.deleteByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
     }
 
+
     public TauxTaxeTrimestriel findByCategorieLocaleCode(String code) {
         return tauxTaxeTrimestrielDao.findByCategorieLocaleCode(code);
     }
+
+    public int deleteByCategorieLocaleCode(String code) {
+        return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCode(code);
+    }
+
     public  int save (TauxTaxeTrimestriel tauxTaxeTrimestriel ){
         CategorieLocale  categorieLocale=new CategorieLocale();
         if ( findByCategorieLocaleCode(categorieLocale.getCode()) !=null){
