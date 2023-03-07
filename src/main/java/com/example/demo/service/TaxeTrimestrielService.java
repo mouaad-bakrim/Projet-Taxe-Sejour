@@ -40,7 +40,7 @@ public class TaxeTrimestrielService  {
     }
 
     public List<TaxeTrimestriel> findAll() {
-        return taxeTrimestrielDao.findAll();
+        return  taxeTrimestrielDao.findAll();
     }
 
 
@@ -52,36 +52,35 @@ public class TaxeTrimestrielService  {
 
         trimestre = taxeTrimestriel.getTrimestre();
         annee = taxeTrimestriel.getAnnee();
-
+        LocalDateTime dateTime;
         if (trimestre == 1) {
-            LocalDateTime dateTime = LocalDateTime.of(annee, Month.MARCH, 31, 0, 0);
+             dateTime = LocalDateTime.of(annee, Month.MARCH, 31, 0, 0);
             return dateTime;
 
         } else if (trimestre == 2) {
-            LocalDateTime dateTime = LocalDateTime.of(annee, Month.JUNE, 30, 0, 0);
+             dateTime = LocalDateTime.of(annee, Month.JUNE, 30, 0, 0);
             return dateTime;
 
         } else if (trimestre == 3) {
-            LocalDateTime dateTime = LocalDateTime.of(annee, Month.SEPTEMBER, 30, 0, 0);
+             dateTime = LocalDateTime.of(annee, Month.SEPTEMBER, 30, 0, 0);
             return dateTime;
 
         } else {
-            LocalDateTime dateTime = LocalDateTime.of(annee, Month.DECEMBER, 31, 0, 0);
+             dateTime = LocalDateTime.of(annee, Month.DECEMBER, 31, 0, 0);
             return dateTime;
         }
     }
 
 
     TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
-
+    Locale locale = new Locale();
     public int save(int trimestre, String ref, int annee) {
 
+
         trimestre = taxeTrimestriel.getTrimestre();
-
-        Locale locale1 = new Locale();
-        ref = locale1.getRef();
-
+        ref = locale.getRef();
         annee = taxeTrimestriel.getAnnee();
+
 
         Locale locale = localeService.findByRef(ref);
         if (locale == null) {
@@ -94,7 +93,6 @@ public class TaxeTrimestrielService  {
         }
 
         tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin());
-
         if (tauxTaxeTrimestriel == null) {
             return -3;
         } else if (taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre,annee) != null) {
