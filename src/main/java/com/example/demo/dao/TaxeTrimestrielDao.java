@@ -20,4 +20,5 @@ public interface TaxeTrimestrielDao extends JpaRepository<TaxeTrimestriel, Long>
     List<TaxeTrimestriel>  findAll();
 
 
+    TaxeTrimestriel findByLocaleRefAndTrimestre(String ref, int trimestre);
 }
