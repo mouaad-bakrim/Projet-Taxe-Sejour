@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RedevableDao extends JpaRepository<Redevable, Long> {
     Redevable findByCin(String cin);
 
-    @Transactional
+
     int deleteByCin(String cin);
 
 }

@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.NotificationLocal;
-import com.example.demo.service.impl.NotificationLocalSevice;
+import com.example.demo.service.impl.NotificationLocalSeviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/v1/notification-local")
 public class NotificationLocalRest {
     @Autowired
-    private NotificationLocalSevice notificationLocalSevice;
+    private NotificationLocalSeviceImpl notificationLocalSevice;
 
     @GetMapping("/Redevable/cin/{cin}")
     public List<NotificationLocal> findByRedevableCin(String cin) {

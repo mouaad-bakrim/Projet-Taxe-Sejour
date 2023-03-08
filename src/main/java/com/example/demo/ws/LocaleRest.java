@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.Locale;
-import com.example.demo.service.impl.LocaleService;
+import com.example.demo.service.impl.LocaleServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/local")
 public class LocaleRest {
     @Autowired
-    private LocaleService localeService;
+    private LocaleServiceImpl localeService;
 
     @GetMapping("/ref/{ref}")
     public Locale findByRef(@PathVariable String ref) {

@@ -2,7 +2,7 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.CategorieLocale;
-import com.example.demo.service.impl.CategorieLocaleService;
+import com.example.demo.service.impl.CategorieLocaleServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/categoriel-locale-sejour")
 public class CategorieLocaleRest {
     @Autowired
-    private CategorieLocaleService categorieLocaleService;
+    private CategorieLocaleServiceImpl categorieLocaleService;
 
     @PostMapping("/")
     public int save(@RequestBody CategorieLocale categorieLocale) {

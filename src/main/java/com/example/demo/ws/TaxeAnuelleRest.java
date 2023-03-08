@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.TaxeAnuelle;
-import com.example.demo.service.impl.TaxeAnuelleService;
+import com.example.demo.service.impl.TaxeAnuelleServiceIpml;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/taxe-anuelle")
 public class TaxeAnuelleRest {
     @Autowired
-    private TaxeAnuelleService taxeAnuelleService;
+    private TaxeAnuelleServiceIpml taxeAnuelleService;
 
     @GetMapping("/code/{code}")
     public TaxeAnuelle findByAnnee(int annee) {

@@ -4,21 +4,21 @@ package com.example.demo.service.impl;
 import com.example.demo.bean.CategorieLocale;
 import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.dao.TauxTaxeTrimestrielDao;
-import com.example.demo.service.impl.CategorieLocaleService;
+import com.example.demo.service.facade.TauxTaxeTrimestrielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
-public class TauxTaxeTrimestrielService {
+public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielService {
 
     @Autowired
 
     private TauxTaxeTrimestrielDao tauxTaxeTrimestrielDao;
 
     @Autowired
-    private CategorieLocaleService categorieLocaleService;
+    private CategorieLocaleServiceImpl categorieLocaleService;
 
 
 

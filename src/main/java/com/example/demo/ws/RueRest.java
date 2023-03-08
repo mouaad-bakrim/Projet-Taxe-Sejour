@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.Rue;
-import com.example.demo.service.impl.RueService;
+import com.example.demo.service.impl.RueServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,32 +12,32 @@ import java.util.List;
 @RequestMapping("/api/v1/rue")
 public class RueRest {
     @Autowired
-    private RueService rueService;
+    private RueServiceImpl rueServiceImpl;
 
     @GetMapping("/")
     public List<Rue> findAll() {
-        return rueService.findAll();
+        return rueServiceImpl.findAll();
     }
 
     @GetMapping("/code/{code}")
     public Rue findByCode(@PathVariable Double code) {
-        return rueService.findByCode(code);
+        return rueServiceImpl.findByCode(code);
     }
 
     @GetMapping("/Quartiere/code/{code}")
     public Rue findByQuartierCode(Double code) {
-        return rueService.findByQuartierCode(code);
+        return rueServiceImpl.findByQuartierCode(code);
     }
 
     @PostMapping("/")
     public int save(@RequestBody Rue rue) {
-        return rueService.save(rue);
+        return rueServiceImpl.save(rue);
     }
 
     @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable Double code) {
-        return rueService.deleteByCode(code);
+        return rueServiceImpl.deleteByCode(code);
     }
 
 

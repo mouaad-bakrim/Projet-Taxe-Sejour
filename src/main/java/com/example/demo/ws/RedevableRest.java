@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.Redevable;
-import com.example.demo.service.impl.RedevableService;
+import com.example.demo.service.impl.RedevableServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/vi/redevable")
 public class RedevableRest {
     @Autowired
-    private RedevableService redevableService;
+    private RedevableServiceImpl redevableService;
 
     @PostMapping("/")
     public int save(@RequestBody Redevable redevable) {

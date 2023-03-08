@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.bean.Quartiere;
 import com.example.demo.dao.QuartierDao;
+import com.example.demo.service.facade.QuartierService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QuartierService {
+public class QuartierServiceImpl implements QuartierService {
     @Autowired
     private QuartierDao quarteirDao;
 

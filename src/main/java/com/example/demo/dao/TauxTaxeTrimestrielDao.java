@@ -14,10 +14,10 @@ public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestrie
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
 
-    @Transactional
+
     int deleteByCategorieCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
 
-    @Transactional
+
     int deleteByCategorieLocaleCode (String code);
 
 

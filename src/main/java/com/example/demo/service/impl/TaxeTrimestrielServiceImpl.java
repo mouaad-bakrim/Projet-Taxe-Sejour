@@ -6,8 +6,7 @@ import com.example.demo.bean.Locale;
 import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.bean.TaxeTrimestriel;
 import com.example.demo.dao.TaxeTrimestrielDao;
-import com.example.demo.service.impl.LocaleService;
-import com.example.demo.service.impl.TauxTaxeTrimestrielService;
+import com.example.demo.service.facade.TaxeTrimestrielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +15,16 @@ import java.time.Month;
 import java.util.List;
 
 @Service
-public class TaxeTrimestrielService  {
+public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
     @Autowired
     private TaxeTrimestrielDao taxeTrimestrielDao;
 
     @Autowired
-    private LocaleService localeService;
+    private LocaleServiceImpl localeService;
 
     @Autowired
-    private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
+    private TauxTaxeTrimestrielServiceImpl tauxTaxeTrimestrielService;
 
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String  cin, String ref, int trimestre) {
         return taxeTrimestrielDao.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);

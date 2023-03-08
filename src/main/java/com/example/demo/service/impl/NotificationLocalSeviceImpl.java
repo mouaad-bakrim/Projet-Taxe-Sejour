@@ -2,15 +2,15 @@ package com.example.demo.service.impl;
 
 import com.example.demo.bean.*;
 import com.example.demo.dao.NotificationLocalDao;
+import com.example.demo.service.facade.NotificationLocalSevice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 
-public class NotificationLocalSevice {
+public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     @Autowired
     private NotificationLocalDao notificationLocalDao;
 

@@ -2,7 +2,7 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.TaxeTrimestriel;
-import com.example.demo.service.impl.TaxeTrimestrielService;
+import com.example.demo.service.impl.TaxeTrimestrielServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ public class TaxeTrimestrielRest {
 
 
     @Autowired
-    private TaxeTrimestrielService taxeTrimestrielService;
+    private TaxeTrimestrielServiceImpl taxeTrimestrielService;
 
     @GetMapping("/trimestre/{trimestre}")
     public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(@PathVariable String ref, @PathVariable int trimestre, int annee) {

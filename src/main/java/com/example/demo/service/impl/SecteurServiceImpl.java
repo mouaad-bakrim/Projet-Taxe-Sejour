@@ -1,8 +1,8 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.bean.Rue;
 import com.example.demo.bean.Secteur;
 import com.example.demo.dao.SecteurDao;
+import com.example.demo.service.facade.SecteurService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SecteurService {
+public class SecteurServiceImpl implements SecteurService {
     @Autowired
     private SecteurDao secteurDao;
 

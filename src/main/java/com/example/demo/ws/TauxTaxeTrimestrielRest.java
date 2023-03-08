@@ -2,7 +2,7 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.TauxTaxeTrimestriel;
-import com.example.demo.service.impl.TauxTaxeTrimestrielService;
+import com.example.demo.service.impl.TauxTaxeTrimestrielServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/v1/taux-taxe-trimestriel")
 public class TauxTaxeTrimestrielRest {
     @Autowired
-    private TauxTaxeTrimestrielService tauxTaxeTrimestrielService;
+    private TauxTaxeTrimestrielServiceImpl tauxTaxeTrimestrielService;
 
     @GetMapping("/code/{code}")
     public TauxTaxeTrimestriel findByCategorieLocaleCode(String code) {

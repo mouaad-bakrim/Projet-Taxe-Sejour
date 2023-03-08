@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.Quartiere;
-import com.example.demo.service.impl.QuartierService;
+import com.example.demo.service.impl.QuartierServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/quartier")
 public class QuartierRest {
     @Autowired
-    private QuartierService quartierService;
+    private QuartierServiceImpl quartierService;
 
     @GetMapping("/code/{code}")
 
