@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.NotificationLocal;
-import com.example.demo.service.NotificationLocalSevice;
+import com.example.demo.service.impl.NotificationLocalSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

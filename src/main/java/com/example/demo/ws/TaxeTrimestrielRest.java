@@ -2,12 +2,10 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.TaxeTrimestriel;
-import com.example.demo.service.TaxeTrimestrielService;
-import jakarta.transaction.Transactional;
+import com.example.demo.service.impl.TaxeTrimestrielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

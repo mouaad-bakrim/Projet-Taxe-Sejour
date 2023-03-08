@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.bean.CategorieLocale;
 
@@ -6,14 +6,14 @@ import com.example.demo.bean.Locale;
 import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.bean.TaxeTrimestriel;
 import com.example.demo.dao.TaxeTrimestrielDao;
+import com.example.demo.service.impl.LocaleService;
+import com.example.demo.service.impl.TauxTaxeTrimestrielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
-
-import static sun.jvm.hotspot.oops.CellTypeState.ref;
 
 @Service
 public class TaxeTrimestrielService  {
