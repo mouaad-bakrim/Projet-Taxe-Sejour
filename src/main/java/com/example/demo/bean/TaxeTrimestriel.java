@@ -1,5 +1,7 @@
 package com.example.demo.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -10,6 +12,7 @@ public class TaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",shape = JsonFormat.Shape.STRING)
     private LocalDateTime dateDePresentation;
     private int annee;
     private int trimestre;
@@ -25,7 +28,7 @@ public class TaxeTrimestriel {
     private Redevable redevable;
     @ManyToOne
     private CategorieLocale categorieLocale;
-    @OneToOne
+    @ManyToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
     public LocalDateTime getDateDePresentation() {

@@ -18,25 +18,24 @@ public class TaxeTrimestrielRest {
 
     @GetMapping("/trimestre/{trimestre}")
     public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(@PathVariable String ref, @PathVariable int trimestre, int annee) {
-        return taxeTrimestrielService.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre,annee);
+        return taxeTrimestrielService.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
     }
+
     @GetMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
 
-
-
     @DeleteMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
-    public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin,@PathVariable String ref,@PathVariable int trimestre) {
+    public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
 
-    @PostMapping("/trimestre/{trimestre}/ref/{ref}/annee/{annee}")
-    public int save(@PathVariable int trimestre, @PathVariable String ref, @PathVariable int annee) {
-        return taxeTrimestrielService.save(trimestre, ref, annee);
+    @PostMapping("/")
+    public int save(@RequestBody TaxeTrimestriel taxeTrimestriel) {
+        return taxeTrimestrielService.save(taxeTrimestriel.getTrimestre(), taxeTrimestriel.getLocale().getRef(), taxeTrimestriel.getAnnee(), taxeTrimestriel.getDateDePresentation());
     }
 
     @GetMapping("/")

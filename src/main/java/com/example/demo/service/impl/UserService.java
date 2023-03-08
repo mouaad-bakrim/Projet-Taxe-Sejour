@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.bean.User;
 import com.example.demo.dao.UserDao;
@@ -18,8 +18,9 @@ public class UserService implements org.springframework.security.core.userdetail
     @Autowired
     private UserDao userDao;
 
+    /*
     @Autowired
-    private PasswordEncoder bcryptEncoder;
+    private PasswordEncoder bcryptEncoder;*/
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,7 +35,7 @@ public class UserService implements org.springframework.security.core.userdetail
     public User save(UserDTO user) {
         User newUser = new User();
         newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+        //newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         return userDao.save(newUser);
     }
 }

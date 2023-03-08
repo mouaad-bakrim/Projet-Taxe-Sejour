@@ -24,13 +24,13 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
 
 
     public TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.findByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
+        return tauxTaxeTrimestrielDao.findByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
     }
 
 
 
     public int deleteByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.deleteByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
+        return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
     }
 
 
