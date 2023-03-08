@@ -2,7 +2,7 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.CategorieLocale;
-import com.example.demo.service.CategorieLocaleService;
+import com.example.demo.service.impl.CategorieLocaleService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

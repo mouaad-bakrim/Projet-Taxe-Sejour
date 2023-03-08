@@ -1,7 +1,7 @@
 package com.example.demo.ws;
 
 import com.example.demo.bean.Locale;
-import com.example.demo.service.LocaleService;
+import com.example.demo.service.impl.LocaleService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

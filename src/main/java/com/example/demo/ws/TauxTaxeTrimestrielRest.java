@@ -2,7 +2,7 @@ package com.example.demo.ws;
 
 
 import com.example.demo.bean.TauxTaxeTrimestriel;
-import com.example.demo.service.TauxTaxeTrimestrielService;
+import com.example.demo.service.impl.TauxTaxeTrimestrielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

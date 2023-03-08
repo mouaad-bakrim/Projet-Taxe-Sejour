@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.bean.Notification;
 import com.example.demo.dao.NotificationDao;
