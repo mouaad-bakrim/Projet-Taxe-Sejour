@@ -7,11 +7,10 @@ import com.example.demo.bean.TauxTaxeTrimestriel;
 import com.example.demo.bean.TaxeTrimestriel;
 import com.example.demo.dao.TaxeTrimestrielDao;
 import com.example.demo.service.facade.TaxeTrimestrielService;
+import com.example.demo.service.util.DateUtile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 @Service
@@ -25,6 +24,8 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
     @Autowired
     private TauxTaxeTrimestrielServiceImpl tauxTaxeTrimestrielService;
+    @Autowired
+    private DateUtile dateUtile;
 
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String  cin, String ref, int trimestre) {
         return taxeTrimestrielDao.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
@@ -82,8 +83,10 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
             montantBase = tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite();
 
-            int nombreDeMoisRetard = taxeTrimestriel.getDateDePresentation().getMonthValue() -  dateUtile(trimestre,annee).getMonthValue()
-                    + (12 *(taxeTrimestriel.getDateDePresentation().getYear() -  dateUtile(trimestre,annee).getYear()))   ;
+
+            DateUtile dateUtile = new DateUtile();
+            int nombreDeMoisRetard = taxeTrimestriel.getDateDePresentation().getMonthValue() -  dateUtile.localedate(trimestre,annee).getMonthValue()
+                    + (12 *(taxeTrimestriel.getDateDePresentation().getYear() -  dateUtile.localedate(trimestre,annee).getYear()))   ;
 
             if (nombreDeMoisRetard > 1) {
                 montantRetard = montantBase * tauxTaxeTrimestriel.getPourcentageRetard();

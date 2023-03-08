@@ -1,10 +1,21 @@
 package com.example.demo.service.util;
 
+import com.example.demo.bean.TaxeTrimestriel;
+import com.example.demo.service.facade.TaxeTrimestrielService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.time.Month;
 
-public class DateUtil {
-    public LocalDateTime dateUtile(int trimestre, int annee) {
+@Service
+public class DateUtile {
+
+    @Autowired
+    private TaxeTrimestrielService taxeTrimestrielService;
+
+    TaxeTrimestriel taxeTrimestriel = new TaxeTrimestriel() ;
+    public LocalDateTime localedate(int trimestre, int annee) {
 
 
         trimestre = taxeTrimestriel.getTrimestre();
