@@ -13,7 +13,8 @@ public interface LocaleDao extends JpaRepository<Locale, Long> {
 
     int deleteByRef(String ref);
 
-    Locale findByDerniereAnneePaye(int derniereAnneePaye);
+    List<Locale> findByDerniereAnneePaye(int derniereAnneePaye);
+    List<Locale> findByDernierTrimestrePaye(int DernierTrimestrePaye);
 
 
     List<Locale> findAll();

@@ -20,6 +20,11 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
         return notificationLocalDao.findByRedevableCin(cin);
     }
 
+    @Override
+    public List<NotificationLocal> findByLocalDerniereAnneePayeAndLocalDernierTrimestrePaye(int DerniereAnneePaye, int DernierTrimestrePaye) {
+        return notificationLocalDao.findByLocalDerniereAnneePayeAndLocalDernierTrimestrePaye(DerniereAnneePaye, DernierTrimestrePaye);
+    }
+
     public List<NotificationLocal> findByLocalRef(String ref) {
         return notificationLocalDao.findByLocalRef(ref);
     }

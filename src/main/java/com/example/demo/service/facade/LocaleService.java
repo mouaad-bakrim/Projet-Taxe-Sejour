@@ -9,7 +9,8 @@ public interface LocaleService {
 
     int deleteByRef(String ref);
 
-    Locale findByDerniereAnneePaye(int derniereAnneePaye);
+    List<Locale> findByDerniereAnneePaye(int derniereAnneePaye);
+    List<Locale> findByDernierTrimestrePaye(int DernierTrimestrePaye);
 
 
     List<Locale> findAll();

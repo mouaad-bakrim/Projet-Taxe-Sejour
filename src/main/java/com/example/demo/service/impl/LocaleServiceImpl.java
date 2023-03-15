@@ -18,8 +18,13 @@ public class LocaleServiceImpl implements LocaleService {
         return localeDao.findByRef(ref);
     }
 
-    public Locale findByDerniereAnneePaye(int derniereAnneePaye) {
+
+    public List<Locale> findByDerniereAnneePaye(int derniereAnneePaye) {
         return localeDao.findByDerniereAnneePaye(derniereAnneePaye);
+    }
+
+    public List<Locale> findByDernierTrimestrePaye(int DernierTrimestrePaye) {
+        return localeDao.findByDernierTrimestrePaye(DernierTrimestrePaye);
     }
 
     @Transactional
