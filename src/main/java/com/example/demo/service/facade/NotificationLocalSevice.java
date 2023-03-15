@@ -13,4 +13,5 @@ public interface NotificationLocalSevice {
     List<NotificationLocal> findAll();
      int save(NotificationLocal notificationLocal);
 
+
 }

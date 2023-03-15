@@ -2,10 +2,15 @@ package com.example.demo.service.impl;
 
 import com.example.demo.bean.*;
 import com.example.demo.dao.NotificationLocalDao;
+import com.example.demo.service.facade.LocaleService;
 import com.example.demo.service.facade.NotificationLocalSevice;
+import com.example.demo.service.facade.RedevableService;
+import com.example.demo.service.facade.TauxTaxeTrimestrielService;
+import com.example.demo.service.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -13,6 +18,12 @@ import java.util.List;
 public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     @Autowired
     private NotificationLocalDao notificationLocalDao;
+    @Autowired
+    private LocaleService localeService;
+    @Autowired
+    private RedevableService redevableService;
+    @Autowired
+    private TauxTaxeTrimestrielService tauxTaxeTrimestrielServiceImpl;
 
 
 
@@ -33,7 +44,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
         return notificationLocalDao.findAll();
     }
     public int save(NotificationLocal notificationLocal){
-        if(notificationLocal.getNotification().getNumero()<=3){
+        if(notificationLocal.getNumero()<=3){
             notificationLocalDao.save(notificationLocal);
             return 1;
         }
@@ -41,4 +52,8 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
             return -1;
         }
     }
+
+
+
+
 }

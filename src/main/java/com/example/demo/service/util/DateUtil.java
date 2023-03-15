@@ -23,6 +23,7 @@ public class DateUtil {
         return dateTime;
     }
 
+
     public static int calculateNbrMoisRetard(int trimestre, int annee, LocalDateTime datePresentation) {
         LocalDateTime localDateTime = DateUtil.constructLocalDateTime(trimestre, annee);
         long between = ChronoUnit.MONTHS.between(datePresentation, localDateTime);
