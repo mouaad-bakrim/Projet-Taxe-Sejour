@@ -7,39 +7,13 @@ public class NotificationLocal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private int annee;
-    private int numero;
-    private int trimestre;
     @ManyToOne
     private Locale local;
     @ManyToOne
     private Redevable redevable;
+    @ManyToOne
+    private Notification notification;
     private Double mantantEstimation;
-
-    public int getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(int annee) {
-        this.annee = annee;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public int getTrimestre() {
-        return trimestre;
-    }
-
-    public void setTrimestre(int trimestre) {
-        this.trimestre = trimestre;
-    }
 
     public Long getId() {
         return id;
@@ -65,6 +39,14 @@ public class NotificationLocal {
         this.redevable = redevable;
     }
 
+    public Notification getNotification() {
+        return notification;
+    }
+
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
+
     public Double getMantantEstimation() {
         return mantantEstimation;
     }
@@ -72,6 +54,4 @@ public class NotificationLocal {
     public void setMantantEstimation(Double mantantEstimation) {
         this.mantantEstimation = mantantEstimation;
     }
-
-
 }

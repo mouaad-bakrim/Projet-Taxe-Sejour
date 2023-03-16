@@ -2,15 +2,14 @@ package com.example.demo.service.impl;
 
 import com.example.demo.bean.*;
 import com.example.demo.dao.NotificationLocalDao;
-import com.example.demo.service.facade.LocaleService;
 import com.example.demo.service.facade.NotificationLocalSevice;
-import com.example.demo.service.facade.RedevableService;
-import com.example.demo.service.facade.TauxTaxeTrimestrielService;
-import com.example.demo.service.util.DateUtil;
+import com.example.demo.service.facade.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,11 +18,32 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     @Autowired
     private NotificationLocalDao notificationLocalDao;
     @Autowired
-    private LocaleService localeService;
-    @Autowired
-    private RedevableService redevableService;
-    @Autowired
-    private TauxTaxeTrimestrielService tauxTaxeTrimestrielServiceImpl;
+    private NotificationLocalSeviceImpl notificationService;
+
+    @Override
+    @Query("select l from Locale l where l.derniereAnneePaye*4+L.dernierTrimestrePaye<:annee*4+:trimestre")
+    public List<Locale> findAllLocal(int annee, int trimestre) {
+        return notificationLocalDao.findAllLocal(annee, trimestre);
+    }
+
+    @Override
+    public void save(NotificationLocal notificationLocal) {
+        List<Locale> locals=notificationLocalDao.findAllLocal(notificationLocal.getNotification().getAnnee(),notificationLocal.getNotification().getTrimestre());
+        List<NotificationLocal> notificationLocals=new ArrayList<>();
+        for (Locale locale: locals){
+            NotificationLocal notificationLocalb=new NotificationLocal();
+            notificationLocalb.setLocal(locale);
+            notificationLocalb.setRedevable(locale.getRedevable());
+            notificationLocals.add(notificationLocalb);
+            notificationLocalDao.save(notificationLocal);
+        }
+        for (NotificationLocal notificationLocald: notificationLocals){
+            notificationLocald.setNotification(notificationLocal.getNotification());
+            notificationService.save(notificationLocald);
+
+        }
+    }
+
 
 
 
@@ -43,15 +63,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     public List<NotificationLocal> findAll() {
         return notificationLocalDao.findAll();
     }
-    public int save(NotificationLocal notificationLocal){
-        if(notificationLocal.getNumero()<=3){
-            notificationLocalDao.save(notificationLocal);
-            return 1;
-        }
-        else {
-            return -1;
-        }
-    }
+
 
 
 
