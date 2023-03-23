@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Rue {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Double code;
     private String libelle;

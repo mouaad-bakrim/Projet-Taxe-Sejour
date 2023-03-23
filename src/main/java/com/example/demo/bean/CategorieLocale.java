@@ -10,8 +10,8 @@ public class CategorieLocale {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String libelle;
     private String code;
+    private String libelle;
 
     public Long getId() {
         return id;

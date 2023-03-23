@@ -25,7 +25,6 @@ public class SecteurRest {
     }
 
     @PostMapping("/")
-
     public int save(@RequestBody Secteur secteur) {
         return secteurService.save(secteur);
     }

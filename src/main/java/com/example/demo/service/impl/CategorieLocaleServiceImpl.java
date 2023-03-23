@@ -7,6 +7,8 @@ import com.example.demo.service.facade.CategorieLocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategorieLocaleServiceImpl implements CategorieLocaleService {
     @Autowired
@@ -21,6 +23,10 @@ public class CategorieLocaleServiceImpl implements CategorieLocaleService {
         }
     }
 
+    @Override
+    public List<CategorieLocale> findAll() {
+        return categorieLocaleDao.findAll();
+    }
 
     public CategorieLocale findByCode(String code) {
         return categorieLocaleDao.findByCode(code);

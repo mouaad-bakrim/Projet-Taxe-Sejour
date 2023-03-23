@@ -7,6 +7,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/categoriel-locale-sejour")
 public class CategorieLocaleRest {
@@ -16,6 +18,10 @@ public class CategorieLocaleRest {
     @PostMapping("/")
     public int save(@RequestBody CategorieLocale categorieLocale) {
         return categorieLocaleService.save(categorieLocale);
+    }
+    @GetMapping("/")
+    public List<CategorieLocale> findAll() {
+        return categorieLocaleService.findAll();
     }
 
     @GetMapping("/code/{code}")
