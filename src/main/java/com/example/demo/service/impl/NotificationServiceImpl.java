@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 
+import com.example.demo.bean.NotificationLocal;
 import com.example.demo.dao.NotificationDao;
 import com.example.demo.service.facade.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class NotificationServiceImpl implements NotificationService {
         return notificationDao.findByAnneeAndTrimestre(annee, trimestre);
     }
 
+    @Override
     public List<Notification> findAll() {
         return notificationDao.findAll();
     }
@@ -33,4 +35,6 @@ public class NotificationServiceImpl implements NotificationService {
         notificationDao.save(notification);
         return 1;
     }
+
+
 }

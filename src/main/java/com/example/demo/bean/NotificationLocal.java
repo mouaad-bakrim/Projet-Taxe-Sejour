@@ -13,7 +13,16 @@ public class NotificationLocal {
     private Redevable redevable;
     @ManyToOne
     private Notification notification;
+
     private Double mantantEstimation;
+
+    public Notification getNotification() {
+        return notification;
+    }
+
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
 
     public Long getId() {
         return id;
@@ -39,13 +48,7 @@ public class NotificationLocal {
         this.redevable = redevable;
     }
 
-    public Notification getNotification() {
-        return notification;
-    }
 
-    public void setNotification(Notification notification) {
-        this.notification = notification;
-    }
 
     public Double getMantantEstimation() {
         return mantantEstimation;

@@ -3,7 +3,6 @@ package com.example.demo.service.impl;
 import com.example.demo.bean.*;
 import com.example.demo.dao.NotificationLocalDao;
 import com.example.demo.service.facade.NotificationLocalSevice;
-import com.example.demo.service.facade.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
@@ -17,11 +16,10 @@ import java.util.List;
 public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     @Autowired
     private NotificationLocalDao notificationLocalDao;
-    @Autowired
-    private NotificationLocalSeviceImpl notificationService;
+
 
     @Override
-    @Query("select l from Locale l where l.derniereAnneePaye*4+L.dernierTrimestrePaye<:annee*4+:trimestre")
+    @Query("select l from Locale l where (l.derniereAnneePaye*4+l.dernierTrimestrePaye)<(:annee*4+:trimestre)")
     public List<Locale> findAllLocal(int annee, int trimestre) {
         return notificationLocalDao.findAllLocal(annee, trimestre);
     }
@@ -39,7 +37,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
         }
         for (NotificationLocal notificationLocald: notificationLocals){
             notificationLocald.setNotification(notificationLocal.getNotification());
-            notificationService.save(notificationLocald);
+            notificationLocalDao.save(notificationLocald);
 
         }
     }

@@ -30,7 +30,7 @@ public class NotificationLocalRest {
         return notificationLocalSevice.findAll();
     }
     @GetMapping("/local/{annee}/{trimestre}")
-    @Query("select l from Locale l where l.derniereAnneePaye*4+L.dernierTrimestrePaye<:annee*4+:trimestre")
+    @Query("select l from Locale l where (l.derniereAnneePaye*4+l.dernierTrimestrePaye)<(:annee*4+:trimestre)")
     public List<Locale> findAllLocal(int annee, int trimestre) {
         return notificationLocalSevice.findAllLocal(annee, trimestre);
     }

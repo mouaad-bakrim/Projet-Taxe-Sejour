@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface NotificationLocalSevice {
-    @Query(value = "select l from Locale l where l.derniereAnneePaye*4+L.dernierTrimestrePaye<:annee*4+:trimestre")
+    @Query( "select l from Locale l where (l.derniereAnneePaye*4+l.dernierTrimestrePaye)<(:annee*4+:trimestre)")
     List<Locale> findAllLocal(@Param("annee") int annee, @Param("trimestre") int trimestre);
 
     void save(NotificationLocal notificationLocal);
