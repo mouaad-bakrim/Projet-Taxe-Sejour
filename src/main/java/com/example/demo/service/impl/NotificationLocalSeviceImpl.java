@@ -26,7 +26,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
 
     @Override
     public void save(NotificationLocal notificationLocal) {
-        List<Locale> locals=notificationLocalDao.findAllLocal(notificationLocal.getNotification().getAnnee(),notificationLocal.getNotification().getTrimestre());
+        List<Locale> locals=notificationLocalDao.findAllLocal(notificationLocal.getAnnee(),notificationLocal.getTrimestre());
         List<NotificationLocal> notificationLocals=new ArrayList<>();
         for (Locale locale: locals){
             NotificationLocal notificationLocalb=new NotificationLocal();
@@ -36,7 +36,6 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
             notificationLocalDao.save(notificationLocal);
         }
         for (NotificationLocal notificationLocald: notificationLocals){
-            notificationLocald.setNotification(notificationLocal.getNotification());
             notificationLocalDao.save(notificationLocald);
 
         }

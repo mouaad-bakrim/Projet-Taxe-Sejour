@@ -16,6 +16,7 @@ public interface NotificationLocalDao extends JpaRepository<NotificationLocal,Lo
 
 
     List<NotificationLocal> findByRedevableCin(String cin);
+
     List<NotificationLocal> findByLocalRef(String ref);
 
     List<NotificationLocal> findByLocalDerniereAnneePayeAndLocalDernierTrimestrePaye(int DerniereAnneePaye,int DernierTrimestrePaye);
