@@ -6,6 +6,7 @@ import com.example.demo.service.impl.TaxeTrimestrielServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -33,13 +34,17 @@ public class TaxeTrimestrielRest {
     }
 
 
-    @PostMapping("/")
+   /* @PostMapping("/")
     public int save(@RequestBody TaxeTrimestriel taxeTrimestriel) {
         return taxeTrimestrielService.save(taxeTrimestriel.getTrimestre(), taxeTrimestriel.getLocale().getRef(), taxeTrimestriel.getAnnee(), taxeTrimestriel.getDateDePresentation());
-    }
+    }*/
 
     @GetMapping("/")
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielService.findAll();
+    }
+    @PostMapping ("/")
+    public int save(int trimestre, String refLocale, double annee, LocalDateTime datePresentation) {
+        return taxeTrimestrielService.save(trimestre, refLocale,  (int) annee, datePresentation);
     }
 }

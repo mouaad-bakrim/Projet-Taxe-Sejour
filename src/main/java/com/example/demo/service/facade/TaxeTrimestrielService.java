@@ -12,9 +12,10 @@ public interface TaxeTrimestrielService {
 
 
     int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre);
+    int save(int trimest, String refLocale, double annee, LocalDateTime datePresentation);
 
 
     List<TaxeTrimestriel> findAll();
 
-    int save(int trimestre, String ref, int annee, LocalDateTime datePresentation);
+
 }
