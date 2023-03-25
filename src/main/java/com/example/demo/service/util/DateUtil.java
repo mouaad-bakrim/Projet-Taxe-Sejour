@@ -3,7 +3,6 @@ package com.example.demo.service.util;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 
 
 public class DateUtil {
@@ -24,8 +23,8 @@ public class DateUtil {
     }
 
 
-    public static int calculateNbrMoisRetard(int trimestre, double annee, LocalDateTime datePresentation) {
-        LocalDateTime localDateTime = DateUtil.constructLocalDateTime(trimestre, (int) annee);
+    public static int calculateNbrMoisRetard(int trimestre, int annee, LocalDateTime datePresentation) {
+        LocalDateTime localDateTime = DateUtil.constructLocalDateTime(trimestre,  annee);
         long between = ChronoUnit.MONTHS.between(datePresentation, localDateTime);
         return between < 0 ? 0 : (int) between;
     }

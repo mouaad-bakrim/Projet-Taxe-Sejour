@@ -21,6 +21,7 @@ public class TauxTaxeTrimestriel {
     @ManyToOne
     private CategorieLocale categorieLocale;
 
+
     public LocalDateTime getDate() {
         return date;
     }

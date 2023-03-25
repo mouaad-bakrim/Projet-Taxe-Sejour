@@ -44,7 +44,7 @@ public class TaxeTrimestrielRest {
         return taxeTrimestrielService.findAll();
     }
     @PostMapping ("/")
-    public int save(int trimestre, String refLocale, double annee, LocalDateTime datePresentation) {
-        return taxeTrimestrielService.save(trimestre, refLocale,  (int) annee, datePresentation);
+    public int save(@PathVariable int trimestre,@PathVariable String refLocale,@PathVariable int annee, @RequestBody LocalDateTime datePresentation) {
+        return taxeTrimestrielService.save(trimestre, refLocale,   annee, datePresentation);
     }
 }
