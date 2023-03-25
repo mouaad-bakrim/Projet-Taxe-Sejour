@@ -13,4 +13,5 @@ public interface RueService {
 
     int deleteByCode(Double code);
     int save(Rue rue);
+
 }

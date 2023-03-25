@@ -29,6 +29,10 @@ public class LocaleRest {
     public List<Locale> findAll() {
         return localeService.findAll();
     }
+    @PutMapping("/")
+    public int update(@RequestBody Locale locale) {
+        return localeService.update(locale);
+    }
 
     @PostMapping("/")
     public int save(@RequestBody Locale locale) {

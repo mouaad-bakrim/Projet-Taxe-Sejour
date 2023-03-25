@@ -8,4 +8,7 @@ public interface RedevableService {
 
     int deleteByCin(String cin);
     int save(Redevable redevable);
+    int update(Redevable redevable);
+
+
 }

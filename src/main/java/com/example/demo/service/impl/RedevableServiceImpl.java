@@ -21,6 +21,21 @@ public class RedevableServiceImpl implements RedevableService {
         }
 
     }
+    public int update(Redevable redevable){
+        if (redevableDao.findById(redevable.getId()) != null) {
+            return -1;
+
+        } else {
+           Redevable red = redevableDao.findByCin(redevable.getCin());
+            red.setCin(redevable.getCin());
+            red.setId(redevable.getId());
+            red.setNom(redevable.getNom());
+            red.setPrenom(redevable.getPrenom());
+            redevableDao.save(red);
+            return 1;
+        }
+
+    }
 
     @Autowired
     private RedevableDao redevableDao;
@@ -28,6 +43,8 @@ public class RedevableServiceImpl implements RedevableService {
     public Redevable findByCin(String cin) {
         return redevableDao.findByCin(cin);
     }
+
+
 
     @Transactional
     public int deleteByCin(String cin) {

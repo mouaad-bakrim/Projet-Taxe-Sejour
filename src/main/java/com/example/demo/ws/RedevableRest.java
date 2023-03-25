@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/vi/redevable")
+@RequestMapping("/api/v1/redevable")
 public class RedevableRest {
     @Autowired
     private RedevableServiceImpl redevableService;
@@ -31,5 +31,9 @@ public class RedevableRest {
     @GetMapping("/")
     public List<Redevable> findAll() {
         return redevableService.findAll();
+    }
+    @PutMapping("/")
+    public int update(@RequestBody Redevable redevable) {
+        return redevableService.update(redevable);
     }
 }
