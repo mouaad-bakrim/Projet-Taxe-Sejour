@@ -34,17 +34,14 @@ public class TaxeTrimestrielRest {
     }
 
 
-   /* @PostMapping("/")
-    public int save(@RequestBody TaxeTrimestriel taxeTrimestriel) {
-        return taxeTrimestrielService.save(taxeTrimestriel.getTrimestre(), taxeTrimestriel.getLocale().getRef(), taxeTrimestriel.getAnnee(), taxeTrimestriel.getDateDePresentation());
-    }*/
+
 
     @GetMapping("/")
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielService.findAll();
     }
     @PostMapping ("/")
-    public int save(@PathVariable int trimestre,@PathVariable String refLocale,@PathVariable int annee, @RequestBody LocalDateTime datePresentation) {
+    public int save(@PathVariable int trimestre,@PathVariable String refLocale,@PathVariable int annee, @PathVariable  LocalDateTime datePresentation) {
         return taxeTrimestrielService.save(trimestre, refLocale,   annee, datePresentation);
     }
 }

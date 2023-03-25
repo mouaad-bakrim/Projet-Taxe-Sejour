@@ -11,6 +11,43 @@ public class TaxeAnuelle {
 
     private long id;
     private int annee;
+    private double montantBaseAnuelle;
+    private double montantRetardAnuelle;
+    private double montantMajorationAnuelle;
+    private double  montantTotalAnuelle;
+
+    public double getMontantBaseAnuelle() {
+        return montantBaseAnuelle;
+    }
+
+    public void setMontantBaseAnuelle(double montantBaseAnuelle) {
+        this.montantBaseAnuelle = montantBaseAnuelle;
+    }
+
+    public double getMontantRetardAnuelle() {
+        return montantRetardAnuelle;
+    }
+
+    public void setMontantRetardAnuelle(double montantRetardAnuelle) {
+        this.montantRetardAnuelle = montantRetardAnuelle;
+    }
+
+    public double getMontantMajorationAnuelle() {
+        return montantMajorationAnuelle;
+    }
+
+    public void setMontantMajorationAnuelle(double montantMajorationAnuelle) {
+        this.montantMajorationAnuelle = montantMajorationAnuelle;
+    }
+
+    public CategorieLocale getCategorieLocale() {
+        return categorieLocale;
+    }
+
+    public void setCategorieLocale(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
+    }
+
     @ManyToOne
     private Redevable redevable;
 
@@ -19,6 +56,16 @@ public class TaxeAnuelle {
 
     @ManyToOne
     private Locale locale;
+
+    public double getMontantTotalAnuelle() {
+        return montantTotalAnuelle;
+    }
+
+    public void setMontantTotalAnuelle(double montantTotalAnuelle) {
+        this.montantTotalAnuelle = montantTotalAnuelle;
+    }
+
+
 
     public long getId() {
         return id;

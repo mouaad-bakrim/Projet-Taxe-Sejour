@@ -16,6 +16,7 @@ public interface TaxeTrimestrielDao extends JpaRepository<TaxeTrimestriel, Long>
     TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre, int annee);
 
 
+
     int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int  trimestre);
 
 

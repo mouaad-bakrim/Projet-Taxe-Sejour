@@ -27,7 +27,7 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
     private TauxTaxeTrimestrielServiceImpl tauxTaxeTrimestrielService;
 
 
-    private DateUtil dateUtil;
+
 
     @Override
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
@@ -53,7 +53,7 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
     }
 
     TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
-    Locale locale = new Locale();
+
 
     public int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation) {
         Locale locale = localeService.findByRef(refLocale);
