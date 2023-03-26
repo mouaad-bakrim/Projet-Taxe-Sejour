@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface RedevableDao extends JpaRepository<Redevable, Long> {
     Redevable findByCin(String cin);
+    Redevable findByCinAndNom(String cin,String nom);
 
 
     int deleteByCin(String cin);

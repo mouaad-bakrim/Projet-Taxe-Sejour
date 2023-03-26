@@ -44,7 +44,10 @@ public class RedevableServiceImpl implements RedevableService {
         return redevableDao.findByCin(cin);
     }
 
-
+    @Override
+    public Redevable findByCinAndNom(String cin, String nom) {
+        return redevableDao.findByCinAndNom(cin, nom);
+    }
 
     @Transactional
     public int deleteByCin(String cin) {
