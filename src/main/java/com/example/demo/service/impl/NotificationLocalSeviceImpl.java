@@ -36,6 +36,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
             notificationLocalDao.save(notificationLocal);
         }
         for (NotificationLocal notificationLocald: notificationLocals){
+           // notificationLocald.setNotification(notificationLocal.getNotification());
             notificationLocalDao.save(notificationLocald);
 
         }

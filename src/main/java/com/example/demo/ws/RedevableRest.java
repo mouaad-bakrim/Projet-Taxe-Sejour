@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/vi/redevable")
+@RequestMapping("/api/v1/redevable")
 public class RedevableRest {
     @Autowired
     private RedevableServiceImpl redevableService;
+    @GetMapping("/cin/{cin}/nom/{nom}")
+    public Redevable findByCinAndNom(String cin, String nom) {
+        return redevableService.findByCinAndNom(cin, nom);
+    }
 
     @PostMapping("/")
     public int save(@RequestBody Redevable redevable) {
@@ -31,5 +35,9 @@ public class RedevableRest {
     @GetMapping("/")
     public List<Redevable> findAll() {
         return redevableService.findAll();
+    }
+    @PutMapping("/")
+    public int update(@RequestBody Redevable redevable) {
+        return redevableService.update(redevable);
     }
 }

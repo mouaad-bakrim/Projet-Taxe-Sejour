@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.bean.Locale;
+import com.example.demo.bean.Redevable;
 import com.example.demo.dao.LocaleDao;
 import com.example.demo.service.facade.LocaleService;
 import jakarta.transaction.Transactional;
@@ -13,6 +14,24 @@ import java.util.List;
 public class LocaleServiceImpl implements LocaleService {
     @Autowired
     private LocaleDao localeDao;
+    public int update(Locale locale ){
+        if (findByRef(locale.getRef()) == null) {
+            return -1;
+
+        } else {
+            Locale loc = findByRef(locale.getRef());
+            loc.setRef(locale.getRef());
+            loc.setRue(locale.getRue());
+            loc.setRedevable(locale.getRedevable());
+            loc.setId(locale.getId());
+            loc.setCategorieLocale(locale.getCategorieLocale());
+            loc.setDerniereAnneePaye(locale.getDerniereAnneePaye());
+            loc.setDernierTrimestrePaye(locale.getDernierTrimestrePaye());
+            localeDao.save(loc);
+            return 1;
+        }
+
+    }
 
     public Locale findByRef(String ref) {
         return localeDao.findByRef(ref);
