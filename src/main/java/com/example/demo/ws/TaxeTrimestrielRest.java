@@ -40,8 +40,8 @@ public class TaxeTrimestrielRest {
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielService.findAll();
     }
-    @PostMapping ("/")
-    public int save(@PathVariable int trimestre,@PathVariable String refLocale,@PathVariable int annee, @PathVariable  LocalDateTime datePresentation) {
-        return taxeTrimestrielService.save(trimestre, refLocale,   annee, datePresentation);
+    @PostMapping ("/trimestre/{trimestre}/refLocale/{refLocale}/annee/{annee}/datePresentation/{datePresentation}/{nombreDeNuite}")
+    public int save(@PathVariable int trimestre,@PathVariable String refLocale,@PathVariable int annee, @PathVariable  LocalDateTime datePresentation,@PathVariable double nombreDeNuite) {
+        return taxeTrimestrielService.save(trimestre, refLocale,   annee, datePresentation,nombreDeNuite);
     }
 }

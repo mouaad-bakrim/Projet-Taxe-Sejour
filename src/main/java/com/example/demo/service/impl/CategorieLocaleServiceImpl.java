@@ -32,6 +32,19 @@ public class CategorieLocaleServiceImpl implements CategorieLocaleService {
         return categorieLocaleDao.findByCode(code);
     }
 
+    public CategorieLocale findOrSave(CategorieLocale categorieLocale) {
+        if (categorieLocale == null || categorieLocale.getCode() == null) {
+            return null;
+        } else {
+            CategorieLocale byCode = categorieLocaleDao.findByCode(categorieLocale.getCode());
+            if (byCode != null) {
+                return byCode;
+            } else {
+                return categorieLocaleDao.save(categorieLocale);
+            }
+        }
+    }
+
     public int deleteByCode(String code) {
         return categorieLocaleDao.deleteByCode(code);
     }

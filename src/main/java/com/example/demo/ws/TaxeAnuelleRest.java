@@ -36,7 +36,7 @@ public class TaxeAnuelleRest {
         return taxeAnuelleService.findByLocaleRef(ref);
     }
 
-    @PostMapping("/")
+    @PostMapping("/{cin}/{ref}/{annee}/{datePresentation}")
     public int save(@PathVariable String cin,@PathVariable  String ref,@PathVariable int annee,@PathVariable LocalDateTime datePresentation) {
         return taxeAnuelleService.save(cin, ref,  annee, datePresentation);
     }

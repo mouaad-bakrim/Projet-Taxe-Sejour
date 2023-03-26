@@ -55,16 +55,17 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
     TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
 
 
-    public int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation) {
+    public int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation,double nombreDeNuite) {
         Locale locale = localeService.findByRef(refLocale);
         if (locale == null) {
             return -1;
         }
         CategorieLocale categorieLocale = locale.getCategorieLocale();
+        TauxTaxeTrimestriel tauxTaxeTrimestriel1= tauxTaxeTrimestrielService.findByCategorieLocaleCode(categorieLocale.getCode());
         if (categorieLocale == null) {
             return -2;
         }
-        tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel.getDateApplicationDebut(), tauxTaxeTrimestriel.getDateApplicationFin());
+        tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel1.getDateApplicationDebut(), tauxTaxeTrimestriel1.getDateApplicationFin());
         if (tauxTaxeTrimestriel == null) {
             return -3;
         } else if (taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(refLocale, trimest, annee) != null) {
@@ -74,7 +75,7 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
             double montantRetard = 0;
             double montantMajoration = 0;
 
-            double montantBase = tauxTaxeTrimestriel.getMontantParNuite() * taxeTrimestriel.getNombreDeNuite();
+            double montantBase = tauxTaxeTrimestriel.getMontantParNuite() * nombreDeNuite;
             taxeTrimestriel.setMontantBase(montantBase);
 
 

@@ -20,8 +20,18 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
     @Autowired
     private CategorieLocaleServiceImpl categorieLocaleService;
 
-
-
+    public int save(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
+        if (tauxTaxeTrimestriel.getCategorielocale() == null) {
+            return -1;
+        }
+       else if (tauxTaxeTrimestriel.getCategorielocale() != null) {
+            CategorieLocale categorieLocaleServiceByCode = categorieLocaleService.findOrSave(tauxTaxeTrimestriel.getCategorielocale());
+            tauxTaxeTrimestriel.setCategorielocale(categorieLocaleServiceByCode);
+            tauxTaxeTrimestrielDao.save(tauxTaxeTrimestriel);
+            return 1;
+        }
+      return 2 ;
+    }
 
     public TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
         return tauxTaxeTrimestrielDao.findByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
@@ -50,16 +60,7 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
         return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCode(code);
     }
 
-    public  int save (TauxTaxeTrimestriel tauxTaxeTrimestriel ){
-        CategorieLocale  categorieLocale=new CategorieLocale();
-        if ( findByCategorieLocaleCode(categorieLocale.getCode()) !=null){
-            return -1;}
-        else{
-            tauxTaxeTrimestrielDao.save(tauxTaxeTrimestriel);
-            return 1;
-        }
 
-    }
 }
 
 

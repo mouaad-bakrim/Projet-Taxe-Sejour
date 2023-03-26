@@ -13,7 +13,7 @@ public interface TaxeTrimestrielService {
 
 
     int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre);
-    int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation);
+    int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation,double nombreDeNuite);
 
 
 
