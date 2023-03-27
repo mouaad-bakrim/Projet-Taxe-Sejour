@@ -19,14 +19,11 @@ public class TauxTaxeTrimestrielRest {
         return tauxTaxeTrimestrielService.findByCategorieLocaleCode(code);
     }
 
-    @GetMapping("/code/{code}/dateApplicationDebut/{dateApplicationDebut}")
-    public TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(@PathVariable String code,@PathVariable LocalDateTime dateApplicationDebut,@PathVariable LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
+    @GetMapping("/CategorieLocale/{code}/{reference}")
+    public TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference( @PathVariable  String code,@PathVariable String reference) {
+        return tauxTaxeTrimestrielService.findByCategorieLocaleCodeAndReference(code, reference);
     }
-    @DeleteMapping("/code/{code}/dateApplicationDebut/{dateApplicationDebut}")
-    public int deleteByCategorieCodeAndDateBetween(@PathVariable String code,@PathVariable LocalDateTime dateApplicationDebut,@PathVariable LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielService.deleteByCategorieCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
-    }
+
     @DeleteMapping("/code/{code}")
     public int deleteByCategorieLocaleCode(@PathVariable String code) {
         return tauxTaxeTrimestrielService.deleteByCategorieLocaleCode(code);

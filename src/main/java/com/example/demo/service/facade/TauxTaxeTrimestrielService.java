@@ -5,13 +5,9 @@ import com.example.demo.bean.TauxTaxeTrimestriel;
 import java.time.LocalDateTime;
 
 public interface TauxTaxeTrimestrielService {
-    TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
+    TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code , String reference) ;
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
-
-
-    int deleteByCategorieCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
-
 
     int deleteByCategorieLocaleCode (String code);
       int save (TauxTaxeTrimestriel tauxTaxeTrimestriel );

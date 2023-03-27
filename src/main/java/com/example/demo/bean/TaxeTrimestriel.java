@@ -12,11 +12,15 @@ public class TaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime dateDePresentation;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    private LocalDateTime dateApplication;
+
     private int annee;
     private int trimestre;
-    private int nombreDeMoisRetard ;
+    private int nombreDeMoisRetard;
     private double nombreDeNuite;
     private double montantBase;
     private double montantRetard;
@@ -30,6 +34,14 @@ public class TaxeTrimestriel {
     private CategorieLocale categorieLocale;
     @ManyToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
+
+    public LocalDateTime getDateApplication() {
+        return dateApplication;
+    }
+
+    public void setDateApplication(LocalDateTime dateApplication) {
+        this.dateApplication = dateApplication;
+    }
 
     public LocalDateTime getDateDePresentation() {
         return dateDePresentation;
@@ -72,6 +84,7 @@ public class TaxeTrimestriel {
     public void setTrimestre(int trimestre) {
         this.trimestre = trimestre;
     }
+
     public int getNombreDeMoisRetard() {
         return nombreDeMoisRetard;
     }

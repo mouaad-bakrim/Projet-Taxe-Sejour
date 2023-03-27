@@ -1,5 +1,6 @@
 package com.example.demo.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -10,25 +11,18 @@ public class TauxTaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private LocalDateTime dateApplicationDebut;
 
+    private String reference;
+    private LocalDateTime dateApplicationDebut;
     private LocalDateTime dateApplicationFin;
-    private LocalDateTime date;
     private double pourcentageRetard;
     private double pourcentageMajoration;
     private double montantParNuite;
 
+
     @ManyToOne
     private CategorieLocale categorieLocale;
 
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
 
     public LocalDateTime getDateApplicationDebut() {
         return dateApplicationDebut;
@@ -84,5 +78,21 @@ public class TauxTaxeTrimestriel {
 
     public Long getId() {
         return id;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public CategorieLocale getCategorieLocale() {
+        return categorieLocale;
+    }
+
+    public void setCategorieLocale(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
     }
 }
