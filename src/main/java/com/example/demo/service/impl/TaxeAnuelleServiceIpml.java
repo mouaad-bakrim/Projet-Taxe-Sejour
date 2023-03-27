@@ -68,38 +68,9 @@ public class TaxeAnuelleServiceIpml implements TaxeAnuelleService {
             return -4;
         } else {
 
-            TauxTaxeTrimestriel tauxTaxeTrimestriel = TaxeTrimestrielServiceImpl.tauxTaxeTrimestriel;
-            double montantBaseAnuelle = 0;
-            double montantRetardAnuelle = 0;
-            double montantMajorationAnuelle = 0;
-            double montantTotalAnuelle = 0;
-
-            montantBaseAnuelle = taxeTrimestriel1.getMontantBase() + taxeTrimestriel2.getMontantBase() +
-                    taxeTrimestriel3.getMontantBase() + taxeTrimestriel4.getMontantBase();
-
-
-            int nombreDeMoisRetard = DateUtil.calculateNbrMoisRetard(4, annee, datePresentation);
-
-            if (nombreDeMoisRetard >= 3) {
-                montantRetardAnuelle = montantBaseAnuelle * tauxTaxeTrimestriel.getPourcentageRetard();
-                montantMajorationAnuelle = (nombreDeMoisRetard - 3) * tauxTaxeTrimestriel.getPourcentageMajoration() * montantBaseAnuelle;
-            }
-            montantTotalAnuelle = montantBaseAnuelle + montantRetardAnuelle + montantMajorationAnuelle;
-
-            Locale locale = localeServiceImpl.findByRef(ref);
-
-            TaxeAnuelle taxeAnuelle = new TaxeAnuelle();
-
-            taxeAnuelle.setMontantBaseAnuelle(montantBaseAnuelle);
-            taxeAnuelle.setMontantTotalAnuelle(montantTotalAnuelle);
-            taxeAnuelle.setMontantRetardAnuelle(montantRetardAnuelle);
-            taxeAnuelle.setMontantMajorationAnuelle(montantMajorationAnuelle);
-            taxeAnuelle.setAnnee(annee);
-            taxeAnuelle.setLocale(locale);
-            taxeAnuelleDao.save(taxeAnuelle);
-            return 1;
-        }
+           return  1;
     }
 
 
+}
 }

@@ -9,13 +9,9 @@ import java.time.LocalDateTime;
 @Repository
 public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestriel, Long> {
 
-    TauxTaxeTrimestriel findByCategorieLocaleCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
+    TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code , String reference) ;
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
-
-
-    int deleteByCategorieLocaleCodeAndDateBetween(String code , LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin ) ;
-
 
     int deleteByCategorieLocaleCode (String code);
 

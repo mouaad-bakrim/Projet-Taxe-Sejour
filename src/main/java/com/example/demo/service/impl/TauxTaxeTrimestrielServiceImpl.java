@@ -23,18 +23,19 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
     public int save(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
         if (tauxTaxeTrimestriel.getCategorielocale() == null) {
             return -1;
-        }
-       else if (tauxTaxeTrimestriel.getCategorielocale() != null) {
+        } else if (tauxTaxeTrimestriel.getCategorielocale() != null) {
             CategorieLocale categorieLocaleServiceByCode = categorieLocaleService.findOrSave(tauxTaxeTrimestriel.getCategorielocale());
             tauxTaxeTrimestriel.setCategorielocale(categorieLocaleServiceByCode);
             tauxTaxeTrimestrielDao.save(tauxTaxeTrimestriel);
             return 1;
         }
-      return 2 ;
+        return 2;
     }
 
-    public TauxTaxeTrimestriel findByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.findByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
+
+    @Override
+    public TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code, String reference) {
+        return tauxTaxeTrimestrielDao.findByCategorieLocaleCodeAndReference(code,reference);
     }
 
     @Override
@@ -43,19 +44,7 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
     }
 
 
-    public int deleteByCategorieCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
-    }
-
-
-    public TauxTaxeTrimestriel findByCategorieLocaleCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.findByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
-    }
-
-    public int deleteByCategorieLocaleCodeAndDateBetween(String code, LocalDateTime dateApplicationDebut, LocalDateTime dateApplicationFin) {
-        return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCodeAndDateBetween(code, dateApplicationDebut, dateApplicationFin);
-    }
-
+    @Override
     public int deleteByCategorieLocaleCode(String code) {
         return tauxTaxeTrimestrielDao.deleteByCategorieLocaleCode(code);
     }
