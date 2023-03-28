@@ -1,10 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.bean.CategorieLocale;
+import com.example.demo.bean.*;
 
-import com.example.demo.bean.Locale;
-import com.example.demo.bean.TauxTaxeTrimestriel;
-import com.example.demo.bean.TaxeTrimestriel;
 import com.example.demo.dao.TaxeTrimestrielDao;
 import com.example.demo.service.facade.TaxeTrimestrielService;
 import com.example.demo.service.util.DateUtil;
@@ -25,6 +22,8 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
     @Autowired
     private TauxTaxeTrimestrielServiceImpl tauxTaxeTrimestrielService;
+    @Autowired
+    private RedevableServiceImpl redevableService ;
 
 
 
@@ -52,21 +51,22 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
         return taxeTrimestrielDao.findAll();
     }
 
-    TauxTaxeTrimestriel tauxTaxeTrimestriel = new TauxTaxeTrimestriel();
 
 
-    public int save(int trimest, String refLocale, int annee, LocalDateTime datePresentation,double nombreDeNuite) {
+    public int save(int trimest,int annee, String refLocale,String cin,double nombreDeNuite, LocalDateTime datePresentation, String Reference ) {
         Locale locale = localeService.findByRef(refLocale);
         if (locale == null) {
             return -1;
         }
         CategorieLocale categorieLocale = locale.getCategorieLocale();
-        TauxTaxeTrimestriel tauxTaxeTrimestriel1= tauxTaxeTrimestrielService.findByCategorieLocaleCode(categorieLocale.getCode());
-        if (categorieLocale == null) {
+
+        Redevable redevable = redevableService.findByCin(cin) ;
+        if (redevable == null) {
             return -2;
         }
-        tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieCodeAndDateBetween(categorieLocale.getCode(), tauxTaxeTrimestriel1.getDateApplicationDebut(), tauxTaxeTrimestriel1.getDateApplicationFin());
-        if (tauxTaxeTrimestriel == null) {
+
+        TauxTaxeTrimestriel tauxTaxeTrimestriel = tauxTaxeTrimestrielService.findByCategorieLocaleCodeAndReference(categorieLocale.getCode(),Reference);
+    if (tauxTaxeTrimestriel == null) {
             return -3;
         } else if (taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(refLocale, trimest, annee) != null) {
             return -4;
@@ -91,6 +91,8 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
             taxeTrimestriel.setTauxTaxeTrimestriel(tauxTaxeTrimestriel);
             taxeTrimestriel.setLocale(locale);
             taxeTrimestriel.setAnnee(annee);
+            taxeTrimestriel.setNombreDeMoisRetard(nombreDeMoisRetard);
+            taxeTrimestriel.setNombreDeNuite(nombreDeNuite);
             taxeTrimestriel.setTrimestre(trimest);
             taxeTrimestriel.setCategorieLocale(categorieLocale);
             taxeTrimestriel.setNombreDeMoisRetard(nombreDeMoisRetard);
@@ -98,6 +100,12 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
             taxeTrimestriel.setMontantRetard(montantRetard);
             taxeTrimestriel.setMontantMajoration(montantMajoration);
             taxeTrimestriel.setMontantTotal(montantTotale);
+            taxeTrimestriel.setDateDePresentation(datePresentation);
+            taxeTrimestriel.setRedevable(redevable);
+            locale.setDernierTrimestrePaye(trimest);
+
+
+
             taxeTrimestrielDao.save(taxeTrimestriel);
 
             return 1;
