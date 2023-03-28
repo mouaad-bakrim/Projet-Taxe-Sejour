@@ -19,17 +19,17 @@ public class TauxTaxeAnuelleRest {
     }
 
     @GetMapping("/CategorieLocale/{code}/{reference}")
-    public TauxTaxeAnuelle findByCategorieLocaleCodeAndReference(String code, String reference) {
+    public TauxTaxeAnuelle findByCategorieLocaleCodeAndReference(@PathVariable String code, @PathVariable String reference) {
         return tauxTaxeAnuelleService.findByCategorieLocaleCodeAndReference(code, reference);
     }
 
     @GetMapping("/code/{code}")
-    public TauxTaxeAnuelle findByCategorieLocaleCode(String code) {
+    public TauxTaxeAnuelle findByCategorieLocaleCode(@PathVariable String code) {
         return tauxTaxeAnuelleService.findByCategorieLocaleCode(code);
     }
 
     @DeleteMapping("/code/{code}")
-    public int deleteByCategorieLocaleCode(String code) {
+    public int deleteByCategorieLocaleCode(@PathVariable String code) {
         return tauxTaxeAnuelleService.deleteByCategorieLocaleCode(code);
     }
 }
