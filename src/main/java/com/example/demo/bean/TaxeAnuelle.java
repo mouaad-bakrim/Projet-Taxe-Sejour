@@ -15,6 +15,17 @@ public class TaxeAnuelle {
     private double montantRetardAnuelle;
     private double montantMajorationAnuelle;
     private double  montantTotalAnuelle;
+    @ManyToOne
+    private TaxeAnuelle taxeAnuelle;
+
+
+    public TaxeAnuelle getTaxeAnuelle() {
+        return taxeAnuelle;
+    }
+
+    public void setTaxeAnuelle(TaxeAnuelle taxeAnuelle) {
+        this.taxeAnuelle = taxeAnuelle;
+    }
 
     public double getMontantBaseAnuelle() {
         return montantBaseAnuelle;
