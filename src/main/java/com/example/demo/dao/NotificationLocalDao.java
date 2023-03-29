@@ -22,5 +22,6 @@ public interface NotificationLocalDao extends JpaRepository<NotificationLocal,Lo
     List<NotificationLocal> findByLocalDerniereAnneePayeAndLocalDernierTrimestrePaye(int DerniereAnneePaye,int DernierTrimestrePaye);
 
     List<NotificationLocal> findAll();
+    int deleteById(int id);
 
 }
