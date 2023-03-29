@@ -15,6 +15,7 @@ public class TaxeAnuelleRest {
     @Autowired
     private TaxeAnuelleServiceIpml taxeAnuelleService;
 
+
     @GetMapping("/code/{code}")
     public TaxeAnuelle findByAnnee(@PathVariable int annee) {
         return taxeAnuelleService.findByAnnee(annee);
@@ -37,7 +38,7 @@ public class TaxeAnuelleRest {
     }
 
     @PostMapping("/{cin}/{ref}/{annee}/{datePresentation}")
-    public int save(@PathVariable String cin,@PathVariable  String ref,@PathVariable int annee,@PathVariable LocalDateTime datePresentation) {
-        return taxeAnuelleService.save(cin, ref,  annee, datePresentation);
+    public int save(@PathVariable String cin,@PathVariable  String ref,@PathVariable int annee,@PathVariable LocalDateTime datePresentation ,@PathVariable String reference) {
+        return taxeAnuelleService.save(cin, ref,  annee, datePresentation,reference);
     }
 }

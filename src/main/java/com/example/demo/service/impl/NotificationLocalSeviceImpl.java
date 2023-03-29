@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.bean.*;
 import com.example.demo.dao.NotificationLocalDao;
 import com.example.demo.service.facade.NotificationLocalSevice;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     }
 
     @Override
-    public void save(NotificationLocal notificationLocal) {
+    public int save(NotificationLocal notificationLocal) {
         List<Locale> locals=notificationLocalDao.findAllLocal(notificationLocal.getAnnee(),notificationLocal.getTrimestre());
         List<NotificationLocal> notificationLocals=new ArrayList<>();
         for (Locale locale: locals){
@@ -36,10 +37,15 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
             notificationLocalDao.save(notificationLocal);
         }
         for (NotificationLocal notificationLocald: notificationLocals){
-           // notificationLocald.setNotification(notificationLocal.getNotification());
+            notificationLocald.setId(notificationLocal.getId());
+           notificationLocald.setTrimestre(notificationLocal.getTrimestre());
+           notificationLocald.setNumero(notificationLocal.getNumero());
+           notificationLocald.setAnnee(notificationLocal.getAnnee());
+           notificationLocald.setMantantEstimation(notificationLocal.getMantantEstimation());
             notificationLocalDao.save(notificationLocald);
 
         }
+        return 1;
     }
 
 
@@ -63,7 +69,8 @@ public class NotificationLocalSeviceImpl implements NotificationLocalSevice {
     }
 
 
-
-
-
+    @Transactional
+    public int deleteById(int id) {
+        return notificationLocalDao.deleteById(id);
+    }
 }

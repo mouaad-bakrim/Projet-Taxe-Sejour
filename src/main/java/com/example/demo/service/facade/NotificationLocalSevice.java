@@ -11,13 +11,14 @@ public interface NotificationLocalSevice {
     @Query( "select l from Locale l where (l.derniereAnneePaye*4+l.dernierTrimestrePaye)<(:annee*4+:trimestre)")
     List<Locale> findAllLocal(@Param("annee") int annee, @Param("trimestre") int trimestre);
 
-    void save(NotificationLocal notificationLocal);
+    int save(NotificationLocal notificationLocal);
     List<NotificationLocal> findByRedevableCin(String cin);
 
     List<NotificationLocal> findByLocalRef(String ref);
     List<NotificationLocal> findByLocalDerniereAnneePayeAndLocalDernierTrimestrePaye(int DerniereAnneePaye,int DernierTrimestrePaye);
 
     List<NotificationLocal> findAll();
+    int deleteById(int id);
 
 
 
