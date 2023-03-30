@@ -16,4 +16,6 @@ public interface RueDao extends JpaRepository<Rue, Long> {
 
     int deleteByCode(Double code);
 
+    Rue findByLibelle(String libelle);
+
 }

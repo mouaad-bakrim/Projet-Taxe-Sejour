@@ -34,10 +34,10 @@ public class LocaleRest {
         return localeService.update(locale);
     }
 
+
+
     @PostMapping("/")
-    public int save(@RequestBody Locale locale) {
-        return localeService.save(locale);
-    }
+    public int save(@RequestBody Locale locale) {return localeService.save(locale);}
 
     @GetMapping("/derniereAnneePaye/{derniereAnneePaye}")
     public   List<Locale> findByDerniereAnneePaye(@PathVariable int derniereAnneePaye) {

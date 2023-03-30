@@ -4,6 +4,7 @@ import com.example.demo.bean.Locale;
 import com.example.demo.bean.Redevable;
 import com.example.demo.dao.LocaleDao;
 import com.example.demo.service.facade.LocaleService;
+import com.example.demo.service.facade.RedevableService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,16 @@ import java.util.List;
 public class LocaleServiceImpl implements LocaleService {
     @Autowired
     private LocaleDao localeDao;
-    public int update(Locale locale ){
+    @Autowired
+    private RedevableServiceImpl redevableService;
+
+    @Autowired
+    private RueServiceImpl rueServiceImpl;
+    @Autowired
+    private CategorieLocaleServiceImpl categorieLocaleService;
+
+
+    public int update(Locale locale) {
         if (findByRef(locale.getRef()) == null) {
             return -1;
 
@@ -60,6 +70,9 @@ public class LocaleServiceImpl implements LocaleService {
             return -1;
 
         } else {
+            locale.setRedevable(redevableService.findByCin(locale.getRedevable().getCin()));
+            locale.setRue(rueServiceImpl.findByLibelle(locale.getRue().getLibelle()));
+            locale.setCategorieLocale(categorieLocaleService.findByLibelle(locale.getCategorieLocale().getLibelle()));
             localeDao.save(locale);
             return 1;
         }

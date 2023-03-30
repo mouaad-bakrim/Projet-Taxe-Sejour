@@ -12,6 +12,11 @@ public interface RueService {
     Rue findByCode(Double code);
 
     int deleteByCode(Double code);
+
+    Rue findByLibelle(String libelle);
+
     int save(Rue rue);
+
+
 
 }
