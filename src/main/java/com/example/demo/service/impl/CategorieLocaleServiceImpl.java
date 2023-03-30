@@ -28,6 +28,11 @@ public class CategorieLocaleServiceImpl implements CategorieLocaleService {
         return categorieLocaleDao.findAll();
     }
 
+    @Override
+    public CategorieLocale findByLibelle(String libelle) {
+        return categorieLocaleDao.findByLibelle(libelle);
+    }
+
     public CategorieLocale findByCode(String code) {
         return categorieLocaleDao.findByCode(code);
     }

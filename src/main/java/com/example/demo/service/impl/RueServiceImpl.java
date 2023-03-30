@@ -20,6 +20,11 @@ public class RueServiceImpl implements RueService {
         return rueDao.findAll();
     }
 
+    @Override
+    public Rue findByLibelle(String libelle) {
+        return rueDao.findByLibelle(libelle);
+    }
+
     public Rue findByCode(Double code) {
         return rueDao.findByCode(code);
     }
