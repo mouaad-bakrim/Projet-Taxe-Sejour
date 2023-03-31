@@ -18,8 +18,6 @@ public class TauxTaxeTrimestriel {
     private double pourcentageRetard;
     private double pourcentageMajoration;
     private double montantParNuite;
-
-
     @ManyToOne
     private CategorieLocale categorieLocale;
 

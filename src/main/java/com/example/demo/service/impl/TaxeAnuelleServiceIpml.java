@@ -98,7 +98,7 @@ public class TaxeAnuelleServiceIpml implements TaxeAnuelleService {
             }
         }
         double montantTotalAnuelle = montantBaseAnuelle + montantRetardAnuelle + montantMajorationAnuelle;
-        taxeAnuelle.setTaxeAnuelle(taxeAnuelle);
+       // taxeAnuelle.setTauxTaxeAnuelle(taxeAnuelle);
         taxeAnuelle.setMontantMajorationAnuelle(montantMajorationAnuelle);
         taxeAnuelle.setMontantRetardAnuelle(montantRetardAnuelle);
         taxeAnuelle.setMontantBaseAnuelle(montantBaseAnuelle);

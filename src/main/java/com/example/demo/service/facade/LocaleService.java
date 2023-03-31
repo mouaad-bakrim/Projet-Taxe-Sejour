@@ -12,7 +12,7 @@ public interface LocaleService {
 
     List<Locale> findByDerniereAnneePaye(int derniereAnneePaye);
     List<Locale> findByDernierTrimestrePaye(int DernierTrimestrePaye);
-
+    int deleteById(int id);
 
     List<Locale> findAll();
     public int save(Locale locale);

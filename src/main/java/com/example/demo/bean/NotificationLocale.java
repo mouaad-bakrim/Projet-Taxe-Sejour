@@ -3,20 +3,21 @@ package com.example.demo.bean;
 import jakarta.persistence.*;
 
 @Entity
-public class NotificationLocal {
+public class NotificationLocale {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int annee;
     private int numero;
     private int trimestre;
+    private Double mantantEstimation;
     @ManyToOne
-    private Locale local;
+    private Locale locale;
     @ManyToOne
     private Redevable redevable;
 
 
-    private Double mantantEstimation;
+
 
     public int getAnnee() {
         return annee;
@@ -51,12 +52,12 @@ public class NotificationLocal {
         this.id = id;
     }
 
-    public Locale getLocal() {
-        return local;
+    public Locale getLocale() {
+        return locale;
     }
 
-    public void setLocal(Locale local) {
-        this.local = local;
+    public void setLocale(Locale locale) {
+        this.locale = locale;
     }
 
     public Redevable getRedevable() {

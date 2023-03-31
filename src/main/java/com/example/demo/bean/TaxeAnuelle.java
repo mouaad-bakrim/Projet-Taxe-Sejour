@@ -16,15 +16,15 @@ public class TaxeAnuelle {
     private double montantMajorationAnuelle;
     private double  montantTotalAnuelle;
     @ManyToOne
-    private TaxeAnuelle taxeAnuelle;
+    private TauxTaxeAnuelle  tauxTaxeAnuelle;
 
 
-    public TaxeAnuelle getTaxeAnuelle() {
-        return taxeAnuelle;
+    public TauxTaxeAnuelle getTauxTaxeAnuelle() {
+        return tauxTaxeAnuelle;
     }
 
-    public void setTaxeAnuelle(TaxeAnuelle taxeAnuelle) {
-        this.taxeAnuelle = taxeAnuelle;
+    public void setTauxTaxeAnuelle(TauxTaxeAnuelle tauxTaxeAnuelle) {
+        this.tauxTaxeAnuelle = tauxTaxeAnuelle;
     }
 
     public double getMontantBaseAnuelle() {

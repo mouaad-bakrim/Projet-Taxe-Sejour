@@ -23,6 +23,11 @@ public class LocaleServiceImpl implements LocaleService {
     @Autowired
     private CategorieLocaleServiceImpl categorieLocaleService;
 
+    @Transactional
+    public int deleteById(int id) {
+        return localeDao.deleteById(id);
+    }
+
 
     public int update(Locale locale) {
         if (findByRef(locale.getRef()) == null) {

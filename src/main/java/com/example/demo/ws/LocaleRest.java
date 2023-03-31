@@ -34,7 +34,11 @@ public class LocaleRest {
         return localeService.update(locale);
     }
 
-
+    @Transactional
+    @DeleteMapping("/{id}")
+    public int deleteById(@PathVariable int id) {
+        return localeService.deleteById(id);
+    }
 
     @PostMapping("/")
     public int save(@RequestBody Locale locale) {return localeService.save(locale);}

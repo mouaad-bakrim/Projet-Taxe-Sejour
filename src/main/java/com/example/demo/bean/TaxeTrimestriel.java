@@ -35,37 +35,28 @@ public class TaxeTrimestriel {
     @ManyToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
-    public LocalDateTime getDateApplication() {
-        return dateApplication;
+    public Long getId() {
+        return id;
     }
 
-    public void setDateApplication(LocalDateTime dateApplication) {
-        this.dateApplication = dateApplication;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDateTime getDateDePresentation() {
         return dateDePresentation;
     }
 
-
     public void setDateDePresentation(LocalDateTime dateDePresentation) {
         this.dateDePresentation = dateDePresentation;
     }
 
-    public double getNombreDeNuite() {
-        return nombreDeNuite;
+    public LocalDateTime getDateApplication() {
+        return dateApplication;
     }
 
-    public void setNombreDeNuite(double nombreDeNuite) {
-        this.nombreDeNuite = nombreDeNuite;
-    }
-
-    public TauxTaxeTrimestriel getTauxTaxeTrimestriel() {
-        return tauxTaxeTrimestriel;
-    }
-
-    public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
-        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;
+    public void setDateApplication(LocalDateTime dateApplication) {
+        this.dateApplication = dateApplication;
     }
 
     public int getAnnee() {
@@ -75,7 +66,6 @@ public class TaxeTrimestriel {
     public void setAnnee(int annee) {
         this.annee = annee;
     }
-
 
     public int getTrimestre() {
         return trimestre;
@@ -90,23 +80,15 @@ public class TaxeTrimestriel {
     }
 
     public void setNombreDeMoisRetard(int nombreDeMoisRetard) {
-        nombreDeMoisRetard = nombreDeMoisRetard;
+        this.nombreDeMoisRetard = nombreDeMoisRetard;
     }
 
-    public CategorieLocale getCategorieLocale() {
-        return categorieLocale;
-    }
-
-    public void setCategorieLocale(CategorieLocale categorieLocale) {
-        this.categorieLocale = categorieLocale;
-    }
-
-    public double getMontantParNuite() {
+    public double getNombreDeNuite() {
         return nombreDeNuite;
     }
 
-    public void setMontantParNuite(double montantParNuite) {
-        this.nombreDeNuite = montantParNuite;
+    public void setNombreDeNuite(double nombreDeNuite) {
+        this.nombreDeNuite = nombreDeNuite;
     }
 
     public double getMontantBase() {
@@ -157,19 +139,19 @@ public class TaxeTrimestriel {
         this.redevable = redevable;
     }
 
-    public CategorieLocale getCategorieLocaleSejour() {
+    public CategorieLocale getCategorieLocale() {
         return categorieLocale;
     }
 
-    public void setCategorieLocaleSejour(CategorieLocale categorieLocale) {
+    public void setCategorieLocale(CategorieLocale categorieLocale) {
         this.categorieLocale = categorieLocale;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public TauxTaxeTrimestriel getTauxTaxeTrimestriel() {
+        return tauxTaxeTrimestriel;
     }
 
-    public Long getId() {
-        return id;
+    public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
+        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;
     }
 }
