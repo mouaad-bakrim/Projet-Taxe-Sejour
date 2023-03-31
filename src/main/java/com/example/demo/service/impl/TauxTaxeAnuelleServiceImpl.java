@@ -15,22 +15,23 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
     private TauxTaxeAnuelleDao tauxTaxeAnuelleDao;
 
     @Autowired
-    private  CategorieLocaleServiceImpl categorieLocaleService;
+    private CategorieLocaleServiceImpl categorieLocaleService;
 
-    public int save (TauxTaxeAnuelle tauxTaxeAnuelle){
-            if (tauxTaxeAnuelle.getCategorieLocale() == null){
-                return -1;
-            } else if (tauxTaxeAnuelle.getCategorieLocale() == null) {
-                CategorieLocale categorieLocaleServiceByCode = categorieLocaleService.findOrSave(tauxTaxeAnuelle.getCategorieLocale());
-                tauxTaxeAnuelle.setCategorieLocale(categorieLocaleServiceByCode);
-                tauxTaxeAnuelleDao.save(tauxTaxeAnuelle);
-              return 1  ;
-            }
-           return 2;
+    public int save(TauxTaxeAnuelle tauxTaxeAnuelle) {
+        if (tauxTaxeAnuelle.getCategorieLocale() != null) {
+            return -1;
+        } else if (tauxTaxeAnuelle.getCategorieLocale() == null) {
+            CategorieLocale categorieLocaleServiceByCode = categorieLocaleService.findOrSave(tauxTaxeAnuelle.getCategorieLocale());
+            tauxTaxeAnuelle.setCategorieLocale(categorieLocaleServiceByCode);
+            tauxTaxeAnuelleDao.save(tauxTaxeAnuelle);
+            return 1;
+        }
+        return 2;
     }
+
     @Override
     public TauxTaxeAnuelle findByCategorieLocaleCodeAndReference(String code, String reference) {
-        return tauxTaxeAnuelleDao.findByCategorieLocaleCodeAndReference(code,reference);
+        return tauxTaxeAnuelleDao.findByCategorieLocaleCodeAndReference(code, reference);
     }
 
     @Override
