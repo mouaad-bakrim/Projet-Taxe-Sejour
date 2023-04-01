@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface LocaleService {
     Locale findByRef(String ref);
+    Locale findById(Long id);
 
     int deleteByRef(String ref);
     int update(Locale locale );
@@ -15,5 +16,5 @@ public interface LocaleService {
     int deleteById(int id);
 
     List<Locale> findAll();
-    public int save(Locale locale);
+     int save(Locale locale);
 }

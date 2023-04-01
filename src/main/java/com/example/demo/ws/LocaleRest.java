@@ -13,6 +13,10 @@ import java.util.List;
 public class LocaleRest {
     @Autowired
     private LocaleServiceImpl localeService;
+    @GetMapping("/{id}")
+    public Locale findById(@PathVariable Long id) {
+        return localeService.findById(id);
+    }
 
     @GetMapping("/ref/{ref}")
     public Locale findByRef(@PathVariable String ref) {
@@ -38,6 +42,7 @@ public class LocaleRest {
     @DeleteMapping("/{id}")
     public int deleteById(@PathVariable int id) {
         return localeService.deleteById(id);
+
     }
 
     @PostMapping("/")
@@ -51,6 +56,7 @@ public class LocaleRest {
     public List<Locale> findByDernierTrimestrePaye(int DernierTrimestrePaye) {
         return localeService.findByDernierTrimestrePaye(DernierTrimestrePaye);
     }
+
 }
 
 

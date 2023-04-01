@@ -1,10 +1,8 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.bean.Locale;
-import com.example.demo.bean.Redevable;
 import com.example.demo.dao.LocaleDao;
 import com.example.demo.service.facade.LocaleService;
-import com.example.demo.service.facade.RedevableService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,18 +21,24 @@ public class LocaleServiceImpl implements LocaleService {
     @Autowired
     private CategorieLocaleServiceImpl categorieLocaleService;
 
-    @Transactional
-    public int deleteById(int id) {
-        return localeDao.deleteById(id);
-    }
-
-
-    public int update(Locale locale) {
-        if (findByRef(locale.getRef()) == null) {
+    public int save(Locale locale) {
+        if (findByRef(locale.getRef()) != null) {
             return -1;
 
         } else {
-            Locale loc = findByRef(locale.getRef());
+            locale.setRedevable(redevableService.findByCin(locale.getRedevable().getCin()));
+            locale.setRue(rueServiceImpl.findByLibelle(locale.getRue().getLibelle()));
+            locale.setCategorieLocale(categorieLocaleService.findByLibelle(locale.getCategorieLocale().getLibelle()));
+            localeDao.save(locale);
+            return 1;
+        }
+    }
+
+    public int update(Locale locale) {
+        if (findById(locale.getId()) == null) {
+            return -1;
+        } else {
+            Locale loc = findById(locale.getId());
             loc.setRef(locale.getRef());
             loc.setRue(locale.getRue());
             loc.setRedevable(locale.getRedevable());
@@ -45,8 +49,15 @@ public class LocaleServiceImpl implements LocaleService {
             localeDao.save(loc);
             return 1;
         }
-
     }
+    public Locale findById(Long id) {
+        return localeDao.findById(id).orElse(null);
+    }
+    @Transactional
+    public int deleteById(int id) {
+        return localeDao.deleteById(id);
+    }
+
 
     public Locale findByRef(String ref) {
         return localeDao.findByRef(ref);
@@ -70,16 +81,5 @@ public class LocaleServiceImpl implements LocaleService {
         return localeDao.findAll();
     }
 
-    public int save(Locale locale) {
-        if (findByRef(locale.getRef()) != null) {
-            return -1;
 
-        } else {
-            locale.setRedevable(redevableService.findByCin(locale.getRedevable().getCin()));
-            locale.setRue(rueServiceImpl.findByLibelle(locale.getRue().getLibelle()));
-            locale.setCategorieLocale(categorieLocaleService.findByLibelle(locale.getCategorieLocale().getLibelle()));
-            localeDao.save(locale);
-            return 1;
-        }
-    }
 }

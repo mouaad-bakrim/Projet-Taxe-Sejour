@@ -47,6 +47,25 @@ public class NotificationLocaleSeviceImpl implements NotificationLocaleSevice {
         }
         return 1;
     }
+    public int update(NotificationLocale notificationLocale ) {
+        if (findById(notificationLocale.getId()) == null) {
+            return -1;
+        } else {
+            NotificationLocale loc = findById(notificationLocale.getId());
+            loc.setTrimestre(notificationLocale.getTrimestre());
+            loc.setLocale(notificationLocale.getLocale());
+            loc.setRedevable(notificationLocale.getRedevable());
+            loc.setId(notificationLocale.getId());
+            loc.setAnnee(notificationLocale.getAnnee());
+            loc.setNumero(notificationLocale.getNumero());
+            loc.setMantantEstimation(notificationLocale.getMantantEstimation());
+            notificationLocaleDao.save(loc);
+            return 1;
+        }
+    }
+    public NotificationLocale findById(Long id) {
+        return notificationLocaleDao.findById(id).orElse(null);
+    }
 
 
 

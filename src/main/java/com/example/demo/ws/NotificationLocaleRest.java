@@ -48,4 +48,12 @@ public class NotificationLocaleRest {
     public int deleteById(@PathVariable int id) {
         return notificationLocaleSevice.deleteById(id);
     }
+    @PutMapping("/")
+    public int update(@RequestBody NotificationLocale notificationLocale) {
+        return notificationLocaleSevice.update(notificationLocale);
+    }
+    @GetMapping("/{id}")
+    public NotificationLocale findById(@PathVariable Long id) {
+        return notificationLocaleSevice.findById(id);
+    }
 }
