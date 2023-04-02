@@ -9,6 +9,8 @@ public interface TauxTaxeTrimestrielService {
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
 
+    TauxTaxeTrimestriel findByReference(String reference);
+
     int deleteByCategorieLocaleCode (String code);
       int save (TauxTaxeTrimestriel tauxTaxeTrimestriel );
 

@@ -12,8 +12,10 @@ public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestrie
     TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code , String reference) ;
 
     TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
+    TauxTaxeTrimestriel findByReference(String reference);
 
     int deleteByCategorieLocaleCode (String code);
+
 
 
 }

@@ -6,11 +6,10 @@ import com.example.demo.service.impl.TaxeTrimestrielServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/taxeSejourTrimestrie")
+@RequestMapping("/api/v1/taxeTrimestriel")
 public class TaxeTrimestrielRest {
 
 
@@ -22,26 +21,31 @@ public class TaxeTrimestrielRest {
         return taxeTrimestrielService.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
     }
 
-    @GetMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
+    @GetMapping("/Redevable/{cin}/{ref}/{trimestre}")
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
         return taxeTrimestrielService.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
 
 
-    @DeleteMapping("/Redevable/cin/{cin}/Locale/ref/{ref}/trimestre/{trimestre}")
-    public int deleteByRedevableCinAndLocaleRefAndTrimestre(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre) {
-        return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
+    @DeleteMapping("/delete/{cin}/{ref}/{trimestre}/{annee}")
+    public int deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre , @PathVariable int annee) {
+        return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(cin, ref, trimestre,annee);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public int deleteById(@PathVariable long id ){
+        return taxeTrimestrielService.deleteById(id) ;
     }
 
 
 
 
-    @GetMapping("/")
+    @GetMapping("/findAll")
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielService.findAll();
     }
-    @PostMapping ("/{trimest}/{annee}/{refLocale}/{cin}/{nombreDeNuite}/{datePresentation}/{tauxReference}")
-    public int save( @PathVariable int trimest,@PathVariable int annee, @PathVariable String refLocale, @PathVariable String cin,@PathVariable double nombreDeNuite,@PathVariable LocalDateTime datePresentation,@PathVariable String tauxReference){
-        return taxeTrimestrielService.save( trimest, annee, refLocale,cin, nombreDeNuite,  datePresentation, tauxReference);
+    @PostMapping ("/")
+    public int save( @RequestBody TaxeTrimestriel taxeTrimestriel){
+        return taxeTrimestrielService.save( taxeTrimestriel.getTrimestre() , taxeTrimestriel.getAnnee(), taxeTrimestriel.getLocale().getRef() ,taxeTrimestriel.getRedevable().getCin(), taxeTrimestriel.getNombreDeNuite(),  taxeTrimestriel.getDateDePresentation(), taxeTrimestriel.getTauxTaxeTrimestriel().getReference());
     }
 }

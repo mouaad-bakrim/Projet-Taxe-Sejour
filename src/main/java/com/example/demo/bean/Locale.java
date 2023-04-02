@@ -8,10 +8,10 @@ public class Locale {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
-    @ManyToOne
-    private Rue rue;
     private int derniereAnneePaye;
     private int dernierTrimestrePaye;
+    @ManyToOne
+    private Rue rue;
     @ManyToOne
     private Redevable redevable;
     @ManyToOne

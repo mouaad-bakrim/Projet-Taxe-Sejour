@@ -13,7 +13,9 @@ public class TauxTaxeTrimestriel {
     private Long id;
 
     private String reference;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDateTime dateApplicationDebut;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDateTime dateApplicationFin;
     private double pourcentageRetard;
     private double pourcentageMajoration;

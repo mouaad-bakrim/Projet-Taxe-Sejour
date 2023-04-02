@@ -12,8 +12,13 @@ public interface TaxeTrimestrielService {
     TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre, int annee);
 
 
-    int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre);
     int save(int trimest,int annee, String refLocale,String cin,double nombreDeNuite, LocalDateTime datePresentation,String tauxReference);
+
+
+    int deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int  trimestre ,int annee);
+
+
+    int deleteById(long id) ;
 
 
 

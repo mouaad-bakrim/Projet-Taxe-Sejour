@@ -1,23 +1,17 @@
 package com.example.demo.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class TaxeTrimestriel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDateTime dateDePresentation;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime dateApplication;
-
     private int annee;
     private int trimestre;
     private int nombreDeMoisRetard;
@@ -35,28 +29,31 @@ public class TaxeTrimestriel {
     @ManyToOne
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public LocalDateTime getDateDePresentation() {
         return dateDePresentation;
     }
 
+
     public void setDateDePresentation(LocalDateTime dateDePresentation) {
         this.dateDePresentation = dateDePresentation;
     }
 
-    public LocalDateTime getDateApplication() {
-        return dateApplication;
+    public double getNombreDeNuite() {
+        return nombreDeNuite;
     }
 
-    public void setDateApplication(LocalDateTime dateApplication) {
-        this.dateApplication = dateApplication;
+    public void setNombreDeNuite(double nombreDeNuite) {
+        this.nombreDeNuite = nombreDeNuite;
+    }
+
+    public TauxTaxeTrimestriel getTauxTaxeTrimestriel() {
+        return tauxTaxeTrimestriel;
+    }
+
+    public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
+        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;
     }
 
     public int getAnnee() {
@@ -66,6 +63,7 @@ public class TaxeTrimestriel {
     public void setAnnee(int annee) {
         this.annee = annee;
     }
+
 
     public int getTrimestre() {
         return trimestre;
@@ -80,15 +78,23 @@ public class TaxeTrimestriel {
     }
 
     public void setNombreDeMoisRetard(int nombreDeMoisRetard) {
-        this.nombreDeMoisRetard = nombreDeMoisRetard;
+        nombreDeMoisRetard = nombreDeMoisRetard;
     }
 
-    public double getNombreDeNuite() {
+    public CategorieLocale getCategorieLocale() {
+        return categorieLocale;
+    }
+
+    public void setCategorieLocale(CategorieLocale categorieLocale) {
+        this.categorieLocale = categorieLocale;
+    }
+
+    public double getMontantParNuite() {
         return nombreDeNuite;
     }
 
-    public void setNombreDeNuite(double nombreDeNuite) {
-        this.nombreDeNuite = nombreDeNuite;
+    public void setMontantParNuite(double montantParNuite) {
+        this.nombreDeNuite = montantParNuite;
     }
 
     public double getMontantBase() {
@@ -139,19 +145,19 @@ public class TaxeTrimestriel {
         this.redevable = redevable;
     }
 
-    public CategorieLocale getCategorieLocale() {
+    public CategorieLocale getCategorieLocaleSejour() {
         return categorieLocale;
     }
 
-    public void setCategorieLocale(CategorieLocale categorieLocale) {
+    public void setCategorieLocaleSejour(CategorieLocale categorieLocale) {
         this.categorieLocale = categorieLocale;
     }
 
-    public TauxTaxeTrimestriel getTauxTaxeTrimestriel() {
-        return tauxTaxeTrimestriel;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setTauxTaxeTrimestriel(TauxTaxeTrimestriel tauxTaxeTrimestriel) {
-        this.tauxTaxeTrimestriel = tauxTaxeTrimestriel;
+    public Long getId() {
+        return id;
     }
 }

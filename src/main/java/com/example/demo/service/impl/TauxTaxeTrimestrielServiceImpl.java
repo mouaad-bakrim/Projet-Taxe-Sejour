@@ -32,6 +32,10 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
         return 2;
     }
 
+    @Override
+    public TauxTaxeTrimestriel findByReference(String reference) {
+        return tauxTaxeTrimestrielDao.findByReference(reference);
+    }
 
     @Override
     public TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code, String reference) {
