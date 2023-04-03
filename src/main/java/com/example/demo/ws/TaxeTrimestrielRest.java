@@ -3,6 +3,7 @@ package com.example.demo.ws;
 
 import com.example.demo.bean.TaxeTrimestriel;
 import com.example.demo.service.impl.TaxeTrimestrielServiceImpl;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,14 +28,12 @@ public class TaxeTrimestrielRest {
     }
 
 
-    @DeleteMapping("/delete/{cin}/{ref}/{trimestre}/{annee}")
-    public int deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(@PathVariable String cin, @PathVariable String ref, @PathVariable int trimestre , @PathVariable int annee) {
-        return taxeTrimestrielService.deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(cin, ref, trimestre,annee);
-    }
 
-    @DeleteMapping("/delete/{id}")
-    public int deleteById(@PathVariable long id ){
-        return taxeTrimestrielService.deleteById(id) ;
+
+    @Transactional
+    @DeleteMapping("/{id}")
+    public int deleteById(@PathVariable int id) {
+        return taxeTrimestrielService.deleteById(id);
     }
 
 

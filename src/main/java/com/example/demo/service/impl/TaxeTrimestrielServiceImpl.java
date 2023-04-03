@@ -4,9 +4,11 @@ import com.example.demo.bean.*;
 import com.example.demo.dao.TaxeTrimestrielDao;
 import com.example.demo.service.facade.TaxeTrimestrielService;
 import com.example.demo.service.util.DateUtil;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
 
     public int
-    save(int trimestre, int annee, String refLocale, String cin, double nombreDeNuite, LocalDateTime datePresentation, String reference) {
+    save(int trimestre, int annee, String refLocale, String cin, double nombreDeNuite, LocalDate datePresentation, String reference) {
         Locale locale = localeService.findByRef(refLocale);
         if (locale == null) {
             return -1;
@@ -50,8 +52,8 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
             double montantBase = tauxTaxeTrimestriel.getMontantParNuite() * nombreDeNuite;
 
 
-
-            int nombreDeMoisRetard = DateUtil.calculateNbrMoisRetard(trimestre, annee, datePresentation);
+            int nombreDeMoisRetard = 0;
+            nombreDeMoisRetard = DateUtil.calculateNbrMoisRetard(trimestre, annee, datePresentation);
             if (nombreDeMoisRetard >= 1) {
                 montantRetard = montantBase * tauxTaxeTrimestriel.getPourcentageRetard();
                 montantMajoration = (nombreDeMoisRetard - 1) * tauxTaxeTrimestriel.getPourcentageMajoration() * montantBase;
@@ -62,11 +64,15 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
             taxeTrimestriel.setTauxTaxeTrimestriel(tauxTaxeTrimestriel);
             taxeTrimestriel.setLocale(locale);
             taxeTrimestriel.setAnnee(annee);
+
             taxeTrimestriel.setNombreDeMoisRetard(nombreDeMoisRetard);
+
+
             taxeTrimestriel.setNombreDeNuite(nombreDeNuite);
             taxeTrimestriel.setTrimestre(trimestre);
             taxeTrimestriel.setCategorieLocale(categorieLocale);
-            taxeTrimestriel.setNombreDeMoisRetard(nombreDeMoisRetard);
+
+
             taxeTrimestriel.setMontantBase(montantBase);
             taxeTrimestriel.setMontantRetard(montantRetard);
             taxeTrimestriel.setMontantMajoration(montantMajoration);
@@ -86,16 +92,6 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
 
 
     @Override
-    public int deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int trimestre, int annee) {
-        return taxeTrimestrielDao.deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(cin, ref, trimestre, annee);
-    }
-
-    @Override
-    public int deleteById(long id) {
-        return taxeTrimestrielDao.deleteById(id);
-    }
-
-    @Override
     public TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre) {
         return taxeTrimestrielDao.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, trimestre);
     }
@@ -109,13 +105,16 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
         return taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
     }
 
-    public int deleteByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre, int annee) {
-        return taxeTrimestrielDao.deleteByRedevableCinAndLocaleRefAndTrimestreAndAnnee(cin, ref, trimestre, annee);
-    }
+
 
 
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielDao.findAll();
+    }
+
+    @Transactional
+    public int deleteById(int id) {
+        return taxeTrimestrielDao.deleteById(id);
     }
 
 

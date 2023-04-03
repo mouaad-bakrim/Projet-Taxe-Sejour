@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class TaxeAnuelleRest {
     }
 
     @PostMapping("/{cin}/{ref}/{annee}/{datePresentation}")
-    public int save(@PathVariable String cin,@PathVariable  String ref,@PathVariable int annee,@PathVariable LocalDateTime datePresentation ,@PathVariable String reference) {
+    public int save(@PathVariable String cin, @PathVariable  String ref, @PathVariable int annee, @PathVariable LocalDate datePresentation , @PathVariable String reference) {
         return taxeAnuelleService.save(cin, ref,  annee, datePresentation,reference);
     }
 }
