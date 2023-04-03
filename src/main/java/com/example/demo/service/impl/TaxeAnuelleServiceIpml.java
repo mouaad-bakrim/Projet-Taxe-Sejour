@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class TaxeAnuelleServiceIpml implements TaxeAnuelleService {
     LocaleServiceImpl localeService;
 
 
-    public int save(String cin, String ref, int annee, LocalDateTime datePresentation, String reference) {
+    public int save(String cin, String ref, int annee, LocalDate datePresentation, String reference) {
         TaxeAnuelle taxeAnuelle = new TaxeAnuelle();
         TaxeTrimestriel taxeTrimestriel = taxeTrimestrielService.findByRedevableCinAndLocaleRefAndTrimestre(cin, ref, 1);
         Locale locale = localeService.findByRef(ref);
