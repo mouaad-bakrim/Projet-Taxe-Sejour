@@ -3,7 +3,7 @@ package com.example.demo.bean;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 
@@ -13,10 +13,10 @@ public class TauxTaxeTrimestriel {
     private Long id;
 
     private String reference;
-    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime dateApplicationDebut;
-    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime dateApplicationFin;
+   // @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    private LocalDate dateApplicationDebut;
+   // @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    private LocalDate dateApplicationFin;
     private double pourcentageRetard;
     private double pourcentageMajoration;
     private double montantParNuite;
@@ -24,19 +24,19 @@ public class TauxTaxeTrimestriel {
     private CategorieLocale categorieLocale;
 
 
-    public LocalDateTime getDateApplicationDebut() {
+    public LocalDate getDateApplicationDebut() {
         return dateApplicationDebut;
     }
 
-    public void setDateApplicationDebut(LocalDateTime dateApplicationDebut) {
+    public void setDateApplicationDebut(LocalDate dateApplicationDebut) {
         this.dateApplicationDebut = dateApplicationDebut;
     }
 
-    public LocalDateTime getDateApplicationFin() {
+    public LocalDate getDateApplicationFin() {
         return dateApplicationFin;
     }
 
-    public void setDateApplicationFin(LocalDateTime dateApplicationFin) {
+    public void setDateApplicationFin(LocalDate dateApplicationFin) {
         this.dateApplicationFin = dateApplicationFin;
     }
 

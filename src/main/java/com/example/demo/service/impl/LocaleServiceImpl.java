@@ -51,8 +51,10 @@ public class LocaleServiceImpl implements LocaleService {
         }
     }
     public Locale findById(Long id) {
+
         return localeDao.findById(id).orElse(null);
     }
+
     @Transactional
     public int deleteById(int id) {
         return localeDao.deleteById(id);

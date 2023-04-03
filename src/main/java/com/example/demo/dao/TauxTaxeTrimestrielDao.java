@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Repository
 public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestriel, Long> {
@@ -15,7 +16,5 @@ public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestrie
     TauxTaxeTrimestriel findByReference(String reference);
 
     int deleteByCategorieLocaleCode (String code);
-
-
-
+    List<TauxTaxeTrimestriel> findAll();
 }
