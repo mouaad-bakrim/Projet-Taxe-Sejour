@@ -36,8 +36,13 @@ public class RedevableRest {
     public List<Redevable> findAll() {
         return redevableService.findAll();
     }
+
     @PutMapping("/")
     public int update(@RequestBody Redevable redevable) {
         return redevableService.update(redevable);
+    }
+    @GetMapping("/{id}")
+    public Redevable findById(@PathVariable Long id) {
+        return redevableService.findById(id);
     }
 }

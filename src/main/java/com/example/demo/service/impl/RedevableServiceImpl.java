@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.bean.Locale;
 import com.example.demo.bean.Redevable;
 import com.example.demo.dao.RedevableDao;
 import com.example.demo.service.facade.RedevableService;
@@ -22,11 +23,11 @@ public class RedevableServiceImpl implements RedevableService {
 
     }
     public int update(Redevable redevable){
-        if (redevableDao.findById(redevable.getId()) != null) {
+        if (findById(redevable.getId()) == null) {
             return -1;
 
         } else {
-           Redevable red = redevableDao.findByCin(redevable.getCin());
+           Redevable red = findById(redevable.getId());
             red.setCin(redevable.getCin());
             red.setId(redevable.getId());
             red.setNom(redevable.getNom());
@@ -35,6 +36,9 @@ public class RedevableServiceImpl implements RedevableService {
             return 1;
         }
 
+    }
+    public Redevable findById(Long id) {
+        return redevableDao.findById(id).orElse(null);
     }
 
     @Autowired
@@ -48,11 +52,14 @@ public class RedevableServiceImpl implements RedevableService {
     public Redevable findByCinAndNom(String cin, String nom) {
         return redevableDao.findByCinAndNom(cin, nom);
     }
-
     @Transactional
+    @Override
     public int deleteByCin(String cin) {
         return redevableDao.deleteByCin(cin);
     }
+
+
+
 
     public List<Redevable> findAll() {
         return redevableDao.findAll();
