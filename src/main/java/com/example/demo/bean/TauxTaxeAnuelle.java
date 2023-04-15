@@ -3,18 +3,17 @@ package com.example.demo.bean;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 public class TauxTaxeAnuelle {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id  @GeneratedValue(strategy = GenerationType.AUTO)
 
 
     private Long id;
     private String reference;
-    private LocalDateTime dateApplicationDebut;
-    private LocalDateTime dateApplicationFin;
+    private LocalDate dateApplicationDebut;
+    private LocalDate dateApplicationFin;
     private double pourcentageRetardAnnuelle;
     private double pourcentageMajorationAnnuelle;
 
@@ -37,19 +36,19 @@ public class TauxTaxeAnuelle {
         this.reference = reference;
     }
 
-    public LocalDateTime getDateApplicationDebut() {
+    public LocalDate getDateApplicationDebut() {
         return dateApplicationDebut;
     }
 
-    public void setDateApplicationDebut(LocalDateTime dateApplicationDebut) {
+    public void setDateApplicationDebut(LocalDate dateApplicationDebut) {
         this.dateApplicationDebut = dateApplicationDebut;
     }
 
-    public LocalDateTime getDateApplicationFin() {
+    public LocalDate getDateApplicationFin() {
         return dateApplicationFin;
     }
 
-    public void setDateApplicationFin(LocalDateTime dateApplicationFin) {
+    public void setDateApplicationFin(LocalDate dateApplicationFin) {
         this.dateApplicationFin = dateApplicationFin;
     }
 

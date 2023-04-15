@@ -1,12 +1,14 @@
 package com.example.demo.service.impl;
 
 
-import com.example.demo.bean.CategorieLocale;
-import com.example.demo.bean.TauxTaxeAnuelle;
+import com.example.demo.bean.*;
 import com.example.demo.dao.TauxTaxeAnuelleDao;
 import com.example.demo.service.facade.TauxTaxeAnuelleService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
@@ -18,9 +20,9 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
     private CategorieLocaleServiceImpl categorieLocaleService;
 
     public int save(TauxTaxeAnuelle tauxTaxeAnuelle) {
-        if (tauxTaxeAnuelle.getCategorieLocale() != null) {
+        if (tauxTaxeAnuelle.getCategorieLocale() == null) {
             return -1;
-        } else if (tauxTaxeAnuelle.getCategorieLocale() == null) {
+        } else if (tauxTaxeAnuelle.getCategorieLocale() != null) {
             CategorieLocale categorieLocaleServiceByCode = categorieLocaleService.findOrSave(tauxTaxeAnuelle.getCategorieLocale());
             tauxTaxeAnuelle.setCategorieLocale(categorieLocaleServiceByCode);
             tauxTaxeAnuelleDao.save(tauxTaxeAnuelle);
@@ -35,13 +37,48 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
     }
 
     @Override
+    public List<TauxTaxeAnuelle> findAll() {
+        return tauxTaxeAnuelleDao.findAll();
+    }
+
+    @Override
     public TauxTaxeAnuelle findByCategorieLocaleCode(String code) {
         return tauxTaxeAnuelleDao.findByCategorieLocaleCode(code);
     }
+    public TauxTaxeAnuelle findByReference(String reference) {
+        return tauxTaxeAnuelleDao.findByReference(reference);
+    }
 
+    @Transactional
     @Override
     public int deleteByCategorieLocaleCode(String code) {
         return tauxTaxeAnuelleDao.deleteByCategorieLocaleCode(code);
     }
+    @Transactional
+    public int deleteById(int id) {
+        return tauxTaxeAnuelleDao.deleteById(id);
+    }
+    public int update(TauxTaxeAnuelle tauxTaxeAnuelle){
+        if (tauxTaxeAnuelleDao.findById(tauxTaxeAnuelle.getId()) != null) {
+            return -1;
+
+        } else {
+            TauxTaxeAnuelle ta = tauxTaxeAnuelleDao.findByReference(tauxTaxeAnuelle.getReference());
+            ta.setId(tauxTaxeAnuelle.getId());
+            ta.setReference(tauxTaxeAnuelle.getReference());
+            ta.setPourcentageRetardAnnuelle(tauxTaxeAnuelle.getPourcentageRetardAnnuelle());
+            ta.setPourcentageMajorationAnnuelle(tauxTaxeAnuelle.getPourcentageMajorationAnnuelle());
+            ta.setCategorieLocale(tauxTaxeAnuelle.getCategorieLocale());
+            ta.setDateApplicationDebut(tauxTaxeAnuelle.getDateApplicationDebut());
+            ta.setDateApplicationFin(tauxTaxeAnuelle.getDateApplicationFin());
+            tauxTaxeAnuelleDao.save(ta);
+            return 1;
+        }
+
+    }
+    public TauxTaxeAnuelle findById(Long id) {
+        return tauxTaxeAnuelleDao.findById(id).orElse(null);
+    }
+
 
 }
