@@ -54,10 +54,7 @@ public class TauxTaxeTrimestrielServiceImpl implements TauxTaxeTrimestrielServic
     public TauxTaxeTrimestriel findByCategorieLocaleCode(String code) {
         return tauxTaxeTrimestrielDao.findByCategorieLocaleCode(code);
     }
-    @Override
-    public List<TauxTaxeTrimestriel> findAll() {
-        return tauxTaxeTrimestrielDao.findAll();
-    }
+
 
     @Transactional
     @Override
