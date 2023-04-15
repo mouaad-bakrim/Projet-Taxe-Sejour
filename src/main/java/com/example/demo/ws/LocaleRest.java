@@ -62,6 +62,12 @@ public class LocaleRest {
         return localeService.findByDernierTrimestrePaye(DernierTrimestrePaye);
     }
 
+    @GetMapping("/redevable/{cin}")
+    public List<Locale> findByRedevableCin(@PathVariable String cin) {
+        return localeService.findByRedevableCin(cin);
+    }
+
+
 }
 
 

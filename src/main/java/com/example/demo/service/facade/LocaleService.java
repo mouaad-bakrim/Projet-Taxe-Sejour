@@ -22,4 +22,7 @@ public interface LocaleService {
     List<Locale> findAll();
 
     int save(Locale locale);
+
+    List<Locale> findByRedevableCin(String cin ) ;
+
 }

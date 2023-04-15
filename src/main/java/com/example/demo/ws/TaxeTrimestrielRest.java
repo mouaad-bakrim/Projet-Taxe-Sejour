@@ -51,4 +51,9 @@ public class TaxeTrimestrielRest {
     public int save(@RequestBody TaxeTrimestriel taxeTrimestriel) {
         return taxeTrimestrielService.save(taxeTrimestriel.getTrimestre(), taxeTrimestriel.getAnnee(), taxeTrimestriel.getLocale().getRef(), taxeTrimestriel.getRedevable().getCin(), taxeTrimestriel.getNombreDeNuite(), taxeTrimestriel.getDateDePresentation(), taxeTrimestriel.getTauxTaxeTrimestriel().getReference());
     }
+
+    @GetMapping("/findBy/{trimestre}/{annee}/{ref}")
+    public TaxeTrimestriel findByTrimestreAndAnneeAndLocaleRef(@PathVariable int trimestre, @PathVariable  int annee,@PathVariable  String ref) {
+        return taxeTrimestrielService.findByTrimestreAndAnneeAndLocaleRef( trimestre,  annee,  ref) ;
+    }
 }

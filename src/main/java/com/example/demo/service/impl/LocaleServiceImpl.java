@@ -83,5 +83,8 @@ public class LocaleServiceImpl implements LocaleService {
         return localeDao.findAll();
     }
 
-
+    @Override
+    public List<Locale> findByRedevableCin(String cin) {
+        return localeDao.findByRedevableCin(cin);
+    }
 }

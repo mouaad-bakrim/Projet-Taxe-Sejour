@@ -120,5 +120,8 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
         return taxeTrimestrielDao.deleteById(id);
     }
 
-
+    @Override
+    public TaxeTrimestriel findByTrimestreAndAnneeAndLocaleRef(int trimestre, int annee, String ref) {
+        return taxeTrimestrielDao.findByTrimestreAndAnneeAndLocaleRef(trimestre, annee, ref);
+    }
 }

@@ -24,5 +24,7 @@ public interface TaxeTrimestrielService {
 
     List<TaxeTrimestriel> findAll();
 
+    TaxeTrimestriel findByTrimestreAndAnneeAndLocaleRef(int trimestre, int annee, String ref) ;
+
 
 }

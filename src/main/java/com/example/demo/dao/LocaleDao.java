@@ -19,4 +19,8 @@ public interface LocaleDao extends JpaRepository<Locale, Long> {
     int deleteById(int id);
 
     List<Locale> findAll();
+    List<Locale> findByRedevableCin(String cin ) ;
+
+
+
 }
