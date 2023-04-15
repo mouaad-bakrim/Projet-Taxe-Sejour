@@ -45,6 +45,7 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
     public TauxTaxeAnuelle findByCategorieLocaleCode(String code) {
         return tauxTaxeAnuelleDao.findByCategorieLocaleCode(code);
     }
+    @Override
     public TauxTaxeAnuelle findByReference(String reference) {
         return tauxTaxeAnuelleDao.findByReference(reference);
     }
@@ -55,15 +56,17 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
         return tauxTaxeAnuelleDao.deleteByCategorieLocaleCode(code);
     }
     @Transactional
+    @Override
     public int deleteById(int id) {
         return tauxTaxeAnuelleDao.deleteById(id);
     }
+    @Override
     public int update(TauxTaxeAnuelle tauxTaxeAnuelle){
         if (tauxTaxeAnuelleDao.findById(tauxTaxeAnuelle.getId()) != null) {
             return -1;
 
         } else {
-            TauxTaxeAnuelle ta = tauxTaxeAnuelleDao.findByReference(tauxTaxeAnuelle.getReference());
+            TauxTaxeAnuelle ta = findById(tauxTaxeAnuelle.getId());
             ta.setId(tauxTaxeAnuelle.getId());
             ta.setReference(tauxTaxeAnuelle.getReference());
             ta.setPourcentageRetardAnnuelle(tauxTaxeAnuelle.getPourcentageRetardAnnuelle());
@@ -76,6 +79,7 @@ public class TauxTaxeAnuelleServiceImpl implements TauxTaxeAnuelleService {
         }
 
     }
+    @Override
     public TauxTaxeAnuelle findById(Long id) {
         return tauxTaxeAnuelleDao.findById(id).orElse(null);
     }

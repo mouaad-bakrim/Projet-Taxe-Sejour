@@ -14,7 +14,8 @@ public interface TauxTaxeAnuelleService {
     int save(TauxTaxeAnuelle tauxTaxeAnuelle);
     List<TauxTaxeAnuelle> findAll();
     int deleteById(int id);
-
+    TauxTaxeAnuelle findById(Long id);
+    int update(TauxTaxeAnuelle tauxTaxeAnuelle );
     TauxTaxeAnuelle findByReference(String reference);
 
 }
