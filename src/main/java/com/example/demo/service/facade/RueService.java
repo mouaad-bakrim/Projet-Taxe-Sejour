@@ -18,5 +18,4 @@ public interface RueService {
     int save(Rue rue);
 
 
-
 }

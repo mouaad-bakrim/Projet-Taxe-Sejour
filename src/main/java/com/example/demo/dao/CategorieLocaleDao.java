@@ -10,9 +10,11 @@ import java.util.List;
 @Repository
 public interface CategorieLocaleDao extends JpaRepository<CategorieLocale, Long> {
     CategorieLocale findByCode(String code);
+
     CategorieLocale findByLibelle(String libelle);
 
     int deleteByCode(String code);
+
     List<CategorieLocale> findAll();
 
 }

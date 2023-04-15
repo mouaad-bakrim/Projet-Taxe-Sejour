@@ -10,10 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface NotificationLocaleDao extends JpaRepository<NotificationLocale,Long> {
-    @Query("select l from Locale l where (l.derniereAnneePaye*4+l.dernierTrimestrePaye)<(:annee*4+:trimestre)")
-    List<Locale> findAllLocal(@Param("annee") int annee, @Param("trimestre") int trimestre);
-
+public interface NotificationLocaleDao extends JpaRepository<NotificationLocale, Long> {
 
     List<NotificationLocale> findByRedevableCin(String cin);
 
@@ -22,6 +19,8 @@ public interface NotificationLocaleDao extends JpaRepository<NotificationLocale,
     List<NotificationLocale> findByLocaleDerniereAnneePayeAndLocaleDernierTrimestrePaye(int DerniereAnneePaye, int DernierTrimestrePaye);
 
     List<NotificationLocale> findAll();
-    int deleteById(int id);
+
+    NotificationLocale findByNotificationNumeroAndLocaleRef(int numero, String ref);
+
 
 }

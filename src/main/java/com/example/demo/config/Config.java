@@ -28,7 +28,7 @@ public class Config {
                 "Access-Control-Allow-Origin",
                 "Access-Control-Allow-Origin",
                 "Access-Control-Allow-Credentials"));
-        corsConfiguration.setAllowedMethods(asList("GET","POST","PUT","DELETE","OPTIONS"));
+        corsConfiguration.setAllowedMethods(asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return new CorsFilter(urlBasedCorsConfigurationSource);

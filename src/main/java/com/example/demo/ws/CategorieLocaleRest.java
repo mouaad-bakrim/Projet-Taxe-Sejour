@@ -19,6 +19,7 @@ public class CategorieLocaleRest {
     public int save(@RequestBody CategorieLocale categorieLocale) {
         return categorieLocaleService.save(categorieLocale);
     }
+
     @GetMapping("/")
     public List<CategorieLocale> findAll() {
         return categorieLocaleService.findAll();

@@ -21,7 +21,7 @@ public class TauxTaxeTrimestrielRest {
     }
 
     @GetMapping("/CategorieLocale/{code}/{reference}")
-    public TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference( @PathVariable  String code,@PathVariable String reference) {
+    public TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(@PathVariable String code, @PathVariable String reference) {
         return tauxTaxeTrimestrielService.findByCategorieLocaleCodeAndReference(code, reference);
     }
 
@@ -34,6 +34,7 @@ public class TauxTaxeTrimestrielRest {
     public int save(@RequestBody TauxTaxeTrimestriel tauxTaxeTrimestriel) {
         return tauxTaxeTrimestrielService.save(tauxTaxeTrimestriel);
     }
+
     @GetMapping("/")
     public List<TauxTaxeTrimestriel> findAll() {
         return tauxTaxeTrimestrielService.findAll();

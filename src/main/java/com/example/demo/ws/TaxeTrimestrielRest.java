@@ -17,6 +17,13 @@ public class TaxeTrimestrielRest {
     @Autowired
     private TaxeTrimestrielServiceImpl taxeTrimestrielService;
 
+    @GetMapping("/categorieLocale/{libelle}")
+
+    public TaxeTrimestriel findByCategorieLocaleLibelle(String libelle) {
+        return taxeTrimestrielService.findByCategorieLocaleLibelle(libelle);
+    }
+
+
     @GetMapping("/trimestre/{trimestre}")
     public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(@PathVariable String ref, @PathVariable int trimestre, int annee) {
         return taxeTrimestrielService.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
@@ -28,8 +35,6 @@ public class TaxeTrimestrielRest {
     }
 
 
-
-
     @Transactional
     @DeleteMapping("/{id}")
     public int deleteById(@PathVariable int id) {
@@ -37,14 +42,13 @@ public class TaxeTrimestrielRest {
     }
 
 
-
-
     @GetMapping("/findAll")
     public List<TaxeTrimestriel> findAll() {
         return taxeTrimestrielService.findAll();
     }
-    @PostMapping ("/")
-    public int save( @RequestBody TaxeTrimestriel taxeTrimestriel){
-        return taxeTrimestrielService.save( taxeTrimestriel.getTrimestre() , taxeTrimestriel.getAnnee(), taxeTrimestriel.getLocale().getRef() ,taxeTrimestriel.getRedevable().getCin(), taxeTrimestriel.getNombreDeNuite(),  taxeTrimestriel.getDateDePresentation(), taxeTrimestriel.getTauxTaxeTrimestriel().getReference());
+
+    @PostMapping("/")
+    public int save(@RequestBody TaxeTrimestriel taxeTrimestriel) {
+        return taxeTrimestrielService.save(taxeTrimestriel.getTrimestre(), taxeTrimestriel.getAnnee(), taxeTrimestriel.getLocale().getRef(), taxeTrimestriel.getRedevable().getCin(), taxeTrimestriel.getNombreDeNuite(), taxeTrimestriel.getDateDePresentation(), taxeTrimestriel.getTauxTaxeTrimestriel().getReference());
     }
 }

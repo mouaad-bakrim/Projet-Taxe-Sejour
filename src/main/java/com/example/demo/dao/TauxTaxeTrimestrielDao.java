@@ -10,11 +10,13 @@ import java.util.List;
 @Repository
 public interface TauxTaxeTrimestrielDao extends JpaRepository<TauxTaxeTrimestriel, Long> {
 
-    TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code , String reference) ;
+    TauxTaxeTrimestriel findByCategorieLocaleCodeAndReference(String code, String reference);
 
-    TauxTaxeTrimestriel findByCategorieLocaleCode (String code);
+    TauxTaxeTrimestriel findByCategorieLocaleCode(String code);
+
     TauxTaxeTrimestriel findByReference(String reference);
 
-    int deleteByCategorieLocaleCode (String code);
+    int deleteByCategorieLocaleCode(String code);
+
     List<TauxTaxeTrimestriel> findAll();
 }

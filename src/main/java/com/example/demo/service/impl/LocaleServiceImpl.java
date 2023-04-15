@@ -50,8 +50,8 @@ public class LocaleServiceImpl implements LocaleService {
             return 1;
         }
     }
-    public Locale findById(Long id) {
 
+    public Locale findById(Long id) {
         return localeDao.findById(id).orElse(null);
     }
 

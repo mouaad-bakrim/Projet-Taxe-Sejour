@@ -1,11 +1,8 @@
 package com.example.demo.service.util;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 
 public class DateUtil {
@@ -27,13 +24,14 @@ public class DateUtil {
 
 
     public static int calculateNbrMoisRetard(int trimestre, int annee, LocalDate datePresentation) {
-        LocalDate localDateTime = DateUtil.constructLocalDateTime(trimestre,  annee);
+        LocalDate localDateTime = DateUtil.constructLocalDateTime(trimestre, annee);
         Period period = Period.between(localDateTime.withDayOfMonth(1), datePresentation.withDayOfMonth(1));
         int months = period.getYears() * 12 + period.getMonths();
-    if( months < 0){
-        return 0;
-    }else { return months;
-    }
+        if (months < 0) {
+            return 0;
+        } else {
+            return months;
+        }
 
 
     }

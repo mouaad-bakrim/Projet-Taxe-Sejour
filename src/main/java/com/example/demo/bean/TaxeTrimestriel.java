@@ -31,7 +31,6 @@ public class TaxeTrimestriel {
     private TauxTaxeTrimestriel tauxTaxeTrimestriel;
 
 
-
     public LocalDate getDateDePresentation() {
         return dateDePresentation;
     }

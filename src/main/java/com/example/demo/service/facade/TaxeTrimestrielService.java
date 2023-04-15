@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface TaxeTrimestrielService {
     TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre);
-    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int trimestre,int annee);
+
+    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int trimestre, int annee);
 
     TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre, int annee);
 
@@ -16,11 +17,9 @@ public interface TaxeTrimestrielService {
     int save(int trimest, int annee, String refLocale, String cin, double nombreDeNuite, LocalDate datePresentation, String tauxReference);
 
 
-
+    TaxeTrimestriel findByCategorieLocaleLibelle(String libelle);
 
     int deleteById(int id);
-
-
 
 
     List<TaxeTrimestriel> findAll();

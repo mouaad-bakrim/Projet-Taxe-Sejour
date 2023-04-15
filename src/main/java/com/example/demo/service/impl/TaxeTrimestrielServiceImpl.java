@@ -27,6 +27,11 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
     private RedevableServiceImpl redevableService;
 
 
+    @Override
+    public TaxeTrimestriel findByCategorieLocaleLibelle(String libelle) {
+        return taxeTrimestrielDao.findByCategorieLocaleLibelle(libelle);
+    }
+
     public int
     save(int trimestre, int annee, String refLocale, String cin, double nombreDeNuite, LocalDate datePresentation, String reference) {
         Locale locale = localeService.findByRef(refLocale);
@@ -104,8 +109,6 @@ public class TaxeTrimestrielServiceImpl implements TaxeTrimestrielService {
     public TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre, int annee) {
         return taxeTrimestrielDao.findByLocaleRefAndTrimestreAndAnnee(ref, trimestre, annee);
     }
-
-
 
 
     public List<TaxeTrimestriel> findAll() {

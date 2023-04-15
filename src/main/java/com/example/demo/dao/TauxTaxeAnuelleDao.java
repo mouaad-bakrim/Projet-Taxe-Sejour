@@ -7,14 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TauxTaxeAnuelleDao extends JpaRepository<TauxTaxeAnuelle,Long> {
+public interface TauxTaxeAnuelleDao extends JpaRepository<TauxTaxeAnuelle, Long> {
 
 
+    TauxTaxeAnuelle findByCategorieLocaleCodeAndReference(String code, String reference);
 
-    TauxTaxeAnuelle findByCategorieLocaleCodeAndReference(String code , String reference) ;
+    TauxTaxeAnuelle findByCategorieLocaleCode(String code);
 
-    TauxTaxeAnuelle findByCategorieLocaleCode (String code);
-
-    int deleteByCategorieLocaleCode (String code);
+    int deleteByCategorieLocaleCode(String code);
 }
 

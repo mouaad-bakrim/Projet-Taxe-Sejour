@@ -12,6 +12,7 @@ import java.util.List;
 public class RedevableRest {
     @Autowired
     private RedevableServiceImpl redevableService;
+
     @GetMapping("/cin/{cin}/nom/{nom}")
     public Redevable findByCinAndNom(String cin, String nom) {
         return redevableService.findByCinAndNom(cin, nom);
@@ -36,6 +37,7 @@ public class RedevableRest {
     public List<Redevable> findAll() {
         return redevableService.findAll();
     }
+
     @PutMapping("/")
     public int update(@RequestBody Redevable redevable) {
         return redevableService.update(redevable);

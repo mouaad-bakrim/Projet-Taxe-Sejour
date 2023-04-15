@@ -9,16 +9,18 @@ import java.util.List;
 @Repository
 public interface TaxeTrimestrielDao extends JpaRepository<TaxeTrimestriel, Long> {
 
-    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int  trimestre);
-    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int trimestre,int annee);
+    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestre(String cin, String ref, int trimestre);
+
+    TaxeTrimestriel findByRedevableCinAndLocaleRefAndTrimestreAndAnnee(String cin, String ref, int trimestre, int annee);
 
 
     TaxeTrimestriel findByLocaleRefAndTrimestreAndAnnee(String ref, int trimestre, int annee);
+
     int deleteById(int id);
 
+    TaxeTrimestriel findByCategorieLocaleLibelle(String libelle);
 
-    List<TaxeTrimestriel>  findAll();
-
+    List<TaxeTrimestriel> findAll();
 
 
 }

@@ -14,9 +14,9 @@ public class TaxeAnuelle {
     private double montantBaseAnuelle;
     private double montantRetardAnuelle;
     private double montantMajorationAnuelle;
-    private double  montantTotalAnuelle;
+    private double montantTotalAnuelle;
     @ManyToOne
-    private TauxTaxeAnuelle  tauxTaxeAnuelle;
+    private TauxTaxeAnuelle tauxTaxeAnuelle;
 
 
     public TauxTaxeAnuelle getTauxTaxeAnuelle() {
@@ -75,7 +75,6 @@ public class TaxeAnuelle {
     public void setMontantTotalAnuelle(double montantTotalAnuelle) {
         this.montantTotalAnuelle = montantTotalAnuelle;
     }
-
 
 
     public long getId() {

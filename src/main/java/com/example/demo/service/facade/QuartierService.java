@@ -10,6 +10,7 @@ public interface QuartierService {
     Quartiere findByCode(Double code);
 
     int deleteByCode(Double code);
+
     public int save(Quartiere quartiere);
 }
 

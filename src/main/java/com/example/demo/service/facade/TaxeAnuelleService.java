@@ -13,5 +13,6 @@ public interface TaxeAnuelleService {
     TaxeAnuelle findByAnnee(int annee);
 
     int deleteByAnnee(int annee);
-     int save(TaxeAnuelle taxeAnuelle);
+
+    int save(TaxeAnuelle taxeAnuelle);
 }

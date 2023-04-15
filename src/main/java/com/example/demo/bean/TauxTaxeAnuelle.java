@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 
 @Entity
 public class TauxTaxeAnuelle {
-    @Id  @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
 
     private Long id;
